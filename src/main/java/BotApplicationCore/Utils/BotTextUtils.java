@@ -1,0 +1,453 @@
+package BotApplicationCore.Utils;
+
+import BotApplicationCore.BotApplicationFiles.BotApplicationServer;
+import Engines.Engine;
+import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.core.entities.MessageHistory;
+import net.dv8tion.jda.core.entities.TextChannel;
+import java.util.Timer;
+import java.awt.*;
+import java.util.List;
+import java.util.TimerTask;
+import net.dv8tion.jda.core.entities.Guild;
+import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.entities.PrivateChannel;
+import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+
+public class BotTextUtils {
+
+    static Message msg;
+
+     Engine engine;
+
+    public BotTextUtils(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void sendError(String txt, TextChannel channel, int dellTime, boolean title) {
+        if (title) {
+            msg = channel.sendMessage(
+                    new EmbedBuilder().setColor(Color.RED).setDescription(txt).setTitle("Error").build()
+            ).complete();
+        } else {
+            msg = channel.sendMessage(
+                    new EmbedBuilder().setColor(Color.RED).setDescription(txt).build()
+            ).complete();
+        }
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendCustomMessage(String txt, PrivateChannel channel, String title, Color color){
+        if(color != null){
+            msg = channel.sendMessage(
+                    new EmbedBuilder().setColor(color).setDescription(txt).setTitle(title).build()).complete();
+        }
+    }
+
+    public void sendCustomMessage(String txt, TextChannel channel, String title, Color color){
+        if(color != null){
+            msg = channel.sendMessage(
+                    new EmbedBuilder().setColor(color).setDescription(txt).setTitle(title).build()).complete();
+        }
+    }
+
+    public void sendCustomMessage(String txt, PrivateChannel channel, String title, Color color, int dellTime){
+        if(color != null){
+            msg = channel.sendMessage(
+                    new EmbedBuilder().setColor(color).setDescription(txt).setTitle(title).build()).complete();
+        }
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendCustomMessage(String txt, TextChannel channel, String title, Color color, int dellTime){
+        if(color != null){
+            msg = channel.sendMessage(
+                    new EmbedBuilder().setColor(color).setDescription(txt).setTitle(title).build()).complete();
+        }
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendError(String txt, PrivateChannel channel, int dellTime, boolean title) {
+        Message msg;
+        if (title) {
+            msg = channel.sendMessage(
+                    new EmbedBuilder().setColor(Color.RED).setDescription(txt).setTitle("Error").build()
+            ).complete();
+        } else {
+            msg = channel.sendMessage(
+                    new EmbedBuilder().setColor(Color.RED).setDescription(txt).build()
+            ).complete();
+        }
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void deleteCustomMessage(Message msg, int dellTime) {
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendError(String txt, TextChannel channel, boolean title) {
+        Message msg;
+        if (title) {
+            msg = channel.sendMessage(
+                    new EmbedBuilder().setColor(Color.RED).setDescription(txt).setTitle("Error").build()
+            ).complete();
+        } else {
+            msg = channel.sendMessage(
+                    new EmbedBuilder().setColor(Color.RED).setDescription(txt).build()
+            ).complete();
+        }
+    }
+
+    public void sendError(String txt, PrivateChannel channel, boolean title) {
+        Message msg;
+        if (title) {
+            msg = channel.sendMessage(
+                    new EmbedBuilder().setColor(Color.RED).setDescription(txt).setTitle("Error").build()
+            ).complete();
+        } else {
+            msg = channel.sendMessage(
+                    new EmbedBuilder().setColor(Color.RED).setDescription(txt).build()
+            ).complete();
+        }
+    }
+
+    public void sendHelp(String txt, TextChannel channel, int dellTime) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.BLUE).setTitle("!Hilfe!").setDescription(txt).build()
+        ).complete();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendHelp(String txt, PrivateChannel channel, int dellTime) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.BLUE).setTitle("!Hilfe!").setDescription(txt).build()
+        ).complete();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendHelp(String txt, TextChannel channel) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.BLUE).setTitle("!Hilfe!").setDescription(txt).build()
+        ).complete();
+    }
+    public void sendHelp(String txt, PrivateChannel channel) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.BLUE).setTitle("!Hilfe!").setDescription(txt).build()
+        ).complete();
+    }
+
+
+    public void sendNormalTxt(String txt, TextChannel channel, int dellTime) {
+        Message msg = channel.sendMessage(txt).complete();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendNormalTxt(String txt, PrivateChannel channel, int dellTime) {
+        Message msg = channel.sendMessage(txt).complete();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendNormalTxt(String txt, TextChannel channel) {
+        Message msg = channel.sendMessage(txt).complete();
+    }
+
+    public void sendNormalTxt(String txt, PrivateChannel channel) {
+        Message msg = channel.sendMessage(txt).complete();
+    }
+
+    public void sendWarining(String txt, TextChannel channel, int dellTime) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.YELLOW).setDescription(txt).build()
+        ).complete();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendWarining(String txt, PrivateChannel channel, int dellTime) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.YELLOW).setDescription(txt).build()
+        ).complete();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendWarining(String txt, TextChannel channel) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.YELLOW).setDescription(txt).build()
+        ).complete();
+    }
+
+    public void sendWarining(String txt, PrivateChannel channel) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.YELLOW).setDescription(txt).build()
+        ).complete();
+    }
+
+    public void sendSucces(String txt, TextChannel channel, int dellTime) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.GREEN).setDescription(txt).build()
+        ).complete();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendSucces(String txt, PrivateChannel channel, int dellTime) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.GREEN).setDescription(txt).build()
+        ).complete();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendSucces(String txt, TextChannel channel) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.GREEN).setDescription(txt).build()
+        ).complete();
+    }
+
+    public void sendSucces(String txt, PrivateChannel channel) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.GREEN).setDescription(txt).build()
+        ).complete();
+    }
+
+    public void sendNewMusicInfo(String txt, TextChannel channel, int dellTime, String songName, BotApplicationServer server) {
+        if (server.isMusicListenerEnabled()) {
+            Message msg;
+            String picId;
+            if (txt.startsWith("http:")) {
+                picId = txt.substring(31);
+                msg = channel.sendMessage(
+                        new EmbedBuilder().setColor(Color.GREEN).setDescription(":musical_note:**Es spielt:** \n`" + songName + "`").setImage("https://img.youtube.com/vi/" + picId + "/sddefault.jpg").build()
+                ).complete();
+            } else if (txt.startsWith("https:")) {
+                picId = txt.substring(32);
+                msg = channel.sendMessage(
+                        new EmbedBuilder().setColor(Color.GREEN).setDescription(":musical_note:**Es spielt:** \n`" + songName + "`").setImage("http://img.youtube.com/vi/" + picId + "/sddefault.jpg").build()
+                ).complete();
+            } else {
+                msg = channel.sendMessage(
+                        new EmbedBuilder().setColor(Color.GREEN).setDescription(txt).build()
+                ).complete();
+            }
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    msg.delete().queue();
+                }
+            }, dellTime);
+        }
+    }
+
+    public void sendWellcomeMessage(String txt, TextChannel channel) {
+        EmbedBuilder help = new EmbedBuilder().setColor(Color.CYAN).setTitle("**!Hello!**");
+        channel.sendMessage(help.setDescription(txt).build()).queue();
+    }
+
+    public void sendShutdownMessage(String txt, TextChannel channel) {
+        EmbedBuilder help = new EmbedBuilder().setColor(Color.CYAN).setTitle("**!Bye!**");
+        channel.sendMessage(help.setDescription(txt).build()).queue();
+    }
+
+    public void deletUserMessage(int size, GuildMessageReceivedEvent event) {
+        MessageHistory history = new MessageHistory(event.getChannel());
+        List<Message> msgs;
+
+        event.getMessage().delete().queue();
+
+        msgs = history.retrievePast(size).complete();
+        try {
+            event.getChannel().deleteMessages(msgs).queue();
+        } catch (Exception e) {
+            System.out.println("User Messages Deleted!");
+        }
+    }
+
+    public void sendChannelConsolMessage(String txt, TextChannel channel, int dellTime) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.GRAY).setDescription(txt).build()
+        ).complete();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendChannelConsolMessage(String txt, PrivateChannel channel, int dellTime) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.GRAY).setDescription(txt).build()
+        ).complete();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                msg.delete().queue();
+            }
+        }, dellTime);
+    }
+
+    public void sendChannelConsolMessage(String txt, PrivateChannel channel) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.GRAY).setDescription(txt).build()
+        ).complete();
+    }
+
+    public void sendChannelConsolMessage(String txt, TextChannel channel) {
+        Message msg;
+        msg = channel.sendMessage(
+                new EmbedBuilder().setColor(Color.GRAY).setDescription(txt).build()
+        ).complete();
+    }
+
+    public void sendSysOutFromServerMessage(Guild g, String text) {
+        System.out.println(g.getId() + " -- " + g.getName() + " Sysout: " + text);
+    }
+
+    public void sendSysOutFromBotMessage(String className, String text) {
+        System.out.println("[" + className + "]" + " " + text);
+    }
+
+    /**
+     *
+     * @param raw (color title text)
+     * @param channel
+     */
+    public void createCustomMassage(String raw, PrivateChannel channel){
+        String[] split = raw.split(" ");
+        String txt = "";
+        for(int i = 2; split.length > i; i++){
+            txt = txt + split[i];
+            txt = txt + " ";
+        }
+        try {
+            sendCustomMessage(txt, channel, split[1], engine.getUtilityBase().convertStringToColor(split[0]));
+        } catch (Exception e) {
+            sendError("Diese Farbe existiert nicht!", channel, true);
+        }
+    }
+
+    /**
+     *
+     * @param raw (color title text)
+     * @param channel the channel to send
+     * @param dellTime
+     */
+    public void createCustomMassage(String raw, PrivateChannel channel, PrivateChannel own, int dellTime){
+        String[] split = raw.split(" ");
+        String txt = "";
+        for(int i = 2; split.length > i; i++){
+            txt = txt + split[i];
+            txt = txt + " ";
+        }
+        try {
+            sendCustomMessage(txt, channel, split[1], engine.getUtilityBase().convertStringToColor(split[0]), dellTime);
+        } catch (Exception e) {
+            sendError("Diese Farbe existiert nicht!", channel, true);
+        }
+    }
+
+    public void createCustomMassage(String raw, TextChannel channel, PrivateChannel own, int dellTime){
+        String[] split = raw.split(" ");
+        String txt = "";
+        for(int i = 2; split.length > i; i++){
+            txt = txt + split[i];
+            txt = txt + " ";
+        }
+        try {
+            sendCustomMessage(txt, channel, split[1], engine.getUtilityBase().convertStringToColor(split[0]), dellTime);
+        } catch (Exception e) {
+            sendError("Diese Farbe existiert nicht!", channel, true);
+        }
+    }
+
+    public void createCustomMassage(String raw, TextChannel channel, PrivateChannel own){
+        String[] split = raw.split(" ");
+        String txt = "";
+        for(int i = 2; split.length> i; i++){
+            txt = txt + split[i];
+            txt = txt + " ";
+        }
+        try {
+            sendCustomMessage(txt, channel, split[1], engine.getUtilityBase().convertStringToColor(split[0]));
+        } catch (Exception e) {
+            sendError("Diese Farbe existiert nicht!", channel, true);
+        }
+    }
+}

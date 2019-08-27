@@ -1,0 +1,92 @@
+package BotApplicationCore.Utils;
+
+import BotApplicationCore.BotApplicationFiles.BotApplicationServer;
+import BotApplicationCore.BotApplicationFiles.BotApplicationUser;
+import Engines.Engine;
+import net.dv8tion.jda.core.entities.Guild;
+import net.dv8tion.jda.core.entities.Member;
+import net.dv8tion.jda.core.entities.TextChannel;
+import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+
+public class BotUtilityBase {
+
+    Engine engine;
+
+    public BotUtilityBase(Engine engine) {
+        this.engine = engine;
+    }
+
+    public boolean userHasGuildAdminPermission(Member member, Guild guild, TextChannel textChannel) {
+        boolean hasPermission = false;
+        for (int i = 0; member.getRoles().size() > i; i++) {
+            for (int a = 0; member.getRoles().get(i).getPermissions().size() > a; i++) {
+                if (member.getRoles().get(i).getPermissions().get(a).ADMINISTRATOR != null) {
+                    hasPermission = true;
+                    break;
+                }
+            }
+        }
+        if (hasPermission) {
+            return true;
+        } else {
+            engine.getBotEngine().getTextUtils().sendError("Du hast keine berechtigung um diesen command auzuführen!", textChannel, engine.getProperties().getMiddleTime(), true);
+            return false;
+        }
+    }
+
+    public void sendCommand(GuildMessageReceivedEvent event, String ownCommand) {
+        engine.getUtilityBase().printDebug(messageInfo(event.getGuild()) + " sendCommand(" + event.getMessage().getContentRaw() + ")");
+        BotApplicationServer server = null;
+        BotApplicationUser user = null;
+
+        try {
+            server = engine.getBotEngine().getFilesHandler().getServerById(event.getGuild().getId());
+        } catch (Exception e) {
+            engine.getUtilityBase().printDebug("[Send Command] " + event.getGuild().getId() + " Server not found!");
+        }
+
+        try {
+            user = engine.getBotEngine().getFilesHandler().getUserById(event.getAuthor().getId());
+        } catch (Exception e) {
+            engine.getUtilityBase().printDebug("[Send Command] " + event.getAuthor().getId() + " User not found!");
+        }
+
+        if(server==null){
+            try {
+                server = engine.getBotEngine().getFilesHandler().createNewServer(event.getGuild());
+            } catch (Exception e) {
+                System.out.println("Fatal error in ServerMessageListener.sendCommand()---server cant load!!!");
+            }
+        }
+
+        if(user==null){
+            try {
+                user = engine.getBotEngine().getFilesHandler().createNewUser(event.getAuthor());
+            } catch (Exception e) {
+                System.out.println("Fatal error in ServerMessageListener.sendCommand()---user cant load!!!");
+            }
+        }
+
+        if(ownCommand==null||ownCommand.equalsIgnoreCase("")){
+            try {
+                engine.getBotEngine().getBotCommandHandler().handleServerCommand(engine.getBotEngine().getBotCommandParser().parseServerMessage(event.getMessage().getContentRaw(), event, server, user, engine));
+            } catch (Exception e) {
+                engine.getBotEngine().getTextUtils().sendError("Fatal command error on command: " + event.getMessage().getContentRaw(), event.getChannel(), true);
+                engine.getUtilityBase().printDebug("-----\n[Send server command failed]\n-----");
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                engine.getBotEngine().getBotCommandHandler().handleServerCommand(engine.getBotEngine().getBotCommandParser().parseServerMessage(ownCommand, event, server, user, engine));
+            } catch (Exception e) {
+                engine.getBotEngine().getTextUtils().sendError("Fatal command error on command: " + event.getMessage().getContentRaw(), event.getChannel(), true);
+                engine.getUtilityBase().printDebug("-----\n[Send server command failed]\n-----");
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private String messageInfo(Guild guild){
+        return "[send command -" + guild.getName() + "|" + guild.getId() + "]";
+    }
+}

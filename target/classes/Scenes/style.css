@@ -1,0 +1,44 @@
+
+
+
+
+Button {
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+#buttonBlue {
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+}
+
+#buttonBlue:hover {
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+}
+
+#buttonRed{
+    -fx-background-color: linear-gradient(#FF0000, #B40404);
+}
+
+#buttonRed:hover {
+    -fx-background-color: linear-gradient(#B40404, #FF0000);
+}
+
+#buttonGreen {
+    -fx-background-color: linear-gradient(#01DF01, #088A29);
+}
+
+#buttonGreen:hover {
+    -fx-background-color: linear-gradient(#088A29, #01DF01);
+}
+
+#buttonYellow {
+    -fx-background-color: linear-gradient(#D7DF01, #AEB404);
+}
+
+#buttonYellow:hover {
+    -fx-background-color: linear-gradient(#AEB404, #D7DF01);
+}

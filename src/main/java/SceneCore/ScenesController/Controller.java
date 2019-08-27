@@ -1,0 +1,42 @@
+package SceneCore.ScenesController;
+
+import Engines.Engine;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Controller {
+
+    Engine engine;
+    Stage primaryStage;
+    Scene scene;
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public void initController(Engine engine, Stage primaryStage, Scene scene) {
+        this.primaryStage = primaryStage;
+        this.engine = engine;
+        this.scene = scene;
+    }
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="501.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneCore.ScenesController.HomeController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onSaveFilesClicked" text="Save Files" />
+                  <MenuItem mnemonicParsing="false" onAction="#onReloadFilesClicked" text="Reload Files" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#onPropertiesClicked" text="Properties" />
+                  <MenuItem mnemonicParsing="false" onAction="#onMindEditorClicked" text="Mind Editor" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#onQuitClicked" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Bot">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onStartClicked" text="Start" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#onRestartClicked" text="Restart" />
+                  <MenuItem mnemonicParsing="false" onAction="#onStopClicked" text="Stop" />
+               </items></Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="429.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TextArea fx:id="commandOutputLine" editable="false" layoutX="104.0" layoutY="100.0" prefHeight="200.0" prefWidth="432.0" />
+            <TextField fx:id="commandInputLine" layoutX="104.0" layoutY="332.0" onKeyPressed="#onCommandLineKeyPressed" prefHeight="25.0" prefWidth="369.0" />
+            <Button layoutX="483.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#onSendClicked" prefHeight="25.0" prefWidth="53.0" text="Send" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
