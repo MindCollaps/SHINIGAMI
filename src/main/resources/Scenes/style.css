@@ -1,7 +1,3 @@
-
-
-
-
 Button {
     -fx-text-fill: white;
     -fx-text-alignment: center;
@@ -41,4 +37,48 @@ Button {
 
 #buttonYellow:hover {
     -fx-background-color: linear-gradient(#AEB404, #D7DF01);
+}
+AnchorPane {
+    -fx-background-color: "#222222E0";
+}
+
+ScrollPane{
+    -fx-background: "Transparent";
+    -fx-background-color: "#25252544";
+    -fx-border-color: "black";
+}
+
+Label{
+    -fx-text-fill: "white";
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+
+}
+
+Separator{
+	-fx-background: "#111111";
+
+}
+VBox{
+    -fx-background-color: "#0174DF88";
+}
+TextArea{
+    -fx-control-inner-background:"#252525EE";
+    -fx-border-color: "black";
+}
+TextField{
+    -fx-control-inner-background:"#252525EE";
+    -fx-border-color: "black";
+}
+
+.menu-bar{
+    -fx-background-color: "#0174DF88";
+    -fx-background: "#0174DF";
+}
+
+.menu-bar .label{
+    -fx-text-fill: "white";
+}
+
+.menu-bar .context-menu{
+    -fx-background-color: "#42424288";
 }

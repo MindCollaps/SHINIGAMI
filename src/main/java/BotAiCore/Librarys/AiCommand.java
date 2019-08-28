@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class AiCommand implements Serializable {
 
     public static final long serialVersionUID = 42L;
-    private ArrayList<AiCmdModification> modificators;
-    private ArrayList<String> humanSpellingList;
+    private ArrayList<AiCmdModification> modificators = new ArrayList<>();
+    private ArrayList<String> humanSpellingList = new ArrayList<>();
     private String commandInvoke;
 
     public ArrayList<AiCmdModification> getModificators() {

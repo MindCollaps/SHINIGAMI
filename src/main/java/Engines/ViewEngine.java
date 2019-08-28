@@ -26,7 +26,6 @@ public class ViewEngine {
     private MindEditorController mindEditorController;
 
     private AllertBox propertiesAllertBox;
-    private AllertBox mindEditorAllertBox;
 
     boolean viewLoaded = false;
 
@@ -47,7 +46,7 @@ public class ViewEngine {
         primaryStage.setResizable(false);
         primaryStage.setFullScreen(false);
         //primaryStage.getIcons().setAll(new Image(""));
-        //primaryStage.initStyle(StageStyle.UTILITY);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
@@ -96,7 +95,7 @@ public class ViewEngine {
         mindEditorController = loader.getController();
         scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
-        mindEditorController.initController(engine,primaryStage,scene);
+        mindEditorController.initController(engine,new Stage(),scene);
     }
 
     public void printConsollogOnGui(String text){
@@ -114,23 +113,26 @@ public class ViewEngine {
     }
 
     public void showProperties(){
+        primaryStage.hide();
         propertiesController.updatePropertiesWindow();
         propertiesAllertBox = new AllertBox(propertiesController.getScene(), Modality.APPLICATION_MODAL, engine);
         propertiesAllertBox.displayFromRoot("Properties", false);
     }
 
     public void showMindEditor(){
-        mindEditorController.updateContent();
-        mindEditorAllertBox = new AllertBox(mindEditorController.getScene(), Modality.NONE, engine);
-        mindEditorAllertBox.displayFromRoot("Mind editor", false);
+        primaryStage.hide();
+        mindEditorController.updateContent(engine.getBotEngine().getAiEngine().getAiCommands());
+        mindEditorController.getPrimaryStage().show();
     }
 
     public void closeMindEditor(){
-        mindEditorAllertBox.close();
+        mindEditorController.getPrimaryStage().close();
+        primaryStage.show();
     }
 
     public void closeProperties(){
         propertiesAllertBox.close();
+        primaryStage.show();
     }
 
     public boolean isViewLoaded() {

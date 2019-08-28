@@ -1,16 +1,16 @@
 package SceneCore.ScenesController;
 
 import Utils.dateConfig;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,15 +18,34 @@ import java.util.ResourceBundle;
 public class HomeController extends Controller implements Initializable {
 
     @FXML
-    public TextArea commandOutputLine;
+    private TextArea commandOutputLine;
     @FXML
-    public TextField commandInputLine;
+    private TextField commandInputLine;
+    @FXML
+    private MenuBar menuBar;
+
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     Thread refreshThread;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-           }
+        menuBar.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        menuBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                primaryStage.setX(event.getScreenX() - xOffset);
+                primaryStage.setY(event.getScreenY() - yOffset);
+            }
+        });
+    }
 
     @FXML
     private void onQuitClicked(ActionEvent actionEvent) {
@@ -95,22 +114,22 @@ public class HomeController extends Controller implements Initializable {
         } else {
             commandOutputLine.setText(commandOutputLine.getText() + "\n[" + dateConfig.getDateToday() + "] System>> " + text);
             try {
-                if(!refreshThread.isAlive()){
+                if (!refreshThread.isAlive()) {
                     refreshThread = new Thread(new refreshThread());
                     refreshThread.start();
                 }
-            } catch (Exception e){
+            } catch (Exception e) {
                 refreshThread = new Thread(new refreshThread());
                 refreshThread.start();
             }
         }
     }
 
-    public void clearCommandLine(){
+    public void clearCommandLine() {
         commandOutputLine.setText("");
     }
 
-    private class refreshThread implements Runnable{
+    private class refreshThread implements Runnable {
 
         @Override
         public void run() {

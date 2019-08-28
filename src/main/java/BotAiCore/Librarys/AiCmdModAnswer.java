@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class AiCmdModAnswer implements Serializable {
 
     public static final long serialVersionUID = 42L;
-    private ArrayList<String> answers;
+    private ArrayList<String> answers = new ArrayList<>();
     private String emoteLevel;
 
     public ArrayList<String> getAnswers() {

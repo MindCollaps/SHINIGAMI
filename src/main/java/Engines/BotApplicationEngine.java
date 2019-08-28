@@ -55,8 +55,6 @@ public class BotApplicationEngine {
         botCommandHandler = new BotCommandHandler();
         botCommandParser = new BotCommandParser(engine);
 
-        test();
-
         builder = new JDABuilder(AccountType.BOT);
         builder.setToken(engine.getProperties().getBotApplicationToken());
         builder.setAutoReconnect(true);

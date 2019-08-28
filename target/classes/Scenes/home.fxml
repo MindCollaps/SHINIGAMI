@@ -7,39 +7,50 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="501.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneCore.ScenesController.HomeController">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="613.0" style="-fx-background-color: #000000ff;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneCore.ScenesController.HomeController">
+   <children>
+      <ImageView fitHeight="508.0" fitWidth="1010.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.4;" AnchorPane.bottomAnchor="-42.0" AnchorPane.leftAnchor="-100.0" AnchorPane.rightAnchor="-190.111083984375" AnchorPane.topAnchor="-56.0">
+         <effect>
+            <BoxBlur height="10.0" width="10.0" />
+         </effect>
+         <image>
+            <Image url="@forest-931706_1920.jpg" />
+         </image>
+      </ImageView>
+      <MenuBar fx:id="menuBar" layoutY="2.0" styleClass="menu-bar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
                   <MenuItem mnemonicParsing="false" onAction="#onSaveFilesClicked" text="Save Files" />
                   <MenuItem mnemonicParsing="false" onAction="#onReloadFilesClicked" text="Reload Files" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" onAction="#onPropertiesClicked" text="Properties" />
                   <MenuItem mnemonicParsing="false" onAction="#onMindEditorClicked" text="Mind Editor" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" onAction="#onQuitClicked" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Bot">
+                  <MenuItem mnemonicParsing="false" onAction="#onQuitClicked" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Bot">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#onStartClicked" text="Start" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" onAction="#onRestartClicked" text="Restart" />
                   <MenuItem mnemonicParsing="false" onAction="#onStopClicked" text="Stop" />
-               </items></Menu>
-      </menus>
-    </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="429.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
-      <children>
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane layoutY="25.0" maxHeight="-1.0" maxWidth="-1.0" prefHeight="429.0" prefWidth="640.0" style="-fx-background-color: #0174DF44;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <children>
             <TextArea fx:id="commandOutputLine" editable="false" layoutX="104.0" layoutY="100.0" prefHeight="200.0" prefWidth="432.0" />
             <TextField fx:id="commandInputLine" layoutX="104.0" layoutY="332.0" onKeyPressed="#onCommandLineKeyPressed" prefHeight="25.0" prefWidth="369.0" />
-            <Button layoutX="483.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#onSendClicked" prefHeight="25.0" prefWidth="53.0" text="Send" />
-      </children>
-    </AnchorPane>
-  </children>
-</VBox>
+            <Button id="buttonGreen" layoutX="483.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#onSendClicked" prefHeight="25.0" prefWidth="53.0" text="Send" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

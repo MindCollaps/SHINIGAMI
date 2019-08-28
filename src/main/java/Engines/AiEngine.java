@@ -35,17 +35,23 @@ public class AiEngine {
                 if (engine.getBotEngine().isDebugAi())System.out.println("!--[Ai Engine] found matching command modification for command: " + command.command.getCommandInvoke() + " mod: " + modification.modification.getInvoke() + "\n");
                 break;
             } catch (Exception e) {
-                if (engine.getBotEngine().isDebugAi())System.out.println("!--[Ai Engine] cant found matching modification for command: " + command.command.getCommandInvoke() + " mod: " + modification.modification.getInvoke() + "\n");
+                if (engine.getBotEngine().isDebugAi())System.out.println("!--[Ai Engine] cant found matching modification for command: " + command.command.getCommandInvoke() + "\n");
             }
-            command = null;
         }
 
-        String commandToExecute = engine.getProperties().getBotApplicationPrefix() + command.command.getCommandInvoke() + " " + modification.modification.getInvoke() + " " + getBehindCommand(rawMessage, command.foundInt, modification.foundInt);
+        String behind = "";
+        try {
+            behind = getBehindCommand(rawMessage, command.foundInt, modification.foundInt);
+        } catch (Exception e) {
+            System.err.println("!!![Ai Engine] error in finding stuff behind command lol");
+        }
+
+        String commandToExecute = engine.getProperties().getBotApplicationPrefix() + command.command.getCommandInvoke() + " " + modification.modification.getInvoke() + " " + behind;
 
         runCommand(commandToExecute, event);
     }
 
-    private String getBehindCommand(String text, int commandSearchResult, int modificationSearchResult){
+    private String getBehindCommand(String text, int commandSearchResult, int modificationSearchResult) throws Exception{
         String[] messageArray = text.split(" ");
         String result;
         if(commandSearchResult>modificationSearchResult){
@@ -92,9 +98,9 @@ public class AiEngine {
         throw new Exception("[Ai Engine] cant found any matching command!");
     }
 
-    private int containsStartWith(ArrayList<String> list, String startsWith) {
+    private int containsStartWith(ArrayList<String> list, String stringCompare) {
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).toLowerCase().startsWith(startsWith.toLowerCase())) {
+            if (list.get(i).toLowerCase().startsWith(stringCompare.toLowerCase())) {
                 return i;
             }
         }
@@ -118,7 +124,6 @@ public class AiEngine {
                 if(result==-1){
                     if (engine.getBotEngine().isDebugAi())
                         System.out.println("--[Ai Engine] can not find match in modification: " + modification.getInvoke() + "\n");
-                    break;
                 } else {
                     return new ModificationSearchReturnValue(i, modification);
                 }

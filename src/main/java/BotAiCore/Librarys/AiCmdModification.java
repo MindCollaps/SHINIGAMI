@@ -7,8 +7,8 @@ public class AiCmdModification implements Serializable {
 
     public static final long serialVersionUID = 42L;
     private String invoke;
-    private ArrayList<String> humanSpellingList;
-    private ArrayList<AiCmdModAnswer> answers;
+    private ArrayList<String> humanSpellingList = new ArrayList<>();
+    private ArrayList<AiCmdModAnswer> answers = new ArrayList<>();
 
     public String getInvoke() {
         return invoke;

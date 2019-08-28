@@ -1,6 +1,9 @@
 package SceneCore.ScenesController;
 
+import BotAiCore.Librarys.AiCmdModAnswer;
+import BotAiCore.Librarys.AiCmdModification;
 import BotAiCore.Librarys.AiCommand;
+import Engines.Engine;
 import SceneCore.AllertBox;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,30 +11,60 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class MindEditorController extends Controller implements Initializable {
 
     ArrayList<CommandsLine> commandsLines = new ArrayList<>();
 
+    private double xOffset = 0;
+    private double yOffset = 0;
+
+    @FXML
+    private  MenuBar menuBar;
+
     @FXML
     private VBox contentVBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        menuBar.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        menuBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                primaryStage.setX(event.getScreenX() - xOffset);
+                primaryStage.setY(event.getScreenY() - yOffset);
+            }
+        });
+    }
+
+    @Override
+    public void initController(Engine engine, Stage primaryStage, Scene scene) {
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.setTitle("Mind editor");
+        primaryStage.initModality(Modality.APPLICATION_MODAL);
+        primaryStage.setScene(scene);
+        super.initController(engine, primaryStage, scene);
     }
 
     @FXML
@@ -52,6 +85,7 @@ public class MindEditorController extends Controller implements Initializable {
 
     @FXML
     private void onSavedClicked(ActionEvent actionEvent) {
+        engine.getBotEngine().getAiEngine().setAiCommands(saveContent());
     }
 
     @FXML
@@ -79,16 +113,25 @@ public class MindEditorController extends Controller implements Initializable {
 
     @FXML
     private void onCloseClicked(MouseEvent mouseEvent) {
+        engine.getBotEngine().getAiEngine().setAiCommands(saveContent());
         engine.getViewEngine().closeMindEditor();
     }
 
-    public void updateContent() {
+    @FXML
+    private void onSavedWithoutAsClicked(ActionEvent actionEvent) {
+        engine.getViewEngine().closeMindEditor();
+    }
+
+    public void updateContent(ArrayList<AiCommand> listOfCommands) {
+        contentVBox.getChildren().clear();
+        commandsLines.clear();
         AiCommand current;
-        CommandsLine commandLine = new CommandsLine();
         ModsLine modLine;
         AnswersLine answerLine;
-        for (int i = 0; i < engine.getBotEngine().getAiEngine().getAiCommands().size(); i++) {
-            current = engine.getBotEngine().getAiEngine().getAiCommands().get(i);
+        for (int i = 0; i < listOfCommands.size(); i++) {
+            CommandsLine commandLine = new CommandsLine();
+            current = listOfCommands.get(i);
+
             commandLine.setTxtCommandInvoke(current.getCommandInvoke());
 
             for (int j = 0; j < current.getHumanSpellingList().size(); j++) {
@@ -100,9 +143,9 @@ public class MindEditorController extends Controller implements Initializable {
             }
 
             for (int j = 0; j < current.getModificators().size(); j++) {
-                modLine = new ModsLine(commandLine.vBoxMods);
+                modLine = new ModsLine(commandLine);
                 modLine.setTxtModInvoke(current.getModificators().get(j).getInvoke());
-                for (int k = 0; k < current.getModificators().get(j).getAnswers().size(); k++) {
+                for (int k = 0; k < current.getModificators().get(j).getHumanSpellingList().size(); k++) {
                     if(modLine.getTxtModHumanSpelling().equalsIgnoreCase("")){
                         modLine.setTxtModHumanSpelling(current.getModificators().get(j).getHumanSpellingList().get(k));
                     } else {
@@ -111,7 +154,7 @@ public class MindEditorController extends Controller implements Initializable {
                 }
 
                 for (int k = 0; k < current.getModificators().get(j).getAnswers().size(); k++) {
-                    answerLine = new AnswersLine(modLine.vBoxAnswers);
+                    answerLine = new AnswersLine(modLine);
                     answerLine.setTxtAnswerEmotes(current.getModificators().get(j).getAnswers().get(k).getEmoteLevel());
                     for (int l = 0; l < current.getModificators().get(j).getAnswers().get(k).getAnswers().size(); l++) {
                         if(answerLine.getTxtAnswers().equalsIgnoreCase("")){
@@ -120,29 +163,73 @@ public class MindEditorController extends Controller implements Initializable {
                             answerLine.setTxtAnswers(answerLine.getTxtAnswers() + "\n" + current.getModificators().get(j).getAnswers().get(k).getAnswers().get(l));
                         }
                     }
+                    modLine.addAnswer(answerLine);
                 }
+                commandLine.addMod(modLine);
             }
             commandsLines.add(commandLine);
+            contentVBox.getChildren().add(commandLine.getParent());
         }
     }
 
     public void updateContentFromSource(String path) {
-
+        ArrayList<AiCommand> commands = null;
+        try {
+            commands = (ArrayList<AiCommand>) engine.getFileUtils().loadObject(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        updateContent(commands);
     }
 
-    public void saveContent() {
+    public ArrayList<AiCommand> saveContent() {
         AiCommand current = new AiCommand();
-
+        ArrayList<AiCommand> returnValue = new ArrayList<>();
         CommandsLine commandLine;
+        String[] commandHuman;
+
         ModsLine modLine;
+        String[] modHuman;
+        ArrayList<String> modHumanArray;
+        AiCmdModification modification = null;
+
         AnswersLine answerLine;
+        AiCmdModAnswer answer = null;
+        String[] answers;
 
         for (int i = 0; i < commandsLines.size(); i++) {
             commandLine = commandsLines.get(i);
             current.setCommandInvoke(commandLine.getTxtCommandInvoke());
+            commandHuman = commandLine.getTxtCommandHumanSpelling().split("\n");
+            ArrayList<String> commandHumanArray = new ArrayList<>();
+            commandHumanArray.addAll(Arrays.asList(commandHuman));
+            current.setHumanSpellingList(commandHumanArray);
 
-            //TODO:weiter geths lol
+            for (int j = 0; j < commandsLines.get(i).getModsLines().size(); j++) {
+                modLine = commandsLines.get(i).getModsLines().get(j);
+                modification = new AiCmdModification();
+                modification.setInvoke(modLine.getTxtModInvoke());
+                ArrayList<String> modificationHumanArray = new ArrayList<>();
+                modHuman = modLine.getTxtModHumanSpelling().split("\n");
+                modificationHumanArray.addAll(Arrays.asList(modHuman));
+                modification.setHumanSpellingList(modificationHumanArray);
+
+                for (int k = 0; k < commandsLines.get(i).getModsLines().get(j).getAnswersLines().size(); k++) {
+                    answerLine = commandsLines.get(i).getModsLines().get(j).getAnswersLines().get(k);
+                    answer = new AiCmdModAnswer();
+                    answer.setEmoteLevel(answerLine.getTxtAnswerEmotes());
+                    ArrayList<String> answersArray = new ArrayList<>();
+                    answers = answerLine.getTxtAnswers().split("\n");
+                    answersArray.addAll(Arrays.asList(answers));
+                    answer.setAnswers(answersArray);
+
+                    modification.getAnswers().add(answer);
+                }
+                current.getModificators().add(modification);
+            }
+            returnValue.add(current);
         }
+        return returnValue;
     }
 
     public ArrayList<String> convertStringToArray(String convert){
@@ -158,8 +245,9 @@ public class MindEditorController extends Controller implements Initializable {
     }
 
     public void saveContentAs(String path) {
-
-    }
+        ArrayList<AiCommand> aiCommands = saveContent();
+        engine.getFileUtils().saveOject(path, aiCommands);
+}
 
     //Command Line
     private class CommandsLine {
@@ -190,7 +278,7 @@ public class MindEditorController extends Controller implements Initializable {
             mainPane = new AnchorPane((AnchorPane) commandLine.lookup("#mainPane"));
             txtCommandHumanSpelling = (TextArea) mainPane.lookup("#txtCommandHumanSpelling");
             buttonAddMod = (Button) mainPane.lookup("#buttonGreen");
-            txtCommandInvoke = (TextField) mainPane.lookup("txtCommandInvoke");
+            txtCommandInvoke = (TextField) mainPane.lookup("#txtCommandInvoke");
             buttonDeleteCommand = (Button) mainPane.lookup("#buttonRed");
             scrollPane = (ScrollPane) mainPane.lookup("#scrollPane");
             vBoxMods = (VBox)scrollPane.contentProperty().get();
@@ -200,6 +288,7 @@ public class MindEditorController extends Controller implements Initializable {
             buttonDeleteCommand.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
+                    commandsLines.remove(cmdLine);
                     contentVBox.getChildren().remove(cmdLine.getParent());
                 }
             });
@@ -207,9 +296,8 @@ public class MindEditorController extends Controller implements Initializable {
             buttonAddMod.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    ModsLine modLine = new ModsLine(vBoxMods);
-                    vBoxMods.getChildren().add(modLine.getParent());
-                    modsLines.add(modLine);
+                    ModsLine modLine = new ModsLine(cmdLine);
+                    addMod(modLine);
                 }
             });
         }
@@ -238,7 +326,14 @@ public class MindEditorController extends Controller implements Initializable {
             return mainPane;
         }
 
+        public void addMod(ModsLine line){
+            vBoxMods.getChildren().add(line.getParent());
+            modsLines.add(line);
+        }
 
+        public VBox getvBoxMods() {
+            return vBoxMods;
+        }
     }
 
     //Mods line
@@ -252,11 +347,11 @@ public class MindEditorController extends Controller implements Initializable {
         private Button buttonDeleteCommand;
         private VBox vBoxAnswers;
 
-        private VBox commandLine;
+        private CommandsLine commandLine;
 
         private ArrayList<AnswersLine> answersLines;
 
-        public ModsLine(VBox commandLine) {
+        public ModsLine(CommandsLine commandLine) {
             this.commandLine = commandLine;
             answersLines = new ArrayList<>();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Scenes/mindEditor/mods.fxml"));
@@ -277,19 +372,21 @@ public class MindEditorController extends Controller implements Initializable {
             scrollPane = (ScrollPane) mainPane.lookup("#scrollPane");
             vBoxAnswers = (VBox) scrollPane.contentProperty().get();
 
+            ModsLine modsLines = this;
+
             buttonDeleteCommand.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    commandLine.getChildren().remove(getParent());
+                    commandLine.getModsLines().remove(modsLines);
+                    commandLine.getvBoxMods().getChildren().remove(getParent());
                 }
             });
 
             buttonAddAnswer.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    AnswersLine answersLine = new AnswersLine(vBoxAnswers);
-                    vBoxAnswers.getChildren().add(answersLine.getParent());
-                    answersLines.add(answersLine);
+                    AnswersLine answersLine = new AnswersLine(modsLines);
+                    addAnswer(answersLine);
                 }
             });
         }
@@ -317,19 +414,28 @@ public class MindEditorController extends Controller implements Initializable {
         public Parent getParent(){
             return this.mainPane;
         }
+
+        public void addAnswer(AnswersLine line){
+            vBoxAnswers.getChildren().add(line.getParent());
+            answersLines.add(line);
+        }
+
+        public VBox getvBoxAnswers() {
+            return vBoxAnswers;
+        }
     }
 
     //Answers line
     private class AnswersLine {
 
         private AnchorPane mainPane;
-        private TextArea txtAnswerEmotes;
-        private TextField txtAnswers;
+        private TextField txtAnswerEmotes;
+        private TextArea txtAnswers;
         private Button buttonDeleteAnswer;
 
-        private VBox answersList;
+        private ModsLine answersList;
 
-        public AnswersLine(VBox answersList) {
+        public AnswersLine(ModsLine answersList) {
             this.answersList = answersList;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Scenes/mindEditor/answers.fxml"));
             Parent root = null;
@@ -341,14 +447,17 @@ public class MindEditorController extends Controller implements Initializable {
             }
 
             mainPane = (AnchorPane) root.lookup("#mainPane");
-            txtAnswerEmotes = (TextArea) mainPane.lookup("#txtEmoteLevels");
-            txtAnswers = (TextField) mainPane.lookup("#txtAnswers");
+            txtAnswerEmotes = (TextField) mainPane.lookup("#txtEmoteLevels");
+            txtAnswers = (TextArea) mainPane.lookup("#txtAnswers");
             buttonDeleteAnswer = (Button) mainPane.lookup("#buttonRed");
+
+            AnswersLine answersLine = this;
 
             buttonDeleteAnswer.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    answersList.getChildren().remove(mainPane);
+                    answersList.getAnswersLines().remove(answersLine);
+                    answersList.getvBoxAnswers().getChildren().remove(mainPane);
                 }
             });
         }

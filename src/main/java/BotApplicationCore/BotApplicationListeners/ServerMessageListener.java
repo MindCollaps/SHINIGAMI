@@ -60,8 +60,6 @@ public class ServerMessageListener extends ListenerAdapter {
                 //CHANGE HERE THE UNDERSTANDINGCHANNEL
                 //Check bot invoke
                 if(event.getMessage().getContentRaw().startsWith("shini")) {
-                    System.out.println("test run ai...debug ai= true!");
-                    engine.getBotEngine().setDebugAi(true);
                     engine.getBotEngine().getAiEngine().runAi(event);
                 }
             }

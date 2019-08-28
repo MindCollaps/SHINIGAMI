@@ -60,6 +60,11 @@ public class PropertiesController extends Controller implements Initializable {
         updateTokenField();
     }
 
+    @FXML
+    private void onCloseClicked(MouseEvent mouseEvent) {
+        engine.getViewEngine().closeProperties();
+    }
+
     private void updateTokenField() {
         if (cBShowToken.isSelected()) {
             txtBotToken.setText(engine.getProperties().getBotApplicationToken());
