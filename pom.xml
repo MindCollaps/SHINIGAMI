@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>S.H.I.N.I.G.A.M.I</groupId>
-    <artifactId>S.H.I.N.I.G.A.M.I</artifactId>
-    <version>1.0</version>
+    <groupId>SHINIGAMI</groupId>
+    <artifactId>SHINIGAMI</artifactId>
+    <version>1.2</version>
 
     <packaging>jar</packaging>
     <properties>
@@ -80,8 +80,8 @@
             <type>pom</type>
         </dependency>
     </dependencies>
-    <name>S.H.I.N.I.G.A.M.I</name>
-    <description>System of Helping Intelligence for Necessary Interactive Guild Analyzing and Managing Interactions
+    <name>SHINIGAMI</name>
+    <description>the manager for your SHINIGAMI (System of Helping Intelligence for Necessary Interactive Guild Analyzing and Managing Interactions)
     </description>
     <build>
         <plugins>
@@ -99,7 +99,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>core.Main</mainClass>
+                                    <mainClass>Core.Main</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

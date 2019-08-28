@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>S.H.I.N.I.G.A.M.I</groupId>
-  <artifactId>S.H.I.N.I.G.A.M.I</artifactId>
-  <name>S.H.I.N.I.G.A.M.I</name>
-  <version>1.0</version>
-  <description>System of Helping Intelligence for Necessary Interactive Guild Analyzing and Managing Interactions</description>
+  <groupId>SHINIGAMI</groupId>
+  <artifactId>SHINIGAMI</artifactId>
+  <name>SHINIGAMI</name>
+  <version>1.2</version>
+  <description>the manager for your SHINIGAMI (System of Helping Intelligence for Necessary Interactive Guild Analyzing and Managing Interactions)</description>
   <build>
     <plugins>
       <plugin>
@@ -20,7 +20,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>core.Main</mainClass>
+                  <mainClass>Core.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>
