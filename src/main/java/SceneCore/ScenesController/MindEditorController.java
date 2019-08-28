@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -62,8 +63,9 @@ public class MindEditorController extends Controller implements Initializable {
     public void initController(Engine engine, Stage primaryStage, Scene scene) {
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle("Mind editor");
-        primaryStage.initModality(Modality.APPLICATION_MODAL);
+        primaryStage.initModality(Modality.NONE);
         primaryStage.setScene(scene);
+        primaryStage.getIcons().setAll(new Image("Scenes/icons/programIcon.jpg"));
         super.initController(engine, primaryStage, scene);
     }
 
@@ -71,9 +73,8 @@ public class MindEditorController extends Controller implements Initializable {
     private void onOpenClicked(ActionEvent actionEvent) {
         String path = null;
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(engine.getFileUtils().home + "/bot/mind/"));
+        fileChooser.setInitialDirectory(new File(engine.getFileUtils().getHome() + "/bot/mind/"));
         fileChooser.setInitialFileName("mind.exodus");
-        fileChooser.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("exodus"));
         try {
             path = fileChooser.showOpenDialog(primaryStage).getAbsolutePath();
         } catch (Exception e) {
@@ -92,8 +93,7 @@ public class MindEditorController extends Controller implements Initializable {
     private void onSavedAsClicked(ActionEvent actionEvent) {
         String path = null;
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(engine.getFileUtils().home + "/bot/mind/"));
-        fileChooser.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("exodus"));
+        fileChooser.setInitialDirectory(new File(engine.getFileUtils().getHome() + "/bot/mind/"));
         fileChooser.setInitialFileName("mind.exodus");
         try {
             path = fileChooser.showSaveDialog(primaryStage).getAbsolutePath();
@@ -178,6 +178,11 @@ public class MindEditorController extends Controller implements Initializable {
             commands = (ArrayList<AiCommand>) engine.getFileUtils().loadObject(path);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        if(commands==null){
+            new AllertBox(null,Modality.APPLICATION_MODAL, engine).displayMessage("Error", "This file is invalid!", "Ok", "buttonGreen", false);
+            System.out.println("This File is invalid");
+            return;
         }
         updateContent(commands);
     }
@@ -271,7 +276,7 @@ public class MindEditorController extends Controller implements Initializable {
                 root = loader.load();
             } catch (Exception ex) {
                 ex.printStackTrace();
-                engine.closeProgramm(engine.getProperties().getPlannedProgrammShutdownOnError(), false);
+                engine.closeProgram(engine.getProperties().getPlannedProgrammShutdownOnError(), false);
             }
             Parent commandLine = root;
 
@@ -360,7 +365,7 @@ public class MindEditorController extends Controller implements Initializable {
                 root = loader.load();
             } catch (Exception ex) {
                 ex.printStackTrace();
-                engine.closeProgramm(engine.getProperties().getPlannedProgrammShutdownOnError(), false);
+                engine.closeProgram(engine.getProperties().getPlannedProgrammShutdownOnError(), false);
             }
             Parent modsLine = root;
 
@@ -443,7 +448,7 @@ public class MindEditorController extends Controller implements Initializable {
                 root = loader.load();
             } catch (Exception ex) {
                 ex.printStackTrace();
-                engine.closeProgramm(engine.getProperties().getPlannedProgrammShutdownOnError(), false);
+                engine.closeProgram(engine.getProperties().getPlannedProgrammShutdownOnError(), false);
             }
 
             mainPane = (AnchorPane) root.lookup("#mainPane");

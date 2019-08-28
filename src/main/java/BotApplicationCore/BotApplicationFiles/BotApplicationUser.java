@@ -1,5 +1,7 @@
 package BotApplicationCore.BotApplicationFiles;
 
+import net.dv8tion.jda.core.entities.User;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -15,13 +17,16 @@ public class BotApplicationUser implements Serializable {
     private String ytPlaylist;
     private String userId;
     private boolean admin = false;
+    User user;
 
     private int emoteLevel = 0;
     private int emoteLove = 0;
 
-    public BotApplicationUser(String userName, String userId) {
-        this.userName = userName;
-        this.userId = userId;
+    public BotApplicationUser(User user) {
+        this.userName = user.getName();
+        this.preferedNickName = user.getName();
+        this.userId = user.getId();
+        this.user = user;
     }
 
     public void setEmoteLevel(int emoteLevel) {

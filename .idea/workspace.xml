@@ -5,32 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe5bef4d-f759-4ee3-ad7f-45854a392dcd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Scenes/backgrounds/artificial-intelligence.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Scenes/backgrounds/color.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Scenes/backgrounds/deer.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Scenes/backgrounds/technic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Scenes/backgrounds/wheel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Scenes/icons/mindIcon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Scenes/icons/programIcon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Scenes/icons/propsIcon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/S.H.I.N.I.G.A.M.I.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Scenes/backgrounds/artificial-intelligence.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Scenes/backgrounds/color.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Scenes/backgrounds/deer.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Scenes/backgrounds/technic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Scenes/backgrounds/wheel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Scenes/icons/mindIcon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Scenes/icons/programIcon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Scenes/icons/propsIcon.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/botmanagerhome/bot/mind/mind.exodus" beforeDir="false" afterPath="$PROJECT_DIR$/botmanagerhome/bot/mind/mind.exodus" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModAnswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationListeners/ServerMessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationListeners/ServerMessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/mind/mind.exodus" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/botmanagerhome/bot/utilize/servers.server" beforeDir="false" afterPath="$PROJECT_DIR$/botmanagerhome/bot/utilize/servers.server" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botmanagerhome/bot/utilize/users.users" beforeDir="false" afterPath="$PROJECT_DIR$/botmanagerhome/bot/utilize/users.users" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botmanagerhome/properties.prop" beforeDir="false" afterPath="$PROJECT_DIR$/botmanagerhome/properties.prop" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationFilesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationFilesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplicationCore/Utils/BotUtilityBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplicationCore/Utils/BotUtilityBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engines/AiEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engines/AiEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engines/BotApplicationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engines/BotApplicationEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engines/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engines/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engines/ViewEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engines/ViewEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SceneCore/AllertBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SceneCore/AllertBox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/PropertiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/PropertiesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/board-911636_1920.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/backgrounds/circut-board.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/forest-931706_1920.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/backgrounds/forest.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/home.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/answers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/answers.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/command.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/command.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/mods.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/mods.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/properties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/properties.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/SHINIGAMI.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Scenes/board-911636_1920.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Scenes/backgrounds/circut-board.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Scenes/forest-931706_1920.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Scenes/backgrounds/forest.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Scenes/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Scenes/home.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Scenes/mindEditor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Scenes/mindEditor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Scenes/mindEditor/answers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Scenes/mindEditor/answers.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Scenes/mindEditor/command.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Scenes/mindEditor/command.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Scenes/mindEditor/mods.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Scenes/mindEditor/mods.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Scenes/properties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Scenes/properties.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,31 +62,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="167" column="44" selection-start-line="167" selection-start-column="44" selection-end-line="167" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3750#3751#0" expanded="true" />
-                <element signature="e#3806#3807#0" expanded="true" />
-                <element signature="e#9304#9305#0" expanded="true" />
-                <element signature="e#9375#9376#0" expanded="true" />
-                <element signature="e#13324#13325#0" expanded="true" />
-                <element signature="e#13363#13364#0" expanded="true" />
-                <element signature="e#16394#16395#0" expanded="true" />
-                <element signature="e#16436#16437#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationListeners/ServerMessageListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="62" column="56" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
+            <state relative-caret-position="282">
+              <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,15 +75,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/Controller.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+            <state relative-caret-position="918">
+              <caret line="245" column="31" selection-start-line="245" selection-start-column="31" selection-end-line="245" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#549#550#0" expanded="true" />
-                <element signature="e#577#578#0" expanded="true" />
-                <element signature="method#initController#0;class#Controller#0" />
               </folding>
             </state>
           </provider>
@@ -95,20 +89,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Engines/ViewEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1482">
-              <caret line="122" column="28" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="28" />
+            <state relative-caret-position="384">
+              <caret line="121" column="51" selection-start-line="121" selection-start-column="51" selection-end-line="121" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3954#3955#0" expanded="true" />
+                <element signature="e#4009#4010#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Engines/Engine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="100" column="78" selection-start-line="100" selection-start-column="78" selection-end-line="100" selection-end-column="78" />
+            <state relative-caret-position="231">
+              <caret line="81" column="41" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2863#2864#0" expanded="true" />
+                <element signature="e#2895#2896#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/AllertBox.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,65 +127,47 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModification.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/PropertiesController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+            <state relative-caret-position="190">
+              <caret line="44" column="82" selection-start-line="44" selection-start-column="82" selection-end-line="44" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2159#2160#0" expanded="true" />
+                <element signature="e#2215#2216#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCommand.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/home.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#818#819#0" expanded="true" />
-                <element signature="e#854#855#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModAnswer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="57" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Engines/BotApplicationEngine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="142" column="8" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#6021#6022#0" expanded="true" />
-                <element signature="e#6052#6053#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="340">
+              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/mindEditor.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="33" column="77" selection-start-line="33" selection-start-column="77" selection-end-line="33" selection-end-column="77" />
+            <state relative-caret-position="515">
+              <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/properties.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -184,8 +176,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="CSS" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -197,6 +189,7 @@
       <find>loader</find>
       <find>ini</find>
       <find>engine</find>
+      <find>FileUt</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -205,7 +198,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Threads/SystemInListenerThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/Core/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Core/ViewEngine.java" />
@@ -224,38 +216,39 @@
         <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationCommands/CMDClear.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationCommands/CMDMusic.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/dateConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationFilesHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/FileUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/Properties.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/Scenes/properties.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotAiCore/Libarys/LibAiCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotAiCore/AiEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/Core/ConsoleCommandHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotAiCore/AiEngine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/Utils/BotUtilityBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/mindEditorController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/command.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/style.css" />
-        <option value="$PROJECT_DIR$/src/main/java/SceneCore/AllertBox.java" />
         <option value="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/mods.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/answers.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/Threads/SystemOutListenerThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Engines/Engine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/HomeController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/Scenes/style.css" />
-        <option value="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/PropertiesController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/Scenes/home.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModAnswer.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModification.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/Engines/ViewEngine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationListeners/ServerMessageListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/Engines/BotApplicationEngine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationListeners/ServerMessageListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/Utils/BotUtilityBase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationFilesHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Engines/Engine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SceneCore/AllertBox.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/PropertiesController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/Scenes/home.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/Scenes/properties.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/SceneCore/StageAnimationThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/Engines/AiEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Engines/ViewEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java" />
       </list>
     </option>
   </component>
@@ -266,9 +259,9 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="12" />
+    <option name="y" value="-25" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -307,6 +300,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -338,6 +332,23 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="BotApplicationCore" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SHINIGAMI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="BotApplicationCore" type="462c0819:PsiDirectoryNode" />
+              <item name="BotApplicationFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SHINIGAMI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Engines" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -357,17 +368,49 @@
               <item name="SceneCore" type="462c0819:PsiDirectoryNode" />
               <item name="ScenesController" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SHINIGAMI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SHINIGAMI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Scenes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SHINIGAMI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Scenes" type="462c0819:PsiDirectoryNode" />
+              <item name="icons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SHINIGAMI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Scenes" type="462c0819:PsiDirectoryNode" />
+              <item name="mindEditor" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/Scenes/icons" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="terminal" />
@@ -376,12 +419,15 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\resources\Scenes\icons" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Noah\Documents\____Coding\GitHub\UnserGame\SHINIGAMI\src\main\java" />
-      <recent name="C:\Users\Noah\Documents\____Coding\GitHub\UnserGame\SHINIGAMI\src\main\resources\View" />
-      <recent name="C:\Users\Noah\Documents\____Coding\GitHub\UnserGame\SHINIGAMI\src\main\resources\Scenes" />
-      <recent name="C:\Users\Noah\Documents\____Coding\GitHub\UnserGame\SHINIGAMI\src\main\resources" />
-      <recent name="C:\Users\Noah\Documents\____Coding\GitHub\UnserGame\SHINIGAMI\src\main\java\View\Scenes" />
+      <recent name="C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\resources\Scenes\icons" />
+      <recent name="C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\resources\Scenes\backgrounds" />
+      <recent name="C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\resources\Scenes" />
+      <recent name="C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\resources\Scenes\mindEditor\backgrounds" />
+      <recent name="C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\resources\Scenes\mindEditor\," />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -451,8 +497,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16950959" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17110874" />
       <window_info id="Designer" order="1" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -460,8 +507,8 @@
       <window_info id="Learn" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -490,63 +537,20 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java</url>
-          <line>125</line>
+          <line>175</line>
           <properties />
-          <option name="timeStamp" value="7" />
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java</url>
-          <line>185</line>
+          <line>73</line>
           <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>19</line>
-          <properties />
-          <option name="timeStamp" value="10" />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/AudioCore/AudioInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Threads/SystemInListenerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/BotCommandParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/jre/lib/jfr.jar!/com/oracle/jrockit/jfr/FlightRecorder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Utils/MESSAGES.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -602,28 +606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationFilesHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="71" column="41" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#193#194#0" expanded="true" />
-            <element signature="e#229#230#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/javafx-src.zip!/javafx/scene/control/CheckBox.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -634,38 +616,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/Utils/BotTextUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/BotAiCore/Libarys/LibAiCommand.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Core/ConsoleCommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
           <caret line="44" column="85" selection-start-line="44" selection-start-column="85" selection-end-line="44" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/Utils/BotUtilityBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="81" column="162" selection-start-line="81" selection-start-column="162" selection-end-line="81" selection-end-column="162" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -756,30 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/FileUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="86" column="22" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#141#142#0" expanded="true" />
-            <element signature="e#177#178#0" expanded="true" />
-            <element signature="e#266#267#0" expanded="true" />
-            <element signature="e#313#314#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -795,16 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/UtilityBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="65" column="38" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -812,41 +733,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="38" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1005#1006#0" expanded="true" />
-            <element signature="e#1064#1065#0" expanded="true" />
-            <element signature="e#1778#1779#0" expanded="true" />
-            <element signature="e#1815#1816#0" expanded="true" />
-            <element signature="e#2003#2004#0" expanded="true" />
-            <element signature="e#2058#2059#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/PropertiesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="64" column="49" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2159#2160#0" expanded="true" />
-            <element signature="e#2215#2216#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/style.css" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
@@ -854,29 +741,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/properties.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModification.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/AllertBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="49" column="40" lean-forward="true" selection-start-line="45" selection-start-column="8" selection-end-line="49" selection-end-column="40" />
+        <state relative-caret-position="153">
+          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/home.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/Utils/BotTextUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="173" lean-forward="true" selection-start-line="14" selection-start-column="164" selection-end-line="14" selection-end-column="173" />
+        <state relative-caret-position="442">
+          <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -890,40 +781,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModification.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/BotApplicationEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+        <state relative-caret-position="180">
+          <caret line="142" column="8" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCommand.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="73" selection-start-line="8" selection-start-column="73" selection-end-line="8" selection-end-column="73" />
+        <state relative-caret-position="323">
+          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#818#819#0" expanded="true" />
-            <element signature="e#854#855#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/mindEditor.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationListeners/ServerMessageListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="33" column="77" selection-start-line="33" selection-start-column="77" selection-end-line="33" selection-end-column="77" />
+        <state relative-caret-position="368">
+          <caret line="42" column="73" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/ViewEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationFilesHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1482">
-          <caret line="122" column="28" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="28" />
+        <state relative-caret-position="368">
+          <caret line="50" column="64" selection-start-line="50" selection-start-column="64" selection-end-line="50" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/Utils/BotUtilityBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1594">
+          <caret line="117" column="9" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-119">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -932,51 +843,81 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        <state relative-caret-position="442">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#549#550#0" expanded="true" />
             <element signature="e#577#578#0" expanded="true" />
-            <element signature="method#initController#0;class#Controller#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/BotApplicationEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/AllertBox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="142" column="8" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
+        <state relative-caret-position="147">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6021#6022#0" expanded="true" />
-            <element signature="e#6052#6053#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="167" column="44" selection-start-line="167" selection-start-column="44" selection-end-line="167" selection-end-column="44" />
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/icons/programIcon.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/icons/mindIcon.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/PropertiesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="44" column="82" selection-start-line="44" selection-start-column="82" selection-end-line="44" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3750#3751#0" expanded="true" />
-            <element signature="e#3806#3807#0" expanded="true" />
-            <element signature="e#9304#9305#0" expanded="true" />
-            <element signature="e#9375#9376#0" expanded="true" />
-            <element signature="e#13324#13325#0" expanded="true" />
-            <element signature="e#13363#13364#0" expanded="true" />
-            <element signature="e#16394#16395#0" expanded="true" />
-            <element signature="e#16436#16437#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2215#2216#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationListeners/ServerMessageListener.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/properties.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="62" column="56" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
+        <state relative-caret-position="221">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/home.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/StageAnimationThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/UtilityBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="47" column="22" lean-forward="true" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -985,8 +926,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="100" column="78" selection-start-line="100" selection-start-column="78" selection-end-line="100" selection-end-column="78" />
+        <state relative-caret-position="918">
+          <caret line="245" column="31" selection-start-line="245" selection-start-column="31" selection-end-line="245" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/ViewEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="121" column="51" selection-start-line="121" selection-start-column="51" selection-end-line="121" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3954#3955#0" expanded="true" />
+            <element signature="e#4009#4010#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/javafx-src.zip!/javafx/stage/FileChooser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="112" column="51" selection-start-line="112" selection-start-column="51" selection-end-line="112" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="81" column="41" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2863#2864#0" expanded="true" />
+            <element signature="e#2895#2896#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#141#142#0" expanded="true" />
+            <element signature="e#177#178#0" expanded="true" />
+            <element signature="e#266#267#0" expanded="true" />
+            <element signature="e#313#314#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/mindEditor.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

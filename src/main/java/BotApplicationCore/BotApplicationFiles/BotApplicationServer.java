@@ -1,5 +1,7 @@
 package BotApplicationCore.BotApplicationFiles;
 
+import net.dv8tion.jda.core.entities.Guild;
+
 import java.io.Serializable;
 
 public class BotApplicationServer implements Serializable {
@@ -12,10 +14,12 @@ public class BotApplicationServer implements Serializable {
     boolean listenerEnabled = false;
     boolean musicListenerEnabled = false;
     String musicListenerName = "djNexus";
+    Guild guild;
 
-    public BotApplicationServer(String serverName, String serverID) {
-        this.serverName = serverName;
-        this.serverID = serverID;
+    public BotApplicationServer(Guild guild) {
+        this.serverName = guild.getName();
+        this.serverID = guild.getId();
+        this.guild = guild;
     }
 
     public String getServerName() {

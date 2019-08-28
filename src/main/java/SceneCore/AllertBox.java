@@ -22,7 +22,6 @@ import javafx.stage.WindowEvent;
 public class AllertBox {
 
     private Stage allertBox;
-    Scene sceneToShow;
     Modality modality;
     int returnValue = -1;
     Engine engine;
@@ -31,31 +30,8 @@ public class AllertBox {
     final int allertBoxHeight = 150;
 
     public AllertBox(Scene sceneToShow, Modality modality, Engine engine) {
-        this.sceneToShow = sceneToShow;
         this.modality = modality;
         this.engine = engine;
-    }
-
-    public void displayFromRoot(String windowTitle, boolean closeProgramOnExit) {
-        if (sceneToShow == null || modality == null) {
-            System.out.println("Could create allertbox because of missing arguments!");
-            return;
-        }
-
-
-        allertBox = new Stage();
-        allertBox.initStyle(StageStyle.TRANSPARENT);
-        allertBox.setTitle(windowTitle);
-        allertBox.initModality(modality);
-        allertBox.setScene(sceneToShow);
-
-        allertBox.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                if(closeProgramOnExit)engine.closeProgramm(engine.getProperties().getPlanedProgrammShutdownOnAllertboxAction(), true);
-            }
-        });
-        allertBox.showAndWait();
     }
 
     //even reutrns 0 od reuturns 1
@@ -102,7 +78,7 @@ public class AllertBox {
         allertBox.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-                if(closeProgramOnExit)engine.closeProgramm(engine.getProperties().getPlanedProgrammShutdownOnAllertboxAction(), true);
+                if(closeProgramOnExit)engine.closeProgram(engine.getProperties().getPlanedProgrammShutdownOnAllertboxAction(), true);
             }
         });
 
@@ -148,7 +124,7 @@ public class AllertBox {
         allertBox.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-                if(closeProgramOnExit)engine.closeProgramm(engine.getProperties().getPlanedProgrammShutdownOnAllertboxAction(), true);
+                if(closeProgramOnExit)engine.closeProgram(engine.getProperties().getPlanedProgrammShutdownOnAllertboxAction(), true);
             }
         });
 
@@ -182,7 +158,7 @@ public class AllertBox {
         allertBox.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-                if(closeProgramOnExit)engine.closeProgramm(engine.getProperties().getPlanedProgrammShutdownOnAllertboxAction(), true);
+                if(closeProgramOnExit)engine.closeProgram(engine.getProperties().getPlanedProgrammShutdownOnAllertboxAction(), true);
             }
         });
 

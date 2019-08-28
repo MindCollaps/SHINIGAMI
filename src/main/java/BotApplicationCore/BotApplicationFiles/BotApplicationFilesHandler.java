@@ -38,7 +38,7 @@ public class BotApplicationFilesHandler {
             engine.getUtilityBase().printDebug("Cant create new server because already exist! Id: " + guild.getId() + " name: " + guild.getName());
             throw new Exception("Serer already exist");
         }
-        BotApplicationServer server = new BotApplicationServer(guild.getName(), guild.getIconId());
+        BotApplicationServer server = new BotApplicationServer(guild);
         servers.put(guild.getId(), server);
         return server;
     }
@@ -48,7 +48,7 @@ public class BotApplicationFilesHandler {
             engine.getUtilityBase().printDebug("Cant create new server because already exist! Id: " + user.getId() + " name: " + user.getName());
             throw new Exception("User already exist");
         }
-        BotApplicationUser botUser = new BotApplicationUser(user.getName(), user.getId());
+        BotApplicationUser botUser = new BotApplicationUser(user);
         users.put(user.getId(), botUser);
         return botUser;
     }

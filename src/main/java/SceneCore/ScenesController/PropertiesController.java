@@ -1,11 +1,16 @@
 package SceneCore.ScenesController;
 
+import Engines.Engine;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,6 +34,16 @@ public class PropertiesController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    }
+
+    @Override
+    public void initController(Engine engine, Stage primaryStage, Scene scene) {
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.setTitle("Properties");
+        primaryStage.initModality(Modality.APPLICATION_MODAL);
+        primaryStage.setScene(scene);
+        primaryStage.getIcons().setAll(new Image("Scenes/icons/programIcon.jpg"));
+        super.initController(engine, primaryStage, scene);
     }
 
     @FXML

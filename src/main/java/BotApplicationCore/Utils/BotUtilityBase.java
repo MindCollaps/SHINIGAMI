@@ -34,40 +34,26 @@ public class BotUtilityBase {
         }
     }
 
-    public void sendCommand(GuildMessageReceivedEvent event, String ownCommand) {
-        engine.getUtilityBase().printDebug(messageInfo(event.getGuild()) + " sendCommand(" + event.getMessage().getContentRaw() + ")");
-        BotApplicationServer server = null;
-        BotApplicationUser user = null;
+    public void sendOwnCommand(GuildMessageReceivedEvent event, String ownCommand, BotApplicationUser user, BotApplicationServer server) {
+        engine.getUtilityBase().printDebug(messageInfo(event.getGuild()) + " sendOwnCommand(" + event.getMessage().getContentRaw() + ")");
 
-        try {
-            server = engine.getBotEngine().getFilesHandler().getServerById(event.getGuild().getId());
-        } catch (Exception e) {
-            engine.getUtilityBase().printDebug("[Send Command] " + event.getGuild().getId() + " Server not found!");
-        }
-
-        try {
-            user = engine.getBotEngine().getFilesHandler().getUserById(event.getAuthor().getId());
-        } catch (Exception e) {
-            engine.getUtilityBase().printDebug("[Send Command] " + event.getAuthor().getId() + " User not found!");
-        }
-
-        if(server==null){
+        if (server == null) {
             try {
                 server = engine.getBotEngine().getFilesHandler().createNewServer(event.getGuild());
             } catch (Exception e) {
-                System.out.println("Fatal error in ServerMessageListener.sendCommand()---server cant load!!!");
+                System.out.println("Fatal error in ServerMessageListener.sendOwnCommand()---server cant load!!!");
             }
         }
 
-        if(user==null){
+        if (user == null) {
             try {
                 user = engine.getBotEngine().getFilesHandler().createNewUser(event.getAuthor());
             } catch (Exception e) {
-                System.out.println("Fatal error in ServerMessageListener.sendCommand()---user cant load!!!");
+                System.out.println("Fatal error in ServerMessageListener.sendOwnCommand()---user cant load!!!");
             }
         }
 
-        if(ownCommand==null||ownCommand.equalsIgnoreCase("")){
+        if (ownCommand == null || ownCommand.equalsIgnoreCase("")) {
             try {
                 engine.getBotEngine().getBotCommandHandler().handleServerCommand(engine.getBotEngine().getBotCommandParser().parseServerMessage(event.getMessage().getContentRaw(), event, server, user, engine));
             } catch (Exception e) {
@@ -86,7 +72,49 @@ public class BotUtilityBase {
         }
     }
 
-    private String messageInfo(Guild guild){
+    private String messageInfo(Guild guild) {
         return "[send command -" + guild.getName() + "|" + guild.getId() + "]";
+    }
+
+    public void sendCommand(GuildMessageReceivedEvent event, Object o) {
+        engine.getUtilityBase().printDebug(messageInfo(event.getGuild()) + " sendOwnCommand(" + event.getMessage().getContentRaw() + ")");
+
+        BotApplicationUser user = null;
+        BotApplicationServer server = null;
+
+        try {
+            server = engine.getBotEngine().getFilesHandler().getServerById(event.getGuild().getId());
+        } catch (Exception e) {
+            engine.getUtilityBase().printDebug("![Ai Engine] " + event.getGuild().getId() + " Server not found!");
+        }
+
+        try {
+            user = engine.getBotEngine().getFilesHandler().getUserById(event.getAuthor().getId());
+        } catch (Exception e) {
+            engine.getUtilityBase().printDebug("![Ai Engine] " + event.getAuthor().getId() + " User not found!");
+        }
+
+        if (server == null) {
+            try {
+                server = engine.getBotEngine().getFilesHandler().createNewServer(event.getGuild());
+            } catch (Exception e) {
+                System.out.println("Fatal error in ServerMessageListener.sendOwnCommand()---server cant load!!!");
+            }
+        }
+
+        if (user == null) {
+            try {
+                user = engine.getBotEngine().getFilesHandler().createNewUser(event.getAuthor());
+            } catch (Exception e) {
+                System.out.println("Fatal error in ServerMessageListener.sendOwnCommand()---user cant load!!!");
+            }
+        }
+        try {
+            engine.getBotEngine().getBotCommandHandler().handleServerCommand(engine.getBotEngine().getBotCommandParser().parseServerMessage(event.getMessage().getContentRaw(), event, server, user, engine));
+        } catch (Exception e) {
+            engine.getBotEngine().getTextUtils().sendError("Fatal command error on command: " + event.getMessage().getContentRaw(), event.getChannel(), true);
+            engine.getUtilityBase().printDebug("-----\n[Send server command failed]\n-----");
+            e.printStackTrace();
+        }
     }
 }

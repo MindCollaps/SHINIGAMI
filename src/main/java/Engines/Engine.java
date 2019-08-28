@@ -6,7 +6,6 @@ import Threads.SystemOutListenerThread;
 import Utils.FileUtils;
 import Utils.Properties;
 import Utils.UtilityBase;
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import javafx.stage.Stage;
 
 public class Engine {
@@ -51,8 +50,13 @@ public class Engine {
         new Thread(new SystemInListenerThread(this)).start();
     }
 
-    public void closeProgramm(int shutdownCode, boolean safe){
+    public void closeProgram(int shutdownCode, boolean safe){
         if(safe)safeAllFiles();
+        if(viewEngine.isViewLoaded()){
+            viewEngine.closeProperties();
+            viewEngine.closeMindEditor();
+            viewEngine.closeHome();
+        }
         System.exit(shutdownCode);
     }
 

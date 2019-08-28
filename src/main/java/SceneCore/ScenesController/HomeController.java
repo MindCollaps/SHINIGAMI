@@ -1,16 +1,22 @@
 package SceneCore.ScenesController;
 
+import Engines.Engine;
 import Utils.dateConfig;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,9 +53,26 @@ public class HomeController extends Controller implements Initializable {
         });
     }
 
+    @Override
+    public void initController(Engine engine, Stage primaryStage, Scene scene) {
+        primaryStage.setScene(scene);
+        primaryStage.setTitle(engine.getProperties().getBotApplicationName() + " manager");
+        primaryStage.getIcons().setAll(new Image("Scenes/icons/programIcon.jpg"));
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                System.out.println("Close button on view clicked!");
+                engine.closeProgram(engine.getProperties().getPlanedProgrammShutdownOnUserAction(), true);
+            }
+        });
+        super.initController(engine, primaryStage, scene);
+    }
+
     @FXML
     private void onQuitClicked(ActionEvent actionEvent) {
-        engine.closeProgramm(engine.getProperties().getPlanedProgrammShutdownOnUserAction(), true);
+        engine.closeProgram(engine.getProperties().getPlanedProgrammShutdownOnUserAction(), true);
     }
 
     @FXML
