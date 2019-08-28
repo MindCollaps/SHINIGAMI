@@ -1,11 +1,13 @@
 package SceneCore.ScenesController;
 
 import Engines.Engine;
+import SceneCore.MoveListener;
 import Utils.dateConfig;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextArea;
@@ -14,6 +16,8 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
@@ -37,28 +41,16 @@ public class HomeController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        menuBar.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            }
-        });
-        menuBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                primaryStage.setX(event.getScreenX() - xOffset);
-                primaryStage.setY(event.getScreenY() - yOffset);
-            }
-        });
     }
 
     @Override
     public void initController(Engine engine, Stage primaryStage, Scene scene) {
-        primaryStage.setScene(scene);
-        primaryStage.setTitle(engine.getProperties().getBotApplicationName() + " manager");
-        primaryStage.getIcons().setAll(new Image("Scenes/icons/programIcon.jpg"));
+        scene.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.setTitle(engine.getProperties().getBotApplicationName() + " manager");
+        primaryStage.initModality(Modality.APPLICATION_MODAL);
+        primaryStage.setScene(scene);
+        primaryStage.getIcons().setAll(new Image("Scenes/icons/programIcon.jpg"));
 
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
@@ -67,6 +59,7 @@ public class HomeController extends Controller implements Initializable {
                 engine.closeProgram(engine.getProperties().getPlanedProgrammShutdownOnUserAction(), true);
             }
         });
+        new MoveListener(menuBar, primaryStage);
         super.initController(engine, primaryStage, scene);
     }
 

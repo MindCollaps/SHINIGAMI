@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="mainPain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="840.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="mainPain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="1012.0" style="-fx-border-color: yellow;" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="14.0" layoutY="22.0" text="Mod Invoke:" AnchorPane.topAnchor="12.0">
          <font>
@@ -21,7 +21,7 @@
       <TextField id="txtModInvoke" layoutX="137.0" layoutY="27.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.topAnchor="14.0" />
       <Button id="buttonGreen" layoutX="440.0" layoutY="18.0" mnemonicParsing="false" text="+" AnchorPane.leftAnchor="440.0" AnchorPane.topAnchor="14.0" />
       <Label layoutX="335.0" layoutY="22.0" text="Add Answers" />
-      <ScrollPane id="scrollPane" fitToWidth="true" layoutX="488.0" layoutY="12.0" prefHeight="230.0" prefWidth="340.0" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="482.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="14.0">
+      <ScrollPane id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" layoutX="488.0" layoutY="12.0" prefHeight="230.0" prefWidth="340.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="482.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="14.0">
          <content>
             <VBox id="vBoxAnswers" prefHeight="0.0" prefWidth="610.0" />
          </content>

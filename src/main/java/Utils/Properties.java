@@ -7,10 +7,10 @@ public class Properties implements Serializable {
     public static final long serialVersionUID = 42L;
 
     //BotApplication stuff
-    String botApplicationToken = "NDk1MzAwNzk2NTUyOTcwMjYw.D1Lz8g.cripexvMZHPIhJ8XrNR9m-9boUQ";
-    String botApplicationName = "bot";
+    String botApplicationToken = "";
+    String botApplicationName = "SHINIGAMI";
     String botApplicationGame = "Daddelt am Handy";
-    String botApplicationVersion = "1.0";
+    String botApplicationVersion = "1.2";
     String botApplicationPrefix = "-";
 
     //BotApplication nice to have

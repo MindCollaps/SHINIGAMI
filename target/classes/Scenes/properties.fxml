@@ -10,10 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="main" style="-fx-background-color: #0174DF88;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneCore.ScenesController.PropertiesController">
+<AnchorPane id="main" fx:id="mainPane" style="-fx-background-color: #0174DF88; -fx-border-color: red;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneCore.ScenesController.PropertiesController">
    <children>
-      <ImageView fitHeight="603.0" fitWidth="1277.0" layoutX="-64.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.4;" AnchorPane.bottomAnchor="-54.231201171875" AnchorPane.leftAnchor="-64.0" AnchorPane.rightAnchor="-573.0" AnchorPane.topAnchor="-28.0">
+      <ImageView fitHeight="603.0" fitWidth="1277.0" layoutX="-64.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;" AnchorPane.bottomAnchor="-54.231201171875" AnchorPane.leftAnchor="-64.0" AnchorPane.rightAnchor="-573.0" AnchorPane.topAnchor="-28.0">
          <image>
             <Image url="@backgrounds/circut-board.jpg" />
          </image>

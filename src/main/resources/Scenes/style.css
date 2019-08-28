@@ -39,7 +39,7 @@ Button {
     -fx-background-color: linear-gradient(#AEB404, #D7DF01);
 }
 AnchorPane {
-    -fx-background-color: "#222222E0";
+    -fx-background-color: "#22222244";
 }
 
 ScrollPane{

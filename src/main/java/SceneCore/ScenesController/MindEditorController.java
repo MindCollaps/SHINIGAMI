@@ -5,6 +5,7 @@ import BotAiCore.Librarys.AiCmdModification;
 import BotAiCore.Librarys.AiCommand;
 import Engines.Engine;
 import SceneCore.AllertBox;
+import SceneCore.MoveListener;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -43,29 +45,18 @@ public class MindEditorController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        menuBar.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            }
-        });
-        menuBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                primaryStage.setX(event.getScreenX() - xOffset);
-                primaryStage.setY(event.getScreenY() - yOffset);
-            }
-        });
+
     }
 
     @Override
     public void initController(Engine engine, Stage primaryStage, Scene scene) {
+        scene.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle("Mind editor");
         primaryStage.initModality(Modality.NONE);
         primaryStage.setScene(scene);
         primaryStage.getIcons().setAll(new Image("Scenes/icons/programIcon.jpg"));
+        new MoveListener(menuBar, primaryStage);
         super.initController(engine, primaryStage, scene);
     }
 

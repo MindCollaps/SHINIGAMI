@@ -1,6 +1,7 @@
 package SceneCore.ScenesController;
 
 import Engines.Engine;
+import SceneCore.MoveListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -8,6 +9,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -17,6 +20,8 @@ import java.util.ResourceBundle;
 
 public class PropertiesController extends Controller implements Initializable {
 
+    @FXML
+    public AnchorPane mainPane;
     @FXML
     private CheckBox cBShowToken;
     @FXML
@@ -38,11 +43,13 @@ public class PropertiesController extends Controller implements Initializable {
 
     @Override
     public void initController(Engine engine, Stage primaryStage, Scene scene) {
+        scene.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle("Properties");
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         primaryStage.setScene(scene);
         primaryStage.getIcons().setAll(new Image("Scenes/icons/programIcon.jpg"));
+        new MoveListener(mainPane, primaryStage);
         super.initController(engine, primaryStage, scene);
     }
 

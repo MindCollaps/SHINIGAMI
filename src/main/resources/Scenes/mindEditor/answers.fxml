@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="340.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="510.0" style="-fx-border-color: magenta;" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="23.0" layoutY="31.0" prefHeight="17.0" prefWidth="76.0" text="Emote Levels:" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="247.0" AnchorPane.topAnchor="31.0" />
       <Label layoutX="46.0" layoutY="63.0" text="Answers:" />

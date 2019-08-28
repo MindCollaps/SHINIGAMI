@@ -16,16 +16,14 @@ public class ViewEngine {
     Engine engine;
 
     //JavaFX stuff
-    private Stage primaryStage;
     private HomeController homeController;
     private PropertiesController propertiesController;
     private MindEditorController mindEditorController;
 
     boolean viewLoaded = false;
 
-    public ViewEngine(Engine engine, Stage primaryStage) {
+    public ViewEngine(Engine engine) {
         this.engine = engine;
-        this.primaryStage = primaryStage;
     }
 
     public void boot(){
@@ -51,7 +49,7 @@ public class ViewEngine {
         homeController = loader.getController();
         Scene scene = new Scene(root);
 
-        homeController.initController(engine, primaryStage, scene);
+        homeController.initController(engine, new Stage(), scene);
 
         loader = new FXMLLoader(getClass().getResource("/Scenes/properties.fxml"));
         try {
@@ -73,7 +71,6 @@ public class ViewEngine {
         }
         mindEditorController = loader.getController();
         scene = new Scene(root);
-        scene.setFill(Color.TRANSPARENT);
         mindEditorController.initController(engine,new Stage(),scene);
     }
 
@@ -98,7 +95,6 @@ public class ViewEngine {
     }
 
     public void showMindEditor(){
-        //primaryStage.hide();
         mindEditorController.updateContent(engine.getBotEngine().getAiEngine().getAiCommands());
         mindEditorController.getPrimaryStage().show();
     }
