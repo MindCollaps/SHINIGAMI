@@ -10,7 +10,6 @@ public class Main extends Application {
     static String[] argis;
 
     public static void main(String[] args){
-        System.out.println(args);
         argis = args;
         launch("");
     }

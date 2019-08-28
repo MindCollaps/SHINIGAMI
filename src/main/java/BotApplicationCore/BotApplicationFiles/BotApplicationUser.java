@@ -17,7 +17,6 @@ public class BotApplicationUser implements Serializable {
     private String ytPlaylist;
     private String userId;
     private boolean admin = false;
-    User user;
 
     private int emoteLevel = 0;
     private int emoteLove = 0;
@@ -26,7 +25,6 @@ public class BotApplicationUser implements Serializable {
         this.userName = user.getName();
         this.preferedNickName = user.getName();
         this.userId = user.getId();
-        this.user = user;
     }
 
     public void setEmoteLevel(int emoteLevel) {

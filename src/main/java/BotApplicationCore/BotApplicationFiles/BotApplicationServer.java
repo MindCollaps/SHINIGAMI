@@ -14,12 +14,10 @@ public class BotApplicationServer implements Serializable {
     boolean listenerEnabled = false;
     boolean musicListenerEnabled = false;
     String musicListenerName = "djNexus";
-    Guild guild;
 
     public BotApplicationServer(Guild guild) {
         this.serverName = guild.getName();
         this.serverID = guild.getId();
-        this.guild = guild;
     }
 
     public String getServerName() {
