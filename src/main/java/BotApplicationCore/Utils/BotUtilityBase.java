@@ -76,7 +76,7 @@ public class BotUtilityBase {
         return "[send command -" + guild.getName() + "|" + guild.getId() + "]";
     }
 
-    public void sendCommand(GuildMessageReceivedEvent event, Object o) {
+    public void sendCommand(GuildMessageReceivedEvent event) {
         engine.getUtilityBase().printDebug(messageInfo(event.getGuild()) + " sendOwnCommand(" + event.getMessage().getContentRaw() + ")");
 
         BotApplicationUser user = null;

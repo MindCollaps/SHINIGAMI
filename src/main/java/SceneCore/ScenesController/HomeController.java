@@ -7,12 +7,13 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -28,6 +29,10 @@ import java.util.ResourceBundle;
 public class HomeController extends Controller implements Initializable {
 
     @FXML
+    private ProgressIndicator runAnimation;
+    @FXML
+    private ImageView buttonStartBot;
+    @FXML
     private TextArea commandOutputLine;
     @FXML
     private TextField commandInputLine;
@@ -37,20 +42,35 @@ public class HomeController extends Controller implements Initializable {
     private double xOffset = 0;
     private double yOffset = 0;
 
+
     Thread refreshThread;
+
+    Image startBotState1;
+    Image startBotState2;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        startBotState1 = new Image("icons/startstop.png");
+        startBotState2 = new Image("icons/startstop_2.png");
+        buttonStartBot.setImage(startBotState1);
+        runAnimation.setVisible(false);
+        buttonStartBot.setOnMouseClicked(event -> {
+            if(engine.getBotEngine().isBotApplicationRunning()){
+                engine.getBotEngine().shutdownBotApplication();
+            } else {
+                engine.getBotEngine().startBotApplication();
+            }
+        });
     }
 
     @Override
-    public void initController(Engine engine, Stage primaryStage, Scene scene) {
+    public void initController(Engine engine, Stage primaryStage, Scene scene, Stage mainStage) {
         scene.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle(engine.getProperties().getBotApplicationName() + " manager");
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         primaryStage.setScene(scene);
-        primaryStage.getIcons().setAll(new Image("Scenes/icons/programIcon.jpg"));
+        primaryStage.getIcons().setAll(new Image("icons/window/programIcon.png"));
 
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
@@ -60,7 +80,7 @@ public class HomeController extends Controller implements Initializable {
             }
         });
         new MoveListener(menuBar, primaryStage);
-        super.initController(engine, primaryStage, scene);
+        super.initController(engine, primaryStage, scene, mainStage);
     }
 
     @FXML
@@ -75,7 +95,7 @@ public class HomeController extends Controller implements Initializable {
 
     @FXML
     private void onRestartClicked(ActionEvent actionEvent) {
-        engine.getBotEngine().reboot();
+        engine.getBotEngine().rebootBotApplication();
     }
 
     @FXML
@@ -92,7 +112,7 @@ public class HomeController extends Controller implements Initializable {
 
     @FXML
     private void onStopClicked(ActionEvent actionEvent) {
-        engine.getBotEngine().shutdown();
+        engine.getBotEngine().shutdownBotApplication();
     }
 
     @FXML
@@ -138,6 +158,16 @@ public class HomeController extends Controller implements Initializable {
                 refreshThread = new Thread(new refreshThread());
                 refreshThread.start();
             }
+        }
+    }
+
+    public void updateStartStopButton(){
+        if(!engine.getBotEngine().isBotApplicationRunning()){
+            buttonStartBot.setImage(startBotState1);
+            runAnimation.setVisible(false);
+        } else {
+            buttonStartBot.setImage(startBotState2);
+            runAnimation.setVisible(true);
         }
     }
 

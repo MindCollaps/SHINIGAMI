@@ -41,7 +41,7 @@ public class Properties implements Serializable {
     }
 
     public int getPlannedProgrammShutdownOnError() {
-        //shutdown error codes
+        //shutdownBotApplication error codes
         int plannedProgrammShutdownOnError = -5;
         return plannedProgrammShutdownOnError;
     }

@@ -49,15 +49,15 @@ public class MindEditorController extends Controller implements Initializable {
     }
 
     @Override
-    public void initController(Engine engine, Stage primaryStage, Scene scene) {
+    public void initController(Engine engine, Stage primaryStage, Scene scene, Stage mainStage) {
         scene.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle("Mind editor");
         primaryStage.initModality(Modality.NONE);
         primaryStage.setScene(scene);
-        primaryStage.getIcons().setAll(new Image("Scenes/icons/programIcon.jpg"));
+        primaryStage.getIcons().setAll(new Image("icons/window/mindIcon.png"));
         new MoveListener(menuBar, primaryStage);
-        super.initController(engine, primaryStage, scene);
+        super.initController(engine, primaryStage, scene, mainStage);
     }
 
     @FXML

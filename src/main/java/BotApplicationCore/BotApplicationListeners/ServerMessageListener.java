@@ -40,7 +40,7 @@ public class ServerMessageListener extends ListenerAdapter {
                     //command exist check
                     for (int i = 0; engine.getBotEngine().getBotCommandHandler().commandIvokes.size() > i; i++) {
                         if (event.getMessage().getContentRaw().contains(engine.getBotEngine().getBotCommandHandler().commandIvokes.get(i))) {
-                            engine.getBotEngine().getUtilityBase().sendCommand(event, null);
+                            engine.getBotEngine().getUtilityBase().sendCommand(event);
                             event.getMessage().delete().queue();
                             commandWorked = true;
                             break;

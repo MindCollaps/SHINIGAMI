@@ -1,8 +1,6 @@
 package Core;
 
 import Engines.Engine;
-import SceneCore.AllertBox;
-import javafx.stage.Modality;
 
 public class ConsoleCommandHandler {
 
@@ -22,7 +20,7 @@ public class ConsoleCommandHandler {
         switch (args0.toLowerCase()) {
             case "reloadall":
                 engine.loadAllFiles();
-                engine.getBotEngine().reboot();
+                engine.getBotEngine().rebootBotApplication();
                 break;
             case "reloaddata":
                 engine.loadAllFiles();
@@ -54,11 +52,11 @@ public class ConsoleCommandHandler {
                 break;
 
             case "stopbot":
-                engine.getBotEngine().shutdown();
+                engine.getBotEngine().shutdownBotApplication();
                 break;
 
             case "restartbot":
-                engine.getBotEngine().reboot();
+                engine.getBotEngine().rebootBotApplication();
                 break;
 
             case "help":

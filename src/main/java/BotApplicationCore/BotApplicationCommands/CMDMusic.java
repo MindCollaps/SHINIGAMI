@@ -260,13 +260,13 @@ public class CMDMusic implements Command {
     @Override
     public String help(Engine engine) {
         return "\n**Music help: :musical_note:**\n"
-                + "\n" + engine.getProperties().getCommandInvokePreverences() + engine.getProperties().getCommandInvokeMusic() + " :arrow_forward: [p/play] [YT link/dl(default playlist)/sdl (server eigene playlist)/suchanfrage] stoppt die wiedergabe und fügt ein neuse lied hinzu!"
-                + "\n" + engine.getProperties().getCommandInvokePreverences() + engine.getProperties().getCommandInvokeMusic() + " :heavy_plus_sign:  [add] [YT link/dl(default playlist)/sdl (server eigene playlist)/suchanfrage] fügt ein lied zur queue hinzu!"
-                + "\n" + engine.getProperties().getCommandInvokePreverences() + engine.getProperties().getCommandInvokeMusic() + " :track_next: [skip/next/s/n] nächster song!"
-                + "\n" + engine.getProperties().getCommandInvokePreverences() + engine.getProperties().getCommandInvokeMusic() + " :stop_button: [stop] stopt die wiedergabe!"
-                + "\n" + engine.getProperties().getCommandInvokePreverences() + engine.getProperties().getCommandInvokeMusic() + " :twisted_rightwards_arrows: [shuffle/sh] shuffelt die songs in einer Playlist neu"
-                + "\n" + engine.getProperties().getCommandInvokePreverences() + engine.getProperties().getCommandInvokeMusic() + " :information_source: [info/now] zeigt den aktuellen song!"
-                + "\n" + engine.getProperties().getCommandInvokePreverences() + engine.getProperties().getCommandInvokeMusic() + " :information_source: [queue/playlist/pl] [site] zeigt die aktuelle Playlist!";
+                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :arrow_forward: [p/play] [YT link/dl(default playlist)/sdl (server eigene playlist)/suchanfrage] stoppt die wiedergabe und fügt ein neuse lied hinzu!"
+                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :heavy_plus_sign:  [add] [YT link/dl(default playlist)/sdl (server eigene playlist)/suchanfrage] fügt ein lied zur queue hinzu!"
+                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :track_next: [skip/next/s/n] nächster song!"
+                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :stop_button: [stop] stopt die wiedergabe!"
+                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :twisted_rightwards_arrows: [shuffle/sh] shuffelt die songs in einer Playlist neu"
+                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :information_source: [info/now] zeigt den aktuellen song!"
+                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :information_source: [queue/playlist/pl] [site] zeigt die aktuelle Playlist!";
     }
 
     private void play(String[] args, GuildMessageReceivedEvent event, BotApplicationServer server, BotApplicationUser user, Engine engine) {

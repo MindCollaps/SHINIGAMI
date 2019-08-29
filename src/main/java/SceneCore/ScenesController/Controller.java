@@ -8,6 +8,7 @@ public class Controller {
 
     Engine engine;
     Stage primaryStage;
+    Stage mainStage;
     Scene scene;
 
     public Engine getEngine() {
@@ -34,7 +35,8 @@ public class Controller {
         this.scene = scene;
     }
 
-    public void initController(Engine engine, Stage primaryStage, Scene scene) {
+    public void initController(Engine engine, Stage primaryStage, Scene scene, Stage mainStage) {
+        this.mainStage = mainStage;
         this.primaryStage = primaryStage;
         this.engine = engine;
         this.scene = scene;

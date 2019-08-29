@@ -12,8 +12,6 @@ public class BotCommandHandler {
     public HashMap<String, Command> commands = new HashMap<>();
     public ArrayList<String> commandIvokes = new ArrayList<>();
 
-    Engine engine;
-
     public void handleServerCommand(BotCommandParser.serverCommandContainer cmd) {
 
         if (commands.containsKey(cmd.invoke)) {
@@ -27,7 +25,7 @@ public class BotCommandHandler {
                 } catch (Exception ignored) {
                 }
                 if (args0.equalsIgnoreCase("help")) {
-                    engine.getBotEngine().getTextUtils().sendHelp(commands.get(cmd.invoke).help(cmd.engine), cmd.event.getChannel());
+                    cmd.engine.getBotEngine().getTextUtils().sendHelp(commands.get(cmd.invoke).help(cmd.engine), cmd.event.getChannel());
                 } else {
                     commands.get(cmd.invoke).actionServer(cmd.args, cmd.event, cmd.server, cmd.user, cmd.engine);
                 }
@@ -49,7 +47,7 @@ public class BotCommandHandler {
                 }
 
                 if (args0.equalsIgnoreCase("help")) {
-                    engine.getBotEngine().getTextUtils().sendHelp(commands.get(cmd.invoke).help(cmd.engine), cmd.event.getChannel());
+                    cmd.engine.getBotEngine().getTextUtils().sendHelp(commands.get(cmd.invoke).help(cmd.engine), cmd.event.getChannel());
                 } else {
                     commands.get(cmd.invoke).actionPrivate(cmd.args, cmd.event, cmd.user, cmd.engine);
                 }

@@ -10,8 +10,8 @@
    <children>
       <Label layoutX="23.0" layoutY="31.0" prefHeight="17.0" prefWidth="76.0" text="Emote Levels:" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="247.0" AnchorPane.topAnchor="31.0" />
       <Label layoutX="46.0" layoutY="63.0" text="Answers:" />
-      <TextField id="txtEmoteLevels" layoutX="119.0" layoutY="28.0" prefHeight="25.0" prefWidth="198.0" />
-      <TextArea id="txtAnswers" layoutX="119.0" layoutY="63.0" prefHeight="147.0" prefWidth="198.0" />
+      <TextField id="txtEmoteLevels" layoutX="121.0" layoutY="28.0" prefHeight="27.0" prefWidth="335.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="55.0" />
+      <TextArea id="txtAnswers" layoutX="121.0" layoutY="63.0" prefHeight="147.0" prefWidth="333.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="57.0" />
       <Button id="buttonRed" layoutX="14.0" layoutY="124.0" mnemonicParsing="false" text="Delete" />
    </children>
 </AnchorPane>

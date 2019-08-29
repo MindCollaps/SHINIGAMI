@@ -16,12 +16,12 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <TextArea id="txtModHumanSpelling" layoutX="137.0" layoutY="63.0" prefHeight="143.0" prefWidth="180.0" AnchorPane.bottomAnchor="99.0" AnchorPane.leftAnchor="137.0" AnchorPane.topAnchor="63.0" />
+      <TextArea id="txtModHumanSpelling" layoutX="137.0" layoutY="63.0" prefHeight="143.0" prefWidth="180.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="99.0" AnchorPane.leftAnchor="137.0" AnchorPane.topAnchor="63.0" />
       <Label layoutX="14.0" layoutY="54.0" text="Human Spelling" />
       <TextField id="txtModInvoke" layoutX="137.0" layoutY="27.0" prefHeight="25.0" prefWidth="180.0" AnchorPane.topAnchor="14.0" />
-      <Button id="buttonGreen" layoutX="440.0" layoutY="18.0" mnemonicParsing="false" text="+" AnchorPane.leftAnchor="440.0" AnchorPane.topAnchor="14.0" />
-      <Label layoutX="335.0" layoutY="22.0" text="Add Answers" />
-      <ScrollPane id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" layoutX="488.0" layoutY="12.0" prefHeight="230.0" prefWidth="340.0" vbarPolicy="NEVER" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="482.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="14.0">
+      <Button id="buttonGreen" layoutX="358.0" layoutY="64.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="93.0" text="+" AnchorPane.leftAnchor="358.0" AnchorPane.topAnchor="64.0" />
+      <Label layoutX="371.0" layoutY="20.0" text="Add Answers" />
+      <ScrollPane id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" layoutX="488.0" layoutY="12.0" prefHeight="230.0" prefWidth="340.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="482.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="14.0">
          <content>
             <VBox id="vBoxAnswers" prefHeight="0.0" prefWidth="610.0" />
          </content>

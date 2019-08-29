@@ -17,6 +17,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         engine = new Engine();
-        engine.boot(argis);
+        engine.boot(argis, primaryStage);
     }
 }

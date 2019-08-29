@@ -71,6 +71,7 @@ public class BotApplicationEngine {
         }
         System.out.println("!Bot successfully logged in!");
         botApplicationRunning = true;
+        engine.getViewEngine().updateBotRunHomeButton();
     }
 
     private void setBotApplicationGame(String game, Game.GameType type) {
@@ -107,16 +108,16 @@ public class BotApplicationEngine {
         builder.addEventListener(new ServerMessageListener(engine));
     }
 
-    public void reboot() {
+    public void rebootBotApplication() {
         if(!botApplicationRunning){
             System.out.println("~The bot is offline! Please start before restart");
             return;
         }
-        shutdown();
+        shutdownBotApplication();
         startBotApplication();
     }
 
-    public void shutdown() {
+    public void shutdownBotApplication() {
         if(!botApplicationRunning){
             System.out.println("~The bot is already offline!");
             return;
@@ -125,9 +126,10 @@ public class BotApplicationEngine {
         try {
             botJDA.shutdownNow();
         } catch (Exception e) {
-            System.out.println("~Bot cant shutdown, eventually never starts?");
+            System.out.println("~Bot cant shutdownBotApplication, eventually never starts?");
         }
         botApplicationRunning = false;
+        engine.getViewEngine().updateBotRunHomeButton();
     }
 
     public void test (){

@@ -17,7 +17,7 @@
    <children>
       <ImageView fitHeight="1023.0" fitWidth="1532.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;" AnchorPane.bottomAnchor="-105.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-32.0" AnchorPane.topAnchor="-200.0">
          <image>
-            <Image url="@backgrounds/artificial-intelligence.jpg" />
+            <Image url="@../backgrounds/artificial-intelligence.jpg" />
          </image>
          <effect>
             <BoxBlur />
@@ -45,6 +45,6 @@
       <Button id="buttonGreen" layoutY="693.0" mnemonicParsing="false" onMouseClicked="#onAddCommandClicked" text="Add Command" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" />
       <Button id="buttonRed" layoutX="117.0" layoutY="693.0" mnemonicParsing="false" onMouseClicked="#onCloseClicked" text="Close and safe..." />
       <Label alignment="CENTER" layoutX="6.0" layoutY="25.0" prefHeight="12.0" prefWidth="1500.0" style="-fx-background-color: #2E2E2EAA;" text="Answer modifications: *title.&lt;title&gt;* -set title of message | *color.&lt;color&gt;* -set highlight color of message | *image.&lt;imageUrl&gt;* -set image of message | *ignore* -igonres the following command | *rise.&lt;rise emote level amount&gt;* -rises emotelevel from user " textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
-      <Label alignment="CENTER" layoutX="6.0" layoutY="34.0" style="-fx-background-color: #2E2E2EAA;" text="| *increase.&lt;increase emote level amount&gt;* -increase emotelevel from user | *n* -makes a \n | *user* -set usersanme for this field | *modifier* -adds user modifire on this field" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0" />
+      <Label alignment="CENTER" layoutX="6.0" layoutY="34.0" style="-fx-background-color: #2E2E2EAA;" text="| *increase.&lt;increase emote level amount&gt;* -increase emotelevel from user | *n* -makes a \n | *user* -set usersanme for this field | *modifier* -adds user modifier on this field" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0" />
    </children>
 </AnchorPane>

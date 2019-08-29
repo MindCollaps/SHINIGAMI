@@ -135,7 +135,7 @@ public class AiEngine {
 
     private int containsStartWith(ArrayList<String> list, String stringCompare) {
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).toLowerCase().startsWith(stringCompare.toLowerCase())) {
+            if (list.get(i).toLowerCase().contains(stringCompare.toLowerCase())) {
                 return i;
             }
         }

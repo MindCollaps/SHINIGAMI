@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -12,45 +13,47 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="628.0" style="-fx-background-color: transparent; -fx-border-color: red;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneCore.ScenesController.HomeController">
-   <children>
-      <ImageView fitHeight="550.0" fitWidth="1038.0" layoutX="-264.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;" AnchorPane.bottomAnchor="-45.0" AnchorPane.leftAnchor="-264.0" AnchorPane.rightAnchor="-146.0" AnchorPane.topAnchor="0.0">
-         <effect>
-            <BoxBlur height="2.0" width="3.0" />
-         </effect>
-         <image>
-            <Image url="@backgrounds/technic.jpg" />
-         </image>
-      </ImageView>
-      <MenuBar fx:id="menuBar" layoutX="10.0" layoutY="12.0" styleClass="menu-bar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="File">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#onSaveFilesClicked" text="Save Files" />
-                  <MenuItem mnemonicParsing="false" onAction="#onReloadFilesClicked" text="Reload Files" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" onAction="#onPropertiesClicked" text="Properties" />
-                  <MenuItem mnemonicParsing="false" onAction="#onMindEditorClicked" text="Mind Editor" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" onAction="#onQuitClicked" text="Quit" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Bot">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#onStartClicked" text="Start" />
-                  <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" onAction="#onRestartClicked" text="Restart" />
-                  <MenuItem mnemonicParsing="false" onAction="#onStopClicked" text="Stop" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
-      <AnchorPane layoutX="8.0" layoutY="37.0" maxHeight="-1.0" maxWidth="-1.0" prefHeight="450.0" prefWidth="608.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
-         <children>
-            <TextArea fx:id="commandOutputLine" editable="false" layoutX="104.0" layoutY="100.0" prefHeight="200.0" prefWidth="432.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="105.0" />
-            <TextField fx:id="commandInputLine" layoutX="104.0" layoutY="332.0" onKeyPressed="#onCommandLineKeyPressed" prefHeight="25.0" prefWidth="369.0" />
-            <Button id="buttonGreen" layoutX="483.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#onSendClicked" prefHeight="25.0" prefWidth="53.0" text="Send" />
-         </children>
-      </AnchorPane>
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneCore.ScenesController.HomeController">
+    <children>
+        <ImageView fitHeight="550.0" fitWidth="1038.0" layoutX="-264.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;" AnchorPane.bottomAnchor="-45.0" AnchorPane.leftAnchor="-264.0" AnchorPane.rightAnchor="-146.0" AnchorPane.topAnchor="0.0">
+            <effect>
+                <BoxBlur height="2.0" width="3.0" />
+            </effect>
+            <image>
+                <Image url="@../backgrounds/technic.jpg" />
+            </image>
+        </ImageView>
+        <MenuBar fx:id="menuBar" layoutX="10.0" layoutY="12.0" styleClass="menu-bar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onSaveFilesClicked" text="Save Files" />
+                        <MenuItem mnemonicParsing="false" onAction="#onReloadFilesClicked" text="Reload Files" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#onPropertiesClicked" text="Properties" />
+                        <MenuItem mnemonicParsing="false" onAction="#onMindEditorClicked" text="Mind Editor" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#onQuitClicked" text="Quit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Bot">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onStartClicked" text="Start" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#onRestartClicked" text="Restart" />
+                        <MenuItem mnemonicParsing="false" onAction="#onStopClicked" text="Stop" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane layoutX="8.0" layoutY="37.0" maxHeight="-1.0" maxWidth="-1.0" prefHeight="450.0" prefWidth="608.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+            <children>
+                <TextArea fx:id="commandOutputLine" editable="false" layoutX="104.0" layoutY="100.0" prefHeight="200.0" prefWidth="432.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="105.0" />
+                <TextField fx:id="commandInputLine" layoutX="177.0" layoutY="332.0" onKeyPressed="#onCommandLineKeyPressed" prefHeight="27.0" prefWidth="296.0" />
+                <Button id="buttonGreen" layoutX="483.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#onSendClicked" prefHeight="25.0" prefWidth="53.0" text="Send" />
+            <ImageView fx:id="buttonStartBot" blendMode="ADD" fitHeight="60.0" fitWidth="60.0" layoutX="105.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true" />
+            <ProgressIndicator fx:id="runAnimation" layoutX="576.0" layoutY="396.0" />
+            </children>
+        </AnchorPane>
+    </children>
 </AnchorPane>

@@ -22,13 +22,13 @@ public class Engine {
 
     Thread systemOutListenerThread;
 
-    public void boot(String[] args){
+    public void boot(String[] args, Stage mainstage){
         //Setup engine classes
         fileUtils = new FileUtils(this);
         loadProperties();
         consoleCommandHandler = new ConsoleCommandHandler(this);
         botEngine = new BotApplicationEngine(this);
-        viewEngine = new ViewEngine(this);
+        viewEngine = new ViewEngine(this, mainstage);
         utilityBase = new UtilityBase(this);
         loadAllFiles(false);
         systemOutListenerThread = new Thread(new SystemOutListenerThread(this));

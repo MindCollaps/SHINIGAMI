@@ -82,3 +82,17 @@ TextField{
 .menu-bar .context-menu{
     -fx-background-color: "#42424288";
 }
+
+.scroll-bar, scroll-pane, .scroll-pane > .viewport{
+    -fx-background-color: transparent;
+}
+
+.scroll-bar > .track{
+    -fx-background-color: #2E2E2E44;
+    -fx-border-color: transparent;
+}
+
+.thumb{
+    -fx-background-color: #2E2E2EEF;
+    -fx-border-color: transparent;
+}

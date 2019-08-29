@@ -42,15 +42,15 @@ public class PropertiesController extends Controller implements Initializable {
     }
 
     @Override
-    public void initController(Engine engine, Stage primaryStage, Scene scene) {
+    public void initController(Engine engine, Stage primaryStage, Scene scene, Stage mainStage) {
         scene.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle("Properties");
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         primaryStage.setScene(scene);
-        primaryStage.getIcons().setAll(new Image("Scenes/icons/programIcon.jpg"));
+        primaryStage.getIcons().setAll(new Image("icons/window/propsIcon.png"));
         new MoveListener(mainPane, primaryStage);
-        super.initController(engine, primaryStage, scene);
+        super.initController(engine, primaryStage, scene, mainStage);
     }
 
     @FXML

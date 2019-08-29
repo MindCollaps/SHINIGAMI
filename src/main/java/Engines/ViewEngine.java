@@ -22,8 +22,11 @@ public class ViewEngine {
 
     boolean viewLoaded = false;
 
-    public ViewEngine(Engine engine) {
+    Stage mainstage;
+
+    public ViewEngine(Engine engine, Stage mainstage) {
         this.engine = engine;
+        this.mainstage = mainstage;
     }
 
     public void boot(){
@@ -49,7 +52,7 @@ public class ViewEngine {
         homeController = loader.getController();
         Scene scene = new Scene(root);
 
-        homeController.initController(engine, new Stage(), scene);
+        homeController.initController(engine, new Stage(), scene, mainstage);
 
         loader = new FXMLLoader(getClass().getResource("/Scenes/properties.fxml"));
         try {
@@ -60,7 +63,7 @@ public class ViewEngine {
         }
         propertiesController = loader.getController();
         scene = new Scene(root);
-        propertiesController.initController(engine,new Stage(),scene);
+        propertiesController.initController(engine,new Stage(),scene, mainstage);
 
         loader = new FXMLLoader(getClass().getResource("/Scenes/mindEditor.fxml"));
         try {
@@ -71,7 +74,7 @@ public class ViewEngine {
         }
         mindEditorController = loader.getController();
         scene = new Scene(root);
-        mindEditorController.initController(engine,new Stage(),scene);
+        mindEditorController.initController(engine,new Stage(),scene, mainstage);
     }
 
     public void printConsollogOnGui(String text){
@@ -120,6 +123,10 @@ public class ViewEngine {
 
     public boolean isViewLoaded() {
         return viewLoaded;
+    }
+
+    public void updateBotRunHomeButton(){
+        homeController.updateStartStopButton();
     }
 
 }
