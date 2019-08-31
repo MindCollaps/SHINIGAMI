@@ -37,9 +37,11 @@ BotApplications\DiscApplicationCore\Utils\DiscTextUtils$5.class
 SceneCore\ScenesController\HomeController$refreshThread.class
 SceneCore\AllertBox.class
 BotApplications\DiscApplicationCore\Utils\DiscTextUtils$16.class
+Engines\DiscApplicationEngine.class
 BotApplications\DiscApplicationCore\DiscApplicationFiles\DiscApplicationUser.class
 SceneCore\ScenesController\MindEditorController$AnswersLine$1.class
 SceneCore\ScenesController\MindEditorController$ModsLine$1.class
+Engines\DiscApplicationEngine$1.class
 BotApplications\DiscApplicationCore\Utils\DiscTextUtils$10.class
 Engines\AiEngine.class
 BotApplications\DiscApplicationCore\Utils\DiscTextUtils$4.class
@@ -51,10 +53,8 @@ SceneCore\ScenesController\PropertiesController.class
 BotApplications\DiscApplicationCore\DiscCommandHandler.class
 BotApplications\DiscApplicationCore\Utils\DiscTextUtils$3.class
 Utils\UtilityBase.class
-Engines\BotApplicationEngine.class
 SceneCore\AllertBox$5.class
 SceneCore\AllertBox$8.class
-Engines\BotApplicationEngine$1.class
 SceneCore\ScenesController\MindEditorController$CommandsLine.class
 BotApplications\DiscApplicationCore\Utils\DiscTextUtils$9.class
 BotApplications\DiscApplicationCore\AudioCore\AudioInfo.class

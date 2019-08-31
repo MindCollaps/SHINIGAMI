@@ -18,7 +18,7 @@ public class SystemInListenerThread implements Runnable{
         Scanner scanner = new Scanner(System.in);
         while (true){
             line = scanner.nextLine();
-            engine.getConsoleCommandHandler().handleConsoleCommand(line.split(" "));
+            engine.getConsoleCommandHandler().handleConsoleCommand(line);
         }
     }
 }

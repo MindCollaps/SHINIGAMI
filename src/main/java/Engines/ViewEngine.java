@@ -7,7 +7,6 @@ import SceneCore.ScenesController.PropertiesController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -98,7 +97,7 @@ public class ViewEngine {
     }
 
     public void showMindEditor(){
-        mindEditorController.updateContent(engine.getBotEngine().getAiEngine().getAiCommands());
+        mindEditorController.updateContent(engine.getAiEngine().getAiCommands());
         mindEditorController.getPrimaryStage().show();
     }
 

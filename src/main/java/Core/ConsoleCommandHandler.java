@@ -10,28 +10,28 @@ public class ConsoleCommandHandler {
         this.engine = engine;
     }
 
-    public void handleConsoleCommand(String[] command) {
+    public void handleConsoleCommand(String command) {
         String args0;
         try {
-            args0 = command[0];
+            args0 = command.split(" ")[0];
         } catch (Exception e) {
             return;
         }
         switch (args0.toLowerCase()) {
             case "reloadall":
                 engine.loadAllFiles();
-                engine.getBotEngine().rebootBotApplication();
+                engine.getDiscEngine().rebootBotApplication();
                 break;
             case "reloaddata":
                 engine.loadAllFiles();
                 break;
             case "debugai":
-                if (engine.getBotEngine().isDebugAi()) {
-                    engine.getBotEngine().setDebugAi(false);
+                if (engine.getDiscEngine().isDebugAi()) {
+                    engine.getDiscEngine().setDebugAi(false);
                 } else {
-                    engine.getBotEngine().setDebugAi(true);
+                    engine.getDiscEngine().setDebugAi(true);
                 }
-                System.out.println("Debug AI is now " + engine.getBotEngine().isDebugAi());
+                System.out.println("Debug AI is now " + engine.getDiscEngine().isDebugAi());
                 break;
 
             case "debug":
@@ -48,15 +48,19 @@ public class ConsoleCommandHandler {
                 break;
 
             case "startbot":
-                engine.getBotEngine().startBotApplication();
+                engine.getDiscEngine().startBotApplication();
                 break;
 
             case "stopbot":
-                engine.getBotEngine().shutdownBotApplication();
+                engine.getDiscEngine().shutdownBotApplication();
                 break;
 
             case "restartbot":
-                engine.getBotEngine().rebootBotApplication();
+                engine.getDiscEngine().rebootBotApplication();
+                break;
+
+            case "shini":
+                System.out.println(engine.getAiEngine().runAi(command, true));
                 break;
 
             case "help":

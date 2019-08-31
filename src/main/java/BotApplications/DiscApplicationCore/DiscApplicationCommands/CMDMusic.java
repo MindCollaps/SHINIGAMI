@@ -142,12 +142,12 @@ public class CMDMusic implements Command {
 
             @Override
             public void noMatches() {
-                engine.getBotEngine().getTextUtils().sendError(":musical_note: Lied konnte nicht geladen werden :scream: ", msg.getTextChannel(), engine.getProperties().getLongTime(), false);
+                engine.getDiscEngine().getTextUtils().sendError(":musical_note: Lied konnte nicht geladen werden :scream: ", msg.getTextChannel(), engine.getProperties().getLongTime(), false);
             }
 
             @Override
             public void loadFailed(FriendlyException exception) {
-                engine.getBotEngine().getTextUtils().sendError(":musical_note: Lied konnte nicht geladen werden :scream: ", msg.getTextChannel(), engine.getProperties().getMiddleTime(), false);
+                engine.getDiscEngine().getTextUtils().sendError(":musical_note: Lied konnte nicht geladen werden :scream: ", msg.getTextChannel(), engine.getProperties().getMiddleTime(), false);
             }
         });
     }
@@ -204,7 +204,7 @@ public class CMDMusic implements Command {
         this.engine = engine;
 
         if (args.length < 1) {
-            engine.getBotEngine().getTextUtils().sendError("Kein argument gefunden!", event.getChannel(), engine.getProperties().getMiddleTime(), true);
+            engine.getDiscEngine().getTextUtils().sendError("Kein argument gefunden!", event.getChannel(), engine.getProperties().getMiddleTime(), true);
             return;
         }
         switch (args[0].toLowerCase()) {
@@ -280,7 +280,7 @@ public class CMDMusic implements Command {
 
         input = Arrays.stream(args).skip(1).map(s -> " " + s).collect(Collectors.joining()).substring(1);
         if (args.length < 2) {
-            engine.getBotEngine().getTextUtils().sendError(MESSAGES.CMDMSGERRMUSICPLAY, event.getChannel(), engine.getProperties().getMiddleTime(), true);
+            engine.getDiscEngine().getTextUtils().sendError(MESSAGES.CMDMSGERRMUSICPLAY, event.getChannel(), engine.getProperties().getMiddleTime(), true);
             return;
         }
         if (input.startsWith("default")) {
@@ -289,14 +289,14 @@ public class CMDMusic implements Command {
             if (server.getServerYTPlaylist() != null) {
                 input = server.getServerYTPlaylist();
             } else {
-                engine.getBotEngine().getTextUtils().sendError("Diese playlist existiert nicht!", event.getChannel(), engine.getProperties().getMiddleTime(), true);
+                engine.getDiscEngine().getTextUtils().sendError("Diese playlist existiert nicht!", event.getChannel(), engine.getProperties().getMiddleTime(), true);
                 return;
             }
         } else if (input.startsWith("own")) {
             if (user.getYtPlaylist() != null) {
                 input = user.getYtPlaylist();
             } else {
-                engine.getBotEngine().getTextUtils().sendError("Diese playlist existiert nicht!", event.getChannel(), engine.getProperties().getMiddleTime(), true);
+                engine.getDiscEngine().getTextUtils().sendError("Diese playlist existiert nicht!", event.getChannel(), engine.getProperties().getMiddleTime(), true);
                 return;
             }
         } else if (input.startsWith("all")) {
@@ -312,13 +312,13 @@ public class CMDMusic implements Command {
         } else {
             loadTrack(input, event.getMember(), event.getMessage(), 1);
         }
-        engine.getBotEngine().getTextUtils().sendSucces(":arrow_forward: Lied wird abgespielt!", event.getChannel(), engine.getProperties().getShortTime());
+        engine.getDiscEngine().getTextUtils().sendSucces(":arrow_forward: Lied wird abgespielt!", event.getChannel(), engine.getProperties().getShortTime());
     }
 
     private void add(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
         String input = Arrays.stream(args).skip(1).map(s -> " " + s).collect(Collectors.joining()).substring(1);
         if (args.length < 2) {
-            engine.getBotEngine().getTextUtils().sendError(MESSAGES.CMDMSGERRMUSICPLAY, event.getChannel(), engine.getProperties().getMiddleTime(), true);
+            engine.getDiscEngine().getTextUtils().sendError(MESSAGES.CMDMSGERRMUSICPLAY, event.getChannel(), engine.getProperties().getMiddleTime(), true);
             return;
         }
         if (!(input.startsWith("http://") || input.startsWith("https://"))) {
@@ -335,7 +335,7 @@ public class CMDMusic implements Command {
         } else {
             loadTrack(input, event.getMember(), event.getMessage(), 1);
         }
-        engine.getBotEngine().getTextUtils().sendSucces(MESSAGES.CMDMSGMUSICPLAY, event.getChannel(), engine.getProperties().getShortTime());
+        engine.getDiscEngine().getTextUtils().sendSucces(MESSAGES.CMDMSGMUSICPLAY, event.getChannel(), engine.getProperties().getShortTime());
     }
 
     private void skip(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
@@ -345,7 +345,7 @@ public class CMDMusic implements Command {
         for (int i = (args.length > 1 ? Integer.parseInt(args[1]) : 1); i == 1; i--) {
             skip(guild);
         }
-        engine.getBotEngine().getTextUtils().sendWarining(MESSAGES.CMDMSGMUSICSKIP, event.getChannel(), engine.getProperties().getShortTime());
+        engine.getDiscEngine().getTextUtils().sendWarining(MESSAGES.CMDMSGMUSICSKIP, event.getChannel(), engine.getProperties().getShortTime());
     }
 
     private void stop(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
@@ -356,7 +356,7 @@ public class CMDMusic implements Command {
         getManager(guild).purgeQueue();
         skip(guild);
         guild.getAudioManager().closeAudioConnection();
-        engine.getBotEngine().getTextUtils().sendError(MESSAGES.CMDMSGMUSICSTOP, event.getChannel(), engine.getProperties().getShortTime(), false);
+        engine.getDiscEngine().getTextUtils().sendError(MESSAGES.CMDMSGMUSICSTOP, event.getChannel(), engine.getProperties().getShortTime(), false);
     }
 
     private void shuffle(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
@@ -364,7 +364,7 @@ public class CMDMusic implements Command {
             return;
         }
         getManager(guild).shuffleQueue();
-        engine.getBotEngine().getTextUtils().sendSucces(MESSAGES.CMDMSGMUSICSHUFFLE, event.getChannel(), engine.getProperties().getShortTime());
+        engine.getDiscEngine().getTextUtils().sendSucces(MESSAGES.CMDMSGMUSICSHUFFLE, event.getChannel(), engine.getProperties().getShortTime());
     }
 
     private void info(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
@@ -381,7 +381,7 @@ public class CMDMusic implements Command {
                 .addField("Author", info.author, false)
                 .build();
         Message rfmsg = event.getChannel().sendMessage(fmsg).complete();
-        engine.getBotEngine().getTextUtils().deleteCustomMessage(rfmsg, engine.getProperties().getVeryLongTime());
+        engine.getDiscEngine().getTextUtils().deleteCustomMessage(rfmsg, engine.getProperties().getVeryLongTime());
     }
 
     private void showQueue(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
@@ -412,6 +412,6 @@ public class CMDMusic implements Command {
                 )
                 .build();
         Message rmsg = event.getChannel().sendMessage(msg).complete();
-        engine.getBotEngine().getTextUtils().deleteCustomMessage(rmsg, engine.getProperties().getVeryLongTime());
+        engine.getDiscEngine().getTextUtils().deleteCustomMessage(rmsg, engine.getProperties().getVeryLongTime());
     }
 }

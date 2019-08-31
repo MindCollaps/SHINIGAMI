@@ -13,7 +13,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneCore.ScenesController.HomeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: red; -fx-border-image-width: 10000;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneCore.ScenesController.HomeController">
     <children>
         <ImageView fitHeight="550.0" fitWidth="1038.0" layoutX="-264.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;" AnchorPane.bottomAnchor="-45.0" AnchorPane.leftAnchor="-264.0" AnchorPane.rightAnchor="-146.0" AnchorPane.topAnchor="0.0">
             <effect>

@@ -20,7 +20,7 @@ import net.dv8tion.jda.core.entities.Game;
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
 
-public class BotApplicationEngine {
+public class DiscApplicationEngine {
 
     Engine engine;
 
@@ -33,17 +33,15 @@ public class BotApplicationEngine {
     private DiscTextUtils textUtils;
     private DiscUtilityBase utilityBase;
     private DiscApplicationFilesHandler filesHandler;
-    private AiEngine aiEngine;
 
     boolean botApplicationRunning = false;
     boolean debugAi = false;
 
-    public BotApplicationEngine(Engine engine) {
+    public DiscApplicationEngine(Engine engine) {
         this.engine = engine;
         textUtils = new DiscTextUtils(engine);
         utilityBase = new DiscUtilityBase(engine);
         filesHandler = new DiscApplicationFilesHandler(engine);
-        aiEngine = new AiEngine(engine);
     }
 
     public void startBotApplication() {
@@ -132,38 +130,6 @@ public class BotApplicationEngine {
         engine.getViewEngine().updateBotRunHomeButton();
     }
 
-    public void test (){
-        AiCommand command = new AiCommand();
-        AiCmdModification mod = new AiCmdModification();
-        AiCmdModAnswer answer = new AiCmdModAnswer();
-
-        ArrayList<AiCmdModAnswer> answers = new ArrayList<>();
-        ArrayList<AiCmdModification> mods = new ArrayList<>();
-
-        ArrayList<String> humanCommandSpelling = new ArrayList<>();
-        ArrayList<String> humandModSpelling = new ArrayList<>();
-        ArrayList<String> answerToSay = new ArrayList<>();
-
-        command.setCommandInvoke("m");
-        mod.setInvoke("play");
-
-        humanCommandSpelling.add("lied");
-        humandModSpelling.add("spiele");
-        answer.setEmoteLevel("all");
-
-        answers.add(answer);
-        mods.add(mod);
-
-        command.setHumanSpellingList(humanCommandSpelling);
-        answer.setAnswers(answerToSay);
-        mod.setAnswers(answers);
-        mod.setHumanSpellingList(humandModSpelling);
-        command.setModificators(mods);
-
-        aiEngine.addNewCommand(command);
-    }
-
-
     public DiscCommandHandler getDiscCommandHandler() {
         return discCommandHandler;
     }
@@ -194,9 +160,5 @@ public class BotApplicationEngine {
 
     public DiscApplicationFilesHandler getFilesHandler() {
         return filesHandler;
-    }
-
-    public AiEngine getAiEngine() {
-        return aiEngine;
     }
 }

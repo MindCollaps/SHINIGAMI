@@ -11,14 +11,15 @@ import javafx.stage.Stage;
 public class Engine {
 
     //Other Engine
-    BotApplicationEngine botEngine;
+    DiscApplicationEngine discEngine;
     ViewEngine viewEngine;
 
     //Engine stuff
     private Properties properties;
     private FileUtils fileUtils;
-    ConsoleCommandHandler consoleCommandHandler;
-    UtilityBase utilityBase;
+    private ConsoleCommandHandler consoleCommandHandler;
+    private UtilityBase utilityBase;
+    private AiEngine aiEngine;
 
     Thread systemOutListenerThread;
 
@@ -27,7 +28,8 @@ public class Engine {
         fileUtils = new FileUtils(this);
         loadProperties();
         consoleCommandHandler = new ConsoleCommandHandler(this);
-        botEngine = new BotApplicationEngine(this);
+        aiEngine = new AiEngine(this);
+        discEngine = new DiscApplicationEngine(this);
         viewEngine = new ViewEngine(this, mainstage);
         utilityBase = new UtilityBase(this);
         loadAllFiles(false);
@@ -62,20 +64,20 @@ public class Engine {
 
     public void safeAllFiles(){
         safeProperties();
-        botEngine.getFilesHandler().saveAllBotFiles();
-        botEngine.getAiEngine().saveAiMind();
+        discEngine.getFilesHandler().saveAllBotFiles();
+        getAiEngine().saveAiMind();
     }
 
     public void loadAllFiles(){
         loadProperties();
-        botEngine.getFilesHandler().loadAllBotFiles();
-        botEngine.getAiEngine().loadAiMind();
+        discEngine.getFilesHandler().loadAllBotFiles();
+        getAiEngine().loadAiMind();
     }
 
     private void loadAllFiles(boolean loadProperties){
         if(loadProperties)loadProperties();
-        botEngine.getFilesHandler().loadAllBotFiles();
-        botEngine.getAiEngine().loadAiMind();
+        discEngine.getFilesHandler().loadAllBotFiles();
+        getAiEngine().loadAiMind();
     }
 
     private void safeProperties(){
@@ -102,8 +104,8 @@ public class Engine {
         return fileUtils;
     }
 
-    public BotApplicationEngine getBotEngine() {
-        return botEngine;
+    public DiscApplicationEngine getDiscEngine() {
+        return discEngine;
     }
 
     public ViewEngine getViewEngine() {
@@ -112,5 +114,9 @@ public class Engine {
 
     public UtilityBase getUtilityBase() {
         return utilityBase;
+    }
+
+    public AiEngine getAiEngine() {
+        return aiEngine;
     }
 }

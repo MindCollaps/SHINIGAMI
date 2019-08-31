@@ -29,7 +29,7 @@ public class DiscUtilityBase {
         if (hasPermission) {
             return true;
         } else {
-            engine.getBotEngine().getTextUtils().sendError("Du hast keine berechtigung um diesen command auzuführen!", textChannel, engine.getProperties().getMiddleTime(), true);
+            engine.getDiscEngine().getTextUtils().sendError("Du hast keine berechtigung um diesen command auzuführen!", textChannel, engine.getProperties().getMiddleTime(), true);
             return false;
         }
     }
@@ -39,7 +39,7 @@ public class DiscUtilityBase {
 
         if (server == null) {
             try {
-                server = engine.getBotEngine().getFilesHandler().createNewServer(event.getGuild());
+                server = engine.getDiscEngine().getFilesHandler().createNewServer(event.getGuild());
             } catch (Exception e) {
                 System.out.println("Fatal error in ServerMessageListener.sendOwnCommand()---server cant load!!!");
             }
@@ -47,7 +47,7 @@ public class DiscUtilityBase {
 
         if (user == null) {
             try {
-                user = engine.getBotEngine().getFilesHandler().createNewUser(event.getAuthor());
+                user = engine.getDiscEngine().getFilesHandler().createNewUser(event.getAuthor());
             } catch (Exception e) {
                 System.out.println("Fatal error in ServerMessageListener.sendOwnCommand()---user cant load!!!");
             }
@@ -55,17 +55,17 @@ public class DiscUtilityBase {
 
         if (ownCommand == null || ownCommand.equalsIgnoreCase("")) {
             try {
-                engine.getBotEngine().getDiscCommandHandler().handleServerCommand(engine.getBotEngine().getDiscCommandParser().parseServerMessage(event.getMessage().getContentRaw(), event, server, user, engine));
+                engine.getDiscEngine().getDiscCommandHandler().handleServerCommand(engine.getDiscEngine().getDiscCommandParser().parseServerMessage(event.getMessage().getContentRaw(), event, server, user, engine));
             } catch (Exception e) {
-                engine.getBotEngine().getTextUtils().sendError("Fatal command error on command: " + event.getMessage().getContentRaw(), event.getChannel(), true);
+                engine.getDiscEngine().getTextUtils().sendError("Fatal command error on command: " + event.getMessage().getContentRaw(), event.getChannel(), true);
                 engine.getUtilityBase().printDebug("-----\n[Send server command failed]\n-----");
                 e.printStackTrace();
             }
         } else {
             try {
-                engine.getBotEngine().getDiscCommandHandler().handleServerCommand(engine.getBotEngine().getDiscCommandParser().parseServerMessage(ownCommand, event, server, user, engine));
+                engine.getDiscEngine().getDiscCommandHandler().handleServerCommand(engine.getDiscEngine().getDiscCommandParser().parseServerMessage(ownCommand, event, server, user, engine));
             } catch (Exception e) {
-                engine.getBotEngine().getTextUtils().sendError("Fatal command error on command: " + event.getMessage().getContentRaw(), event.getChannel(), true);
+                engine.getDiscEngine().getTextUtils().sendError("Fatal command error on command: " + event.getMessage().getContentRaw(), event.getChannel(), true);
                 engine.getUtilityBase().printDebug("-----\n[Send server command failed]\n-----");
                 e.printStackTrace();
             }
@@ -83,20 +83,20 @@ public class DiscUtilityBase {
         DiscApplicationServer server = null;
 
         try {
-            server = engine.getBotEngine().getFilesHandler().getServerById(event.getGuild().getId());
+            server = engine.getDiscEngine().getFilesHandler().getServerById(event.getGuild().getId());
         } catch (Exception e) {
             engine.getUtilityBase().printDebug("![Ai Engine] " + event.getGuild().getId() + " Server not found!");
         }
 
         try {
-            user = engine.getBotEngine().getFilesHandler().getUserById(event.getAuthor().getId());
+            user = engine.getDiscEngine().getFilesHandler().getUserById(event.getAuthor().getId());
         } catch (Exception e) {
             engine.getUtilityBase().printDebug("![Ai Engine] " + event.getAuthor().getId() + " User not found!");
         }
 
         if (server == null) {
             try {
-                server = engine.getBotEngine().getFilesHandler().createNewServer(event.getGuild());
+                server = engine.getDiscEngine().getFilesHandler().createNewServer(event.getGuild());
             } catch (Exception e) {
                 System.out.println("Fatal error in ServerMessageListener.sendOwnCommand()---server cant load!!!");
             }
@@ -104,15 +104,15 @@ public class DiscUtilityBase {
 
         if (user == null) {
             try {
-                user = engine.getBotEngine().getFilesHandler().createNewUser(event.getAuthor());
+                user = engine.getDiscEngine().getFilesHandler().createNewUser(event.getAuthor());
             } catch (Exception e) {
                 System.out.println("Fatal error in ServerMessageListener.sendOwnCommand()---user cant load!!!");
             }
         }
         try {
-            engine.getBotEngine().getDiscCommandHandler().handleServerCommand(engine.getBotEngine().getDiscCommandParser().parseServerMessage(event.getMessage().getContentRaw(), event, server, user, engine));
+            engine.getDiscEngine().getDiscCommandHandler().handleServerCommand(engine.getDiscEngine().getDiscCommandParser().parseServerMessage(event.getMessage().getContentRaw(), event, server, user, engine));
         } catch (Exception e) {
-            engine.getBotEngine().getTextUtils().sendError("Fatal command error on command: " + event.getMessage().getContentRaw(), event.getChannel(), true);
+            engine.getDiscEngine().getTextUtils().sendError("Fatal command error on command: " + event.getMessage().getContentRaw(), event.getChannel(), true);
             engine.getUtilityBase().printDebug("-----\n[Send server command failed]\n-----");
             e.printStackTrace();
         }

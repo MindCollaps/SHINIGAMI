@@ -80,10 +80,10 @@ public class TrackManager extends AudioEventAdapter {
         }
         if (server.isMusicListenerEnabled()) {
             try {
-                engine.getBotEngine().getTextUtils().sendNewMusicInfo(info.getTrack().getInfo().uri, event.getGuild().getTextChannelsByName(server.getMusicListenerName(), true).get(0), engine.getProperties().getVeryLongTime(), track.getInfo().title, server);
+                engine.getDiscEngine().getTextUtils().sendNewMusicInfo(info.getTrack().getInfo().uri, event.getGuild().getTextChannelsByName(server.getMusicListenerName(), true).get(0), engine.getProperties().getVeryLongTime(), track.getInfo().title, server);
             } catch (Exception e) {
                 System.out.println("[on track start] chanel not found error!");
-                engine.getBotEngine().getTextUtils().sendError("Der Benutze den **" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokePreverences() + "** command um alle nötigen Chanels zu erstellen! Oder schalte diese funktion ab!", event.getChannel(), engine.getProperties().getVeryLongTime(), true);
+                engine.getDiscEngine().getTextUtils().sendError("Der Benutze den **" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokePreverences() + "** command um alle nötigen Chanels zu erstellen! Oder schalte diese funktion ab!", event.getChannel(), engine.getProperties().getVeryLongTime(), true);
             }
         }
         System.out.println("Now Playing " + track.getInfo().title);

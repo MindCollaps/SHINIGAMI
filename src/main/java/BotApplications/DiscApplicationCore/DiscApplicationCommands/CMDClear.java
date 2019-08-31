@@ -13,14 +13,14 @@ import java.util.List;
 public class CMDClear implements Command {
     @Override
     public boolean calledServer(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
-        return engine.getBotEngine().getUtilityBase().userHasGuildAdminPermission(event.getMember(), event.getGuild(), event.getChannel());
+        return engine.getDiscEngine().getUtilityBase().userHasGuildAdminPermission(event.getMember(), event.getGuild(), event.getChannel());
     }
 
     @Override
     public void actionServer(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
         int numb = getInt(args[0]);
         if (args.length < 1) {
-            engine.getBotEngine().getTextUtils().sendError("Please enter a number of messages you want to delete!", event.getChannel(), true);
+            engine.getDiscEngine().getTextUtils().sendError("Please enter a number of messages you want to delete!", event.getChannel(), true);
         }
         if (numb > 1 && numb <= 1000) {
             try {
@@ -36,12 +36,12 @@ public class CMDClear implements Command {
                     event.getChannel().deleteMessages(msgs).queue();
                 } catch (Exception ignored){
                 }
-                engine.getBotEngine().getTextUtils().sendSucces("Erfolgreich "+ numb + " Nachrichten gelöscht!", event.getChannel(), engine.getProperties().getMiddleTime());
+                engine.getDiscEngine().getTextUtils().sendSucces("Erfolgreich "+ numb + " Nachrichten gelöscht!", event.getChannel(), engine.getProperties().getMiddleTime());
 
             } catch (Exception e) {
             }
         } else {
-            engine.getBotEngine().getTextUtils().sendError("please enter a number of messages between 2 and 1000!", event.getChannel(), true);
+            engine.getDiscEngine().getTextUtils().sendError("please enter a number of messages between 2 and 1000!", event.getChannel(), true);
         }
     }
 

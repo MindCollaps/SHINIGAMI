@@ -55,10 +55,10 @@ public class HomeController extends Controller implements Initializable {
         buttonStartBot.setImage(startBotState1);
         runAnimation.setVisible(false);
         buttonStartBot.setOnMouseClicked(event -> {
-            if(engine.getBotEngine().isBotApplicationRunning()){
-                engine.getBotEngine().shutdownBotApplication();
+            if(engine.getDiscEngine().isBotApplicationRunning()){
+                engine.getDiscEngine().shutdownBotApplication();
             } else {
-                engine.getBotEngine().startBotApplication();
+                engine.getDiscEngine().startBotApplication();
             }
         });
     }
@@ -90,12 +90,12 @@ public class HomeController extends Controller implements Initializable {
 
     @FXML
     private void onStartClicked(ActionEvent actionEvent) {
-        engine.getBotEngine().startBotApplication();
+        engine.getDiscEngine().startBotApplication();
     }
 
     @FXML
     private void onRestartClicked(ActionEvent actionEvent) {
-        engine.getBotEngine().rebootBotApplication();
+        engine.getDiscEngine().rebootBotApplication();
     }
 
     @FXML
@@ -112,7 +112,7 @@ public class HomeController extends Controller implements Initializable {
 
     @FXML
     private void onStopClicked(ActionEvent actionEvent) {
-        engine.getBotEngine().shutdownBotApplication();
+        engine.getDiscEngine().shutdownBotApplication();
     }
 
     @FXML
@@ -139,7 +139,7 @@ public class HomeController extends Controller implements Initializable {
         String command = commandInputLine.getText();
         commandInputLine.setText("");
         addCommandLine(command, true);
-        engine.getConsoleCommandHandler().handleConsoleCommand(command.split(" "));
+        engine.getConsoleCommandHandler().handleConsoleCommand(command);
     }
 
     public void addCommandLine(String text, boolean fromUser) {
@@ -162,7 +162,7 @@ public class HomeController extends Controller implements Initializable {
     }
 
     public void updateStartStopButton(){
-        if(!engine.getBotEngine().isBotApplicationRunning()){
+        if(!engine.getDiscEngine().isBotApplicationRunning()){
             buttonStartBot.setImage(startBotState1);
             runAnimation.setVisible(false);
         } else {

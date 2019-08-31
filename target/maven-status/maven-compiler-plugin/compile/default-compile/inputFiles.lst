@@ -7,7 +7,6 @@ C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\BotAiCore\Libr
 C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\SceneCore\ScenesController\HomeController.java
 C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\BotApplications\DiscApplicationCore\DiscApplicationFiles\DiscApplicationUser.java
 C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\BotApplications\DiscApplicationCore\DiscApplicationFiles\DiscApplicationFilesHandler.java
-C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\Engines\BotApplicationEngine.java
 C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\BotApplications\DiscApplicationCore\DiscCommandParser.java
 C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\BotApplications\DiscApplicationCore\Utils\DiscUtilityBase.java
 C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\Engines\Engine.java
@@ -17,6 +16,7 @@ C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\BotApplication
 C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\BotApplications\DiscApplicationCore\DiscApplicationCommands\CMDClear.java
 C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\SceneCore\AllertBox.java
 C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\Utils\UtilityBase.java
+C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\Engines\DiscApplicationEngine.java
 C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\BotApplications\DiscApplicationCore\DiscApplicationCommands\CMDMusic.java
 C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\SceneCore\MoveListener.java
 C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\java\Utils\MESSAGES.java

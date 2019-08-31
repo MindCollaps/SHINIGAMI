@@ -77,7 +77,7 @@ public class MindEditorController extends Controller implements Initializable {
     @FXML
     private void onSavedClicked(ActionEvent actionEvent) {
         try {
-            engine.getBotEngine().getAiEngine().setAiCommands(saveContent());
+            engine.getAiEngine().setAiCommands(saveContent());
         } catch (Exception e) {
             return;
         }
@@ -108,7 +108,7 @@ public class MindEditorController extends Controller implements Initializable {
     @FXML
     private void onCloseClicked(MouseEvent mouseEvent) {
         try {
-            engine.getBotEngine().getAiEngine().setAiCommands(saveContent());
+            engine.getAiEngine().setAiCommands(saveContent());
         } catch (Exception e) {
             return;
         }
@@ -117,6 +117,10 @@ public class MindEditorController extends Controller implements Initializable {
 
     @FXML
     private void onSavedWithoutAsClicked(ActionEvent actionEvent) {
+        int result = new AllertBox(null, Modality.APPLICATION_MODAL, engine).displayEvenOd("Are you sure you don´t want to save the created files?", "Are u sure about that?", "yes, close", "no, save", false);
+        if(result==1){
+            onSavedClicked(null);
+        }
         engine.getViewEngine().closeMindEditor();
     }
 
