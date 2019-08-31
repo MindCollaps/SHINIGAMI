@@ -48,10 +48,10 @@
         </MenuBar>
         <AnchorPane layoutX="8.0" layoutY="37.0" maxHeight="-1.0" maxWidth="-1.0" prefHeight="450.0" prefWidth="608.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
             <children>
-                <TextArea fx:id="commandOutputLine" editable="false" layoutX="104.0" layoutY="100.0" prefHeight="200.0" prefWidth="432.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="105.0" />
-                <TextField fx:id="commandInputLine" layoutX="177.0" layoutY="332.0" onKeyPressed="#onCommandLineKeyPressed" prefHeight="27.0" prefWidth="296.0" />
-                <Button id="buttonGreen" layoutX="483.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#onSendClicked" prefHeight="25.0" prefWidth="53.0" text="Send" />
-            <ImageView fx:id="buttonStartBot" blendMode="ADD" fitHeight="60.0" fitWidth="60.0" layoutX="105.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true" />
+                <TextArea fx:id="commandOutputLine" editable="false" layoutX="49.0" layoutY="43.0" prefHeight="266.0" prefWidth="531.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="48.0" />
+                <TextField fx:id="commandInputLine" layoutX="122.0" layoutY="345.0" onKeyPressed="#onCommandLineKeyPressed" prefHeight="27.0" prefWidth="414.0" />
+                <Button id="buttonGreen" layoutX="550.0" layoutY="346.0" mnemonicParsing="false" onMouseClicked="#onSendClicked" prefHeight="25.0" prefWidth="53.0" text="Send" />
+            <ImageView fx:id="buttonStartBot" blendMode="ADD" fitHeight="60.0" fitWidth="60.0" layoutX="49.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true" />
             <ProgressIndicator fx:id="runAnimation" layoutX="576.0" layoutY="396.0" />
             </children>
         </AnchorPane>

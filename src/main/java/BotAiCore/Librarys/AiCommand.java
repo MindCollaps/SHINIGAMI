@@ -9,6 +9,31 @@ public class AiCommand implements Serializable {
     private ArrayList<AiCmdModification> modificators = new ArrayList<>();
     private ArrayList<String> humanSpellingList = new ArrayList<>();
     private String commandInvoke;
+    private commandType commandType;
+
+    public enum commandType{
+        DISCORD {
+            @Override
+            public String toString() {
+                return "discord";
+            }
+        },
+
+        TELEGRAM{
+            @Override
+            public String toString() {
+                return "telegram";
+            }
+        },
+
+        ALL{
+            @Override
+            public String toString() {
+                return "all";
+            }
+        };
+    }
+
 
     public ArrayList<AiCmdModification> getModificators() {
         return modificators;
@@ -32,5 +57,13 @@ public class AiCommand implements Serializable {
 
     public void setCommandInvoke(String commandInvoke) {
         this.commandInvoke = commandInvoke;
+    }
+
+    public AiCommand.commandType getCommandType() {
+        return commandType;
+    }
+
+    public void setCommandType(AiCommand.commandType commandType) {
+        this.commandType = commandType;
     }
 }

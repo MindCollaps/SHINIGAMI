@@ -1,5 +1,6 @@
 package Utils;
 
+import BotAiCore.Librarys.AiCommand;
 import Engines.Engine;
 
 import java.awt.*;
@@ -13,52 +14,50 @@ public class UtilityBase {
     }
 
     public Color convertStringToColor(String scolor) throws Exception{
-        System.out.println("Convert " + scolor + " to Color!");
-        Color color;
         switch (scolor) {
             case "black":
-                color = Color.BLACK;
-                break;
+                return Color.BLACK;
             case "blue":
-                color = Color.BLUE;
-                break;
+                return Color.BLUE;
             case "cyan":
-                color = Color.CYAN;
-                break;
+                return Color.CYAN;
             case "dark_gray":
-                color = Color.DARK_GRAY;
-                break;
+                return Color.DARK_GRAY;
             case "gray":
-                color = Color.GRAY;
-                break;
+                return Color.GRAY;
             case "green":
-                color = Color.GREEN;
-                break;
+                return Color.GREEN;
             case "light_gray":
-                color = Color.LIGHT_GRAY;
-                break;
+                return Color.LIGHT_GRAY;
             case "magenta":
-                color = Color.MAGENTA;
-                break;
+                return Color.MAGENTA;
             case "orange":
-                color = Color.ORANGE;
-                break;
+                return Color.ORANGE;
             case "pink":
-                color = Color.PINK;
-                break;
+                return Color.PINK;
             case "red":
-                color = Color.RED;
-                break;
+                return Color.RED;
             case "white":
-                color = Color.WHITE;
-                break;
+                return Color.WHITE;
             case "yellow":
-                color = Color.YELLOW;
-                break;
-            default:
-                throw new Exception("Color doesn't exist");
+                return Color.YELLOW;
         }
-        return color;
+        throw new Exception("Color doesn't exist");
+    }
+
+    public AiCommand.commandType convertStringToCommandType(String s) throws Exception{
+        switch (s.toLowerCase()){
+            case "discord":
+                return AiCommand.commandType.DISCORD;
+
+            case "telegram":
+                return AiCommand.commandType.TELEGRAM;
+
+            case "all":
+                return AiCommand.commandType.ALL;
+
+        }
+        throw new Exception("Color doesn't exist");
     }
 
     public void printDebug(String message){

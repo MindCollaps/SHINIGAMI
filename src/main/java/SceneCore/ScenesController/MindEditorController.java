@@ -16,8 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
@@ -77,7 +76,11 @@ public class MindEditorController extends Controller implements Initializable {
 
     @FXML
     private void onSavedClicked(ActionEvent actionEvent) {
-        engine.getBotEngine().getAiEngine().setAiCommands(saveContent());
+        try {
+            engine.getBotEngine().getAiEngine().setAiCommands(saveContent());
+        } catch (Exception e) {
+            return;
+        }
     }
 
     @FXML
@@ -89,7 +92,7 @@ public class MindEditorController extends Controller implements Initializable {
         try {
             path = fileChooser.showSaveDialog(primaryStage).getAbsolutePath();
         } catch (Exception e) {
-            new AllertBox(null, Modality.APPLICATION_MODAL, engine).displayMessage("Error", "Please select a validt path!", "ok", "buttonBlue", false);
+            new AllertBox(null, Modality.APPLICATION_MODAL, engine).displayMessage("Error", "Please select a valid path!", "ok", "buttonBlue", false);
             return;
         }
         saveContentAs(path);
@@ -104,7 +107,11 @@ public class MindEditorController extends Controller implements Initializable {
 
     @FXML
     private void onCloseClicked(MouseEvent mouseEvent) {
-        engine.getBotEngine().getAiEngine().setAiCommands(saveContent());
+        try {
+            engine.getBotEngine().getAiEngine().setAiCommands(saveContent());
+        } catch (Exception e) {
+            return;
+        }
         engine.getViewEngine().closeMindEditor();
     }
 
@@ -124,6 +131,10 @@ public class MindEditorController extends Controller implements Initializable {
             current = listOfCommands.get(i);
 
             commandLine.setTxtCommandInvoke(current.getCommandInvoke());
+            try {
+                commandLine.setTxtCommandType(current.getCommandType().toString());
+            } catch (Exception ignore){
+            }
 
             for (int j = 0; j < current.getHumanSpellingList().size(); j++) {
                 if(commandLine.getTxtCommandHumanSpelling().equals("")){
@@ -178,44 +189,39 @@ public class MindEditorController extends Controller implements Initializable {
         updateContent(commands);
     }
 
-    public ArrayList<AiCommand> saveContent() {
-        AiCommand current = new AiCommand();
+    public ArrayList<AiCommand> saveContent() throws Exception{
         ArrayList<AiCommand> returnValue = new ArrayList<>();
-        CommandsLine commandLine;
-        String[] commandHuman;
-
-        ModsLine modLine;
-        String[] modHuman;
-        ArrayList<String> modHumanArray;
-        AiCmdModification modification = null;
-
-        AnswersLine answerLine;
-        AiCmdModAnswer answer = null;
-        String[] answers;
 
         for (int i = 0; i < commandsLines.size(); i++) {
-            commandLine = commandsLines.get(i);
+            AiCommand current = new AiCommand();
+            CommandsLine commandLine = commandsLines.get(i);
             current.setCommandInvoke(commandLine.getTxtCommandInvoke());
-            commandHuman = commandLine.getTxtCommandHumanSpelling().split("\n");
+            String[] commandHuman = commandLine.getTxtCommandHumanSpelling().split("\n");
             ArrayList<String> commandHumanArray = new ArrayList<>();
             commandHumanArray.addAll(Arrays.asList(commandHuman));
             current.setHumanSpellingList(commandHumanArray);
+            try {
+                current.setCommandType(engine.getUtilityBase().convertStringToCommandType(commandLine.getTxtCommandType()));
+            } catch (Exception e) {
+                new AllertBox(null, Modality.APPLICATION_MODAL, engine).displayMessage("Error", "The Command Type for command (" + current.getCommandInvoke() + ") is invalid!", "ok", "buttonGreen", false);
+                throw new Exception("Command type invalid!");
+            }
 
-            for (int j = 0; j < commandsLines.get(i).getModsLines().size(); j++) {
-                modLine = commandsLines.get(i).getModsLines().get(j);
-                modification = new AiCmdModification();
+            for (int j = 0; j < commandLine.getModsLines().size(); j++) {
+                ModsLine modLine = commandLine.getModsLines().get(j);
+                AiCmdModification modification = new AiCmdModification();
                 modification.setInvoke(modLine.getTxtModInvoke());
                 ArrayList<String> modificationHumanArray = new ArrayList<>();
-                modHuman = modLine.getTxtModHumanSpelling().split("\n");
+                String[] modHuman = modLine.getTxtModHumanSpelling().split("\n");
                 modificationHumanArray.addAll(Arrays.asList(modHuman));
                 modification.setHumanSpellingList(modificationHumanArray);
 
-                for (int k = 0; k < commandsLines.get(i).getModsLines().get(j).getAnswersLines().size(); k++) {
-                    answerLine = commandsLines.get(i).getModsLines().get(j).getAnswersLines().get(k);
-                    answer = new AiCmdModAnswer();
+                for (int k = 0; k < modLine.getAnswersLines().size(); k++) {
+                    AnswersLine answerLine = modLine.getAnswersLines().get(k);
+                    AiCmdModAnswer answer = new AiCmdModAnswer();
                     answer.setEmoteLevel(answerLine.getTxtAnswerEmotes());
                     ArrayList<String> answersArray = new ArrayList<>();
-                    answers = answerLine.getTxtAnswers().split("\n");
+                    String[] answers = answerLine.getTxtAnswers().split("\n");
                     answersArray.addAll(Arrays.asList(answers));
                     answer.setAnswers(answersArray);
 
@@ -241,7 +247,12 @@ public class MindEditorController extends Controller implements Initializable {
     }
 
     public void saveContentAs(String path) {
-        ArrayList<AiCommand> aiCommands = saveContent();
+        ArrayList<AiCommand> aiCommands = null;
+        try {
+            aiCommands = saveContent();
+        } catch (Exception e) {
+            return;
+        }
         engine.getFileUtils().saveOject(path, aiCommands);
 }
 
@@ -252,6 +263,7 @@ public class MindEditorController extends Controller implements Initializable {
         private AnchorPane mainPane;
         private TextArea txtCommandHumanSpelling;
         private TextField txtCommandInvoke;
+        private TextField txtCommandType;
         private Button buttonAddMod;
         private Button buttonDeleteCommand;
         private VBox vBoxMods;
@@ -275,6 +287,7 @@ public class MindEditorController extends Controller implements Initializable {
             txtCommandHumanSpelling = (TextArea) mainPane.lookup("#txtCommandHumanSpelling");
             buttonAddMod = (Button) mainPane.lookup("#buttonGreen");
             txtCommandInvoke = (TextField) mainPane.lookup("#txtCommandInvoke");
+            txtCommandType = (TextField) mainPane.lookup("#txtCommandType");
             buttonDeleteCommand = (Button) mainPane.lookup("#buttonRed");
             scrollPane = (ScrollPane) mainPane.lookup("#scrollPane");
             vBoxMods = (VBox)scrollPane.contentProperty().get();
@@ -329,6 +342,14 @@ public class MindEditorController extends Controller implements Initializable {
 
         public VBox getvBoxMods() {
             return vBoxMods;
+        }
+
+        public String getTxtCommandType() {
+            return txtCommandType.getText();
+        }
+
+        public void setTxtCommandType(String txtCommandType) {
+            this.txtCommandType.setText(txtCommandType);
         }
     }
 

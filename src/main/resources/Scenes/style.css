@@ -83,7 +83,7 @@ TextField{
     -fx-background-color: "#42424288";
 }
 
-.scroll-bar, scroll-pane, .scroll-pane > .viewport{
+.scroll-bar, scroll-pane, .scroll-pane > .viewport, .scroll-pane > .corner{
     -fx-background-color: transparent;
 }
 

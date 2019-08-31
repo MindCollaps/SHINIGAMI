@@ -3,8 +3,8 @@ package Engines;
 import BotAiCore.Librarys.AiCmdModAnswer;
 import BotAiCore.Librarys.AiCmdModification;
 import BotAiCore.Librarys.AiCommand;
-import BotApplicationCore.BotApplicationFiles.BotApplicationServer;
-import BotApplicationCore.BotApplicationFiles.BotApplicationUser;
+import BotApplications.DiscApplicationCore.DiscApplicationFiles.DiscApplicationServer;
+import BotApplications.DiscApplicationCore.DiscApplicationFiles.DiscApplicationUser;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
@@ -22,48 +22,24 @@ public class AiEngine {
         this.engine = engine;
     }
 
+    //per discord
     public void runAi(GuildMessageReceivedEvent event) {
-        exCommand = true;
-        String rawMessage = event.getMessage().getContentRaw();
-        if (engine.getBotEngine().isDebugAi()) System.out.println("-----\n!!![Ai Engine] starts with operation\n");
-        CommandSearchReturnValue command = new CommandSearchReturnValue(null, -1, false);
-        ModificationSearchReturnValue modification = null;
-
-        while (!command.completelyDone) {
-            try {
-                command = analyzeTextForCommand(rawMessage, command.foundInt + 1);
-            } catch (Exception e) {
-                if (engine.getBotEngine().isDebugAi())
-                    System.out.println("\n!!![Ai Engine] done with operation...result: command can't found \n-----");
-                return;
-            }
-            if (engine.getBotEngine().isDebugAi())
-                System.out.println("!---[Ai Engine] found matching command: " + command.command.getCommandInvoke() + "\n");
-            try {
-                modification = analyzeTextForCadModification(command.command, rawMessage);
-                if (engine.getBotEngine().isDebugAi())
-                    System.out.println("!--[Ai Engine] found matching command modification for command: " + command.command.getCommandInvoke() + " mod: " + modification.modification.getInvoke() + "\n");
-                break;
-            } catch (Exception e) {
-                if (engine.getBotEngine().isDebugAi())
-                    System.out.println("!--[Ai Engine] cant found matching modification for command: " + command.command.getCommandInvoke() + "\n");
-            }
+        AnalyzeTextReturnValue returnValue;
+        try {
+            returnValue = analyzeText(event.getMessage().getContentRaw(), AiCommand.commandType.DISCORD);
+        } catch (Exception e) {
+            return;
         }
 
-        String behind = "";
-        try {
-            behind = getBehindCommand(rawMessage, command.foundInt, modification.foundInt);
-        } catch (Exception e) {
-            System.err.println("!!![Ai Engine] error in finding stuff behind command lol");
-        }
+        DiscApplicationServer server = null;
+        DiscApplicationUser user = null;
 
-        BotApplicationUser user = null;
-        BotApplicationServer server = null;
-
-        try {
-            server = engine.getBotEngine().getFilesHandler().getServerById(event.getGuild().getId());
-        } catch (Exception e) {
-            engine.getUtilityBase().printDebug("![Ai Engine] " + event.getGuild().getId() + " Server not found!");
+        if (exCommand) {
+            try {
+                server = engine.getBotEngine().getFilesHandler().getServerById(event.getGuild().getId());
+            } catch (Exception e) {
+                engine.getUtilityBase().printDebug("![Ai Engine] " + event.getGuild().getId() + " Server not found!");
+            }
         }
 
         try {
@@ -72,18 +48,72 @@ public class AiEngine {
             engine.getUtilityBase().printDebug("![Ai Engine] " + event.getAuthor().getId() + " User not found!");
         }
 
-        String commandToExecute = engine.getProperties().getBotApplicationPrefix() + command.command.getCommandInvoke() + " " + modification.modification.getInvoke() + " " + behind;
+        String commandToExecute = engine.getProperties().getBotApplicationPrefix() + returnValue.command.getCommandInvoke() + " " + returnValue.modification.getInvoke() + " " + returnValue.behind;
 
         try {
-            talk(modification.modification.getAnswers(), event, user, behind);
+            talk(returnValue.modification.getAnswers(), event, user, returnValue.behind);
         } catch (Exception e) {
-            if (engine.getBotEngine().isDebugAi())
-                System.out.println("!!![Ai Engine] Ai had error in talk segment!");
         }
 
-        if (command.command.getCommandInvoke().toLowerCase().startsWith("talk")) exCommand = false;
-
         if (exCommand) runCommand(commandToExecute, event, user, server);
+    }
+
+    public void runAi(String message) {
+        AnalyzeTextReturnValue returnValue;
+        try {
+            returnValue = analyzeText(message, AiCommand.commandType.ALL);
+        } catch (Exception e) {
+            return;
+        }
+
+        try {
+            talk(returnValue.modification.getAnswers(), returnValue.behind, 0);
+        } catch (Exception e) {
+        }
+    }
+
+    private AnalyzeTextReturnValue analyzeText(String rawMessage, AiCommand.commandType commandType) throws Exception {
+        exCommand = true;
+        if (engine.getBotEngine().isDebugAi()) System.out.println("-----\n!!![Ai Engine] starts with operation\n");
+        CommandSearchReturnValue commandSearchReturnValue = new CommandSearchReturnValue();
+        ModificationSearchReturnValue modificationSearchReturnValue = null;
+
+        while (!commandSearchReturnValue.completelyDone) {
+            try {
+                commandSearchReturnValue = analyzeTextForCommand(rawMessage, commandType);
+            } catch (Exception e) {
+                if (engine.getBotEngine().isDebugAi())
+                    System.out.println("\n!!![Ai Engine] done with operation...result: command cant found!\n----!");
+                throw new Exception("command cant found!");
+            }
+            if (engine.getBotEngine().isDebugAi())
+                System.out.println("!---[Ai Engine] found matching command: " + commandSearchReturnValue.command.getCommandInvoke() + "\n");
+            try {
+                modificationSearchReturnValue = analyzeTextForCadModification(commandSearchReturnValue.command, rawMessage);
+                if (engine.getBotEngine().isDebugAi())
+                    System.out.println("!--[Ai Engine] found matching command modification for command: " + commandSearchReturnValue.command.getCommandInvoke() + " mod: " + modificationSearchReturnValue.modification.getInvoke() + "\n");
+                break;
+            } catch (Exception e) {
+                if (engine.getBotEngine().isDebugAi())
+                    System.out.println("!--[Ai Engine] cant found matching modification for command: " + commandSearchReturnValue.command.getCommandInvoke() + "\n");
+            }
+            if (commandSearchReturnValue.completelyDone) {
+                if (engine.getBotEngine().isDebugAi())
+                    System.out.println("\n!!![Ai Engine] done with operation...result: command cant found!\n----!");
+                throw new Exception("command cant found!");
+            }
+        }
+
+        String behind = "";
+        try {
+            behind = getBehindCommand(rawMessage, commandSearchReturnValue.foundInt, modificationSearchReturnValue.foundInt);
+        } catch (Exception e) {
+            System.err.println("!!![Ai Engine] error in finding stuff behind command lol");
+        }
+
+        if (commandSearchReturnValue.command.getCommandInvoke().toLowerCase().startsWith("talk")) exCommand = false;
+
+        return new AnalyzeTextReturnValue(commandSearchReturnValue.command, modificationSearchReturnValue.modification, behind);
     }
 
     private String getBehindCommand(String text, int commandSearchResult, int modificationSearchResult) throws Exception {
@@ -103,29 +133,33 @@ public class AiEngine {
         return result;
     }
 
-    private CommandSearchReturnValue analyzeTextForCommand(String analyzeText, int start) throws Exception {
+    private CommandSearchReturnValue analyzeTextForCommand(String analyzeText, AiCommand.commandType commandType) throws Exception {
         if (engine.getBotEngine().isDebugAi())
-            System.out.println("!---[Ai Engine] Ai starts with analyzing: analyze text for command");
+            System.out.println("!---[Ai Engine] Ai starts with analyzing: analyze text for command\n");
         AiCommand command;
         String[] messageToAnalyze = analyzeText.split(" ");
         int result = -100;
         for (int i = 0; i < messageToAnalyze.length; i++) {
             if (engine.getBotEngine().isDebugAi())
-                System.out.println("---[Ai Engine] analyze message part: " + messageToAnalyze[i]);
-            for (int j = start; j < aiCommands.size(); j++) {
+                System.out.println("---[Ai Engine] -- analyze message part: " + messageToAnalyze[i] + " --");
+            for (int j = 0; j < aiCommands.size(); j++) {
+                command = aiCommands.get(j);
+                if (!command.getCommandType().equals(commandType)){
+                    if(!command.getCommandType().equals(AiCommand.commandType.ALL)){
+                        continue;
+                    }
+                }
                 if (engine.getBotEngine().isDebugAi())
                     System.out.println("---[Ai Engine] compare message with command: " + aiCommands.get(j).getCommandInvoke());
-                result = containsStartWith(aiCommands.get(j).getHumanSpellingList(), messageToAnalyze[i]);
+                result = containsStartWith(command.getHumanSpellingList(), messageToAnalyze[i]);
                 if (result == -1) {
                     if (engine.getBotEngine().isDebugAi())
                         System.out.println("---[Ai Engine] can not find match in command: " + aiCommands.get(j).getCommandInvoke() + "\n");
-                    break;
                 } else {
-                    command = aiCommands.get(j);
-                    if (aiCommands.size() == j) {
-                        return new CommandSearchReturnValue(command, i, true);
+                    if (aiCommands.size() == j + 1) {
+                        return new CommandSearchReturnValue().init(command, i, true);
                     } else {
-                        return new CommandSearchReturnValue(command, i, false);
+                        return new CommandSearchReturnValue().init(command, i, false);
                     }
                 }
             }
@@ -135,7 +169,7 @@ public class AiEngine {
 
     private int containsStartWith(ArrayList<String> list, String stringCompare) {
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).toLowerCase().contains(stringCompare.toLowerCase())) {
+            if (stringCompare.toLowerCase().contains(list.get(i).toLowerCase())) {
                 return i;
             }
         }
@@ -144,13 +178,13 @@ public class AiEngine {
 
     private ModificationSearchReturnValue analyzeTextForCadModification(AiCommand command, String messageToAnalyze) throws Exception {
         if (engine.getBotEngine().isDebugAi())
-            System.out.println("!--[Ai Engine] Ai starts with analyzing: analyze text for command modification");
+            System.out.println("!--[Ai Engine] Ai starts with analyzing: analyze text for command modification\n");
         String[] messageToAnalyzeArray = messageToAnalyze.split(" ");
         AiCmdModification modification;
         int result = -100;
         for (int i = 0; i < messageToAnalyzeArray.length; i++) {
             if (engine.getBotEngine().isDebugAi())
-                System.out.println("--[Ai Engine] analyze message part: " + messageToAnalyzeArray[i]);
+                System.out.println("--[Ai Engine] -- analyze message part: " + messageToAnalyzeArray[i] + " --");
             for (int j = 0; j < command.getModificators().size(); j++) {
                 modification = command.getModificators().get(j);
                 result = containsStartWith(modification.getHumanSpellingList(), messageToAnalyzeArray[i]);
@@ -167,7 +201,7 @@ public class AiEngine {
         throw new Exception("[Ai Engine] cant found any matching modification!");
     }
 
-    private void talk(ArrayList<AiCmdModAnswer> answers, GuildMessageReceivedEvent event, BotApplicationUser user, String behind) throws Exception {
+    private void talk(ArrayList<AiCmdModAnswer> answers, GuildMessageReceivedEvent event, DiscApplicationUser user, String behind) throws Exception {
         if (engine.getBotEngine().isDebugAi())
             System.out.println("-![Ai Engine] start talking!");
         AiCmdModAnswer current;
@@ -178,52 +212,57 @@ public class AiEngine {
             emotes.addAll(Arrays.asList(current.getEmoteLevel().split(",")));
             if (emotes.contains(user.getEmoteLevel()) || current.getEmoteLevel().equalsIgnoreCase("all")) {
                 String randomMessage = current.getAnswers().get(ThreadLocalRandom.current().nextInt(0, current.getAnswers().size()));
-                event.getChannel().sendMessage(buildMessage(randomMessage, user, behind).build()).complete();
+                event.getChannel().sendMessage(buildDiscordMessage(randomMessage, user, behind).build()).complete();
                 return;
             }
         }
+        if (engine.getBotEngine().isDebugAi())
+            System.out.println("!!![Ai Engine] Ai had error in talk segment!");
         throw new Exception("no valid emote level found!");
     }
 
-    private EmbedBuilder buildMessage(String answer, BotApplicationUser user, String behind) {
+    private String talk(ArrayList<AiCmdModAnswer> answers, String behind, int emotelv) throws Exception {
+        if (engine.getBotEngine().isDebugAi())
+            System.out.println("-![Ai Engine] start talking!");
+
+        AiCmdModAnswer current;
+        ArrayList emotes;
+        for (int i = 0; i < answers.size(); i++) {
+            current = answers.get(i);
+            emotes = new ArrayList<>();
+            emotes.addAll(Arrays.asList(current.getEmoteLevel().split(",")));
+            if (emotes.contains(emotelv) || current.getEmoteLevel().equalsIgnoreCase("all")) {
+                String randomMessage = current.getAnswers().get(ThreadLocalRandom.current().nextInt(0, current.getAnswers().size()));
+                return buildNormalMessage(randomMessage, behind);
+            }
+        }
+        if (engine.getBotEngine().isDebugAi())
+            System.out.println("!!![Ai Engine] Ai had error in talk segment!");
+        throw new Exception("no valid emote level found!");
+    }
+
+    private String buildNormalMessage(String answer, String behind) {
         String[] msgParts = answer.split(" ");
-        EmbedBuilder builder = new EmbedBuilder();
         ArrayList skip = new ArrayList();
         for (int i = 0; i < msgParts.length; i++) {
             if (msgParts[i].startsWith("*color.") && msgParts[i].endsWith("*")) {
                 skip.add(String.valueOf(i));
-                try {
-                    builder.setColor(engine.getUtilityBase().convertStringToColor(msgParts[i].substring(7, msgParts[i].length() - 1)));
-                } catch (Exception e) {
-                    if (engine.getBotEngine().isDebugAi()) {
-                        System.out.println("Color error");
-                    }
-                }
+                break;
             } else if (msgParts[i].startsWith("*title.") && msgParts[i].endsWith("*")) {
                 skip.add(String.valueOf(i));
-                try {
-                    builder.setTitle(msgParts[i].substring(6, msgParts[i].length() - 1).replace("_", " "));
-                } catch (Exception e) {
-                    if (engine.getBotEngine().isDebugAi()) {
-                        System.out.println("Title error");
-                    }
-                }
+                break;
             } else if (msgParts[i].startsWith("*image.") && msgParts[i].endsWith("*")) {
                 skip.add(String.valueOf(i));
-                try {
-                    builder.setImage(msgParts[i].substring(6, msgParts[i].length() - 1));
-                } catch (Exception e) {
-                    if (engine.getBotEngine().isDebugAi()) {
-                        System.out.println("image error");
-                    }
-                }
+                break;
             } else if (msgParts[i].startsWith("*ignore*")) {
                 skip.add(String.valueOf(i));
                 exCommand = false;
             } else if (msgParts[i].startsWith("*rise.") && msgParts[i].endsWith("*")) {
-                user.riseEmoteLevel(Integer.valueOf(msgParts[i].substring(5, msgParts[i].length() - 1)));
+                skip.add(String.valueOf(i));
+                break;
             } else if (msgParts[i].startsWith("*increase.") && msgParts[i].endsWith("*")) {
-                user.inceaseEmoteLevel(Integer.valueOf(msgParts[i].substring(9, msgParts[i].length() - 1)));
+                skip.add(String.valueOf(i));
+                break;
             }
         }
         String msgToSend = "";
@@ -237,13 +276,90 @@ public class AiEngine {
             if (msgParts[i].toLowerCase().startsWith("*n*")) {
                 dell = true;
                 msgToSend = msgToSend + "\n";
-            } else if (msgParts[i].toLowerCase().startsWith("*user*")) {
+            }
+            if (msgParts[i].toLowerCase().startsWith("*user*")) {
                 dell = true;
-                msgToSend = msgToSend + " " + user.getUserName();
-            } else if (msgParts[i].toLowerCase().startsWith("*modifier*")) {
+            }
+            if (msgParts[i].toLowerCase().startsWith("*modifier*")) {
                 dell = true;
                 msgToSend = msgToSend + " " + behind;
-            } else if (!dell) {
+            }
+
+            if (!dell) {
+                msgToSend = msgToSend + " " + msgParts[i];
+            }
+        }
+        return msgToSend;
+    }
+
+    private EmbedBuilder buildDiscordMessage(String answer, DiscApplicationUser user, String behind) {
+        String[] msgParts = answer.split(" ");
+        EmbedBuilder builder = new EmbedBuilder();
+        ArrayList skip = new ArrayList();
+        for (int i = 0; i < msgParts.length; i++) {
+            if (msgParts[i].startsWith("*color.") && msgParts[i].endsWith("*")) {
+                skip.add(String.valueOf(i));
+                try {
+                    builder.setColor(engine.getUtilityBase().convertStringToColor(msgParts[i].substring(7, msgParts[i].length() - 1)));
+                } catch (Exception e) {
+                    if (engine.getBotEngine().isDebugAi()) {
+                        System.out.println("Color error");
+                    }
+                }
+                break;
+            } else if (msgParts[i].startsWith("*title.") && msgParts[i].endsWith("*")) {
+                skip.add(String.valueOf(i));
+                try {
+                    builder.setTitle(msgParts[i].substring(6, msgParts[i].length() - 1).replace("_", " "));
+                } catch (Exception e) {
+                    if (engine.getBotEngine().isDebugAi()) {
+                        System.out.println("Title error");
+                    }
+                }
+                break;
+            } else if (msgParts[i].startsWith("*image.") && msgParts[i].endsWith("*")) {
+                skip.add(String.valueOf(i));
+                try {
+                    builder.setImage(msgParts[i].substring(6, msgParts[i].length() - 1));
+                } catch (Exception e) {
+                    if (engine.getBotEngine().isDebugAi()) {
+                        System.out.println("image error");
+                    }
+                }
+                break;
+            } else if (msgParts[i].startsWith("*ignore*")) {
+                skip.add(String.valueOf(i));
+                exCommand = false;
+                break;
+            } else if (msgParts[i].startsWith("*rise.") && msgParts[i].endsWith("*")) {
+                user.riseEmoteLevel(Integer.valueOf(msgParts[i].substring(5, msgParts[i].length() - 1)));
+                break;
+            } else if (msgParts[i].startsWith("*increase.") && msgParts[i].endsWith("*")) {
+                user.inceaseEmoteLevel(Integer.valueOf(msgParts[i].substring(9, msgParts[i].length() - 1)));
+                break;
+            }
+        }
+        String msgToSend = "";
+        for (int i = 0; i < msgParts.length; i++) {
+            boolean dell = false;
+            for (int j = 0; j < skip.size(); j++) {
+                if (i == Integer.valueOf((String) skip.get(j))) {
+                    dell = true;
+                }
+            }
+            if (msgParts[i].toLowerCase().startsWith("*n*")) {
+                dell = true;
+                msgToSend = msgToSend + "\n";
+            }
+            if (msgParts[i].toLowerCase().startsWith("*user*")) {
+                dell = true;
+                msgToSend = msgToSend + " " + user.getUserName();
+            }
+            if (msgParts[i].toLowerCase().startsWith("*modifier*")) {
+                dell = true;
+                msgToSend = msgToSend + " " + behind;
+            }
+            if (!dell) {
                 msgToSend = msgToSend + " " + msgParts[i];
             }
         }
@@ -251,7 +367,7 @@ public class AiEngine {
         return builder;
     }
 
-    public void analyzeMessageForEmotes(String[] message, BotApplicationUser user, String[] badEmo, String[] luckyEmo, String[] loveEmo) {
+    public void analyzeMessageForEmotes(String[] message, DiscApplicationUser user, String[] badEmo, String[] luckyEmo, String[] loveEmo) {
         if (engine.getBotEngine().isDebugAi())
             System.out.println("-![Ai Engine] scan for emotion!");
 
@@ -314,7 +430,7 @@ public class AiEngine {
         }
     }
 
-    private void runCommand(String command, GuildMessageReceivedEvent event, BotApplicationUser user, BotApplicationServer server) {
+    private void runCommand(String command, GuildMessageReceivedEvent event, DiscApplicationUser user, DiscApplicationServer server) {
         if (engine.getBotEngine().isDebugAi())
             System.out.println("\n!!![Ai Engine] done with operation...result: command send!\n-----");
         engine.getBotEngine().getUtilityBase().sendOwnCommand(event, command, user, server);
@@ -337,12 +453,25 @@ public class AiEngine {
     private class CommandSearchReturnValue {
         AiCommand command;
         int foundInt;
-        boolean completelyDone;
+        boolean completelyDone = false;
 
-        public CommandSearchReturnValue(AiCommand command, int foundInt, boolean completelyDone) {
+        public CommandSearchReturnValue init(AiCommand command, int foundInt, boolean completelyDone) {
             this.command = command;
             this.foundInt = foundInt;
             this.completelyDone = completelyDone;
+            return this;
+        }
+    }
+
+    private class AnalyzeTextReturnValue {
+        AiCommand command;
+        AiCmdModification modification;
+        String behind;
+
+        public AnalyzeTextReturnValue(AiCommand command, AiCmdModification modification, String behind) {
+            this.command = command;
+            this.modification = modification;
+            this.behind = behind;
         }
     }
 

@@ -3,14 +3,14 @@ package Engines;
 import BotAiCore.Librarys.AiCmdModAnswer;
 import BotAiCore.Librarys.AiCmdModification;
 import BotAiCore.Librarys.AiCommand;
-import BotApplicationCore.BotApplicationCommands.CMDClear;
-import BotApplicationCore.BotApplicationCommands.CMDMusic;
-import BotApplicationCore.BotApplicationFiles.BotApplicationFilesHandler;
-import BotApplicationCore.BotApplicationListeners.ServerMessageListener;
-import BotApplicationCore.BotCommandHandler;
-import BotApplicationCore.BotCommandParser;
-import BotApplicationCore.Utils.BotTextUtils;
-import BotApplicationCore.Utils.BotUtilityBase;
+import BotApplications.DiscApplicationCore.DiscApplicationCommands.CMDClear;
+import BotApplications.DiscApplicationCore.DiscApplicationCommands.CMDMusic;
+import BotApplications.DiscApplicationCore.DiscApplicationFiles.DiscApplicationFilesHandler;
+import BotApplications.DiscApplicationCore.DiscApplicationListeners.ServerMessageListener;
+import BotApplications.DiscApplicationCore.DiscCommandHandler;
+import BotApplications.DiscApplicationCore.DiscCommandParser;
+import BotApplications.DiscApplicationCore.Utils.DiscTextUtils;
+import BotApplications.DiscApplicationCore.Utils.DiscUtilityBase;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -27,12 +27,12 @@ public class BotApplicationEngine {
     private JDABuilder builder;
     private JDA botJDA;
 
-    private BotCommandHandler botCommandHandler;
-    private BotCommandParser botCommandParser;
+    private DiscCommandHandler discCommandHandler;
+    private DiscCommandParser discCommandParser;
 
-    private BotTextUtils textUtils;
-    private BotUtilityBase utilityBase;
-    private BotApplicationFilesHandler filesHandler;
+    private DiscTextUtils textUtils;
+    private DiscUtilityBase utilityBase;
+    private DiscApplicationFilesHandler filesHandler;
     private AiEngine aiEngine;
 
     boolean botApplicationRunning = false;
@@ -40,9 +40,9 @@ public class BotApplicationEngine {
 
     public BotApplicationEngine(Engine engine) {
         this.engine = engine;
-        textUtils = new BotTextUtils(engine);
-        utilityBase = new BotUtilityBase(engine);
-        filesHandler = new BotApplicationFilesHandler(engine);
+        textUtils = new DiscTextUtils(engine);
+        utilityBase = new DiscUtilityBase(engine);
+        filesHandler = new DiscApplicationFilesHandler(engine);
         aiEngine = new AiEngine(engine);
     }
 
@@ -52,8 +52,8 @@ public class BotApplicationEngine {
             return;
         }
         //setup bot variables
-        botCommandHandler = new BotCommandHandler();
-        botCommandParser = new BotCommandParser(engine);
+        discCommandHandler = new DiscCommandHandler();
+        discCommandParser = new DiscCommandParser(engine);
 
         builder = new JDABuilder(AccountType.BOT);
         builder.setToken(engine.getProperties().getBotApplicationToken());
@@ -99,8 +99,8 @@ public class BotApplicationEngine {
 
     private void addBotApplicationCommands() {
         System.out.println("~Add commands");
-        botCommandHandler.createNewCommand("m", new CMDMusic());
-        botCommandHandler.createNewCommand("clear", new CMDClear());
+        discCommandHandler.createNewCommand("m", new CMDMusic());
+        discCommandHandler.createNewCommand("clear", new CMDClear());
     }
 
     private void addBotApplicationListeners() {
@@ -164,12 +164,12 @@ public class BotApplicationEngine {
     }
 
 
-    public BotCommandHandler getBotCommandHandler() {
-        return botCommandHandler;
+    public DiscCommandHandler getDiscCommandHandler() {
+        return discCommandHandler;
     }
 
-    public BotCommandParser getBotCommandParser() {
-        return botCommandParser;
+    public DiscCommandParser getDiscCommandParser() {
+        return discCommandParser;
     }
 
     public boolean isBotApplicationRunning() {
@@ -184,15 +184,15 @@ public class BotApplicationEngine {
         this.debugAi = debugAi;
     }
 
-    public BotTextUtils getTextUtils() {
+    public DiscTextUtils getTextUtils() {
         return textUtils;
     }
 
-    public BotUtilityBase getUtilityBase() {
+    public DiscUtilityBase getUtilityBase() {
         return utilityBase;
     }
 
-    public BotApplicationFilesHandler getFilesHandler() {
+    public DiscApplicationFilesHandler getFilesHandler() {
         return filesHandler;
     }
 
