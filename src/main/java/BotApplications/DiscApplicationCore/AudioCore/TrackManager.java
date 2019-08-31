@@ -9,10 +9,10 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrackEndReason;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.VoiceChannel;
+import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
 public class TrackManager extends AudioEventAdapter {
 

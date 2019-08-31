@@ -31,7 +31,7 @@ public class AiCommand implements Serializable {
             public String toString() {
                 return "all";
             }
-        };
+        }
     }
 
 

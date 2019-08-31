@@ -1,8 +1,6 @@
 package SceneCore;
 
-import javafx.event.EventHandler;
 import javafx.scene.Node;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class MoveListener {

@@ -3,16 +3,13 @@ package BotApplications.DiscApplicationCore.Utils;
 import BotApplications.DiscApplicationCore.DiscApplicationFiles.DiscApplicationServer;
 import Engines.Engine;
 import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.MessageHistory;
-import net.dv8tion.jda.core.entities.TextChannel;
-import java.util.Timer;
+import net.dv8tion.jda.core.entities.*;
+import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+
 import java.awt.*;
 import java.util.List;
+import java.util.Timer;
 import java.util.TimerTask;
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.PrivateChannel;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
 public class DiscTextUtils {
 

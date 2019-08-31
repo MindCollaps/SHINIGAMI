@@ -1,11 +1,10 @@
 package Engines;
 
-import BotAiCore.Librarys.AiCmdModAnswer;
-import BotAiCore.Librarys.AiCmdModification;
-import BotAiCore.Librarys.AiCommand;
 import BotApplications.DiscApplicationCore.DiscApplicationCommands.CMDClear;
+import BotApplications.DiscApplicationCore.DiscApplicationCommands.CMDInfo;
 import BotApplications.DiscApplicationCore.DiscApplicationCommands.CMDMusic;
 import BotApplications.DiscApplicationCore.DiscApplicationFiles.DiscApplicationFilesHandler;
+import BotApplications.DiscApplicationCore.DiscApplicationListeners.ServerJoinListener;
 import BotApplications.DiscApplicationCore.DiscApplicationListeners.ServerMessageListener;
 import BotApplications.DiscApplicationCore.DiscCommandHandler;
 import BotApplications.DiscApplicationCore.DiscCommandParser;
@@ -18,7 +17,6 @@ import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.Game;
 
 import javax.security.auth.login.LoginException;
-import java.util.ArrayList;
 
 public class DiscApplicationEngine {
 
@@ -99,11 +97,13 @@ public class DiscApplicationEngine {
         System.out.println("~Add commands");
         discCommandHandler.createNewCommand("m", new CMDMusic());
         discCommandHandler.createNewCommand("clear", new CMDClear());
+        discCommandHandler.createNewCommand("info", new CMDInfo());
     }
 
     private void addBotApplicationListeners() {
         System.out.println("~Add listeners");
         builder.addEventListener(new ServerMessageListener(engine));
+        builder.addEventListener(new ServerJoinListener(engine));
     }
 
     public void rebootBotApplication() {

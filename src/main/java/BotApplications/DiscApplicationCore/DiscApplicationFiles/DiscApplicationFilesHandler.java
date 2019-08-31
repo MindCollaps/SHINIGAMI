@@ -54,24 +54,35 @@ public class DiscApplicationFilesHandler {
     }
 
     public void loadAllBotFiles(){
-        System.out.println("~load all bot files!");
+        engine.getUtilityBase().printDebug("~load all bot files!");
         try {
             servers = (HashMap<String, DiscApplicationServer>) engine.getFileUtils().loadObject(engine.getFileUtils().getHome() + "/bot/utilize/servers.server");
         } catch (Exception e) {
-            System.out.println("!!Servers cant load!!");
+            engine.getUtilityBase().printDebug("!!Servers cant load!!");
         }
         try {
             users = (HashMap<String, DiscApplicationUser>) engine.getFileUtils().loadObject(engine.getFileUtils().getHome() + "/bot/utilize/users.users");
         } catch (Exception e) {
+            engine.getUtilityBase().printDebug("!!Users cant load!!");
             System.out.println("!!Users cant load!!");
         }
-        System.out.println("~finished loading bot files");
+
+        if(servers==null){
+            engine.getUtilityBase().printDebug("!!Recreate Servers data!!");
+            servers = new HashMap<>();
+        }
+
+        if(users==null){
+            engine.getUtilityBase().printDebug("!!Recreate Users data!!");
+            users = new HashMap<>();
+        }
+        engine.getUtilityBase().printDebug("~finished loading bot files");
     }
 
     public void saveAllBotFiles(){
-        System.out.println("~safe all bot files!");
+        engine.getUtilityBase().printDebug("~safe all bot files!");
         engine.getFileUtils().saveOject(engine.getFileUtils().getHome() + "/bot/utilize/users.users", users);
         engine.getFileUtils().saveOject(engine.getFileUtils().getHome() + "/bot/utilize/servers.server", servers);
-        System.out.println("~finished saving all bot files");
+        engine.getUtilityBase().printDebug("~finished saving all bot files");
     }
 }

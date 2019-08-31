@@ -63,6 +63,12 @@ public class ConsoleCommandHandler {
                 System.out.println(engine.getAiEngine().runAi(command, true));
                 break;
 
+            case "test":
+                System.out.println("Starts test....Telegram Bot is starting....");
+                engine.getTeleApplicationEngine().startBotApplication();
+                System.out.println("Telegram bot is started!");
+                break;
+
             case "help":
                 System.out.println("reloadAll - Reload the complete bot\nstartBot - starts the bot...UwU\nreloadData -reload onely the properties and minds\ndebugai - toggle the function: shows the output of the ai in the console\nclear - clears the console\nrestartBot - restarts the bot\nstopBot - stops the bot");
                 break;

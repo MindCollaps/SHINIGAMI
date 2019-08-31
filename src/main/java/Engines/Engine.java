@@ -11,8 +11,9 @@ import javafx.stage.Stage;
 public class Engine {
 
     //Other Engine
-    DiscApplicationEngine discEngine;
-    ViewEngine viewEngine;
+    private DiscApplicationEngine discEngine;
+    private ViewEngine viewEngine;
+    private TeleApplicationEngine teleApplicationEngine;
 
     //Engine stuff
     private Properties properties;
@@ -30,6 +31,7 @@ public class Engine {
         consoleCommandHandler = new ConsoleCommandHandler(this);
         aiEngine = new AiEngine(this);
         discEngine = new DiscApplicationEngine(this);
+        teleApplicationEngine = new TeleApplicationEngine(this);
         viewEngine = new ViewEngine(this, mainstage);
         utilityBase = new UtilityBase(this);
         loadAllFiles(false);
@@ -118,5 +120,9 @@ public class Engine {
 
     public AiEngine getAiEngine() {
         return aiEngine;
+    }
+
+    public TeleApplicationEngine getTeleApplicationEngine() {
+        return teleApplicationEngine;
     }
 }

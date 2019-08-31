@@ -48,6 +48,24 @@ public class AiEngine {
             engine.getUtilityBase().printDebug("![Ai Engine] " + event.getAuthor().getId() + " User not found!");
         }
 
+        if (server == null) {
+            try {
+                server = engine.getDiscEngine().getFilesHandler().createNewServer(event.getGuild());
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("FATAL SERVER ERROR OWO");
+            }
+        }
+
+        if (user == null) {
+            try {
+                user = engine.getDiscEngine().getFilesHandler().createNewUser(event.getAuthor());
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("FATAL USER ERROR OWO");
+            }
+        }
+
         String commandToExecute = engine.getProperties().getBotApplicationPrefix() + returnValue.command.getCommandInvoke() + " " + returnValue.modification.getInvoke() + " " + returnValue.behind;
 
         try {
@@ -66,7 +84,7 @@ public class AiEngine {
             return null;
         }
         String stringReturnValue = "";
-        if (debugmode){
+        if (debugmode) {
             try {
                 stringReturnValue = talkDebugMode(returnValue.modification.getAnswers(), returnValue.behind, 0);
             } catch (Exception e) {
@@ -116,7 +134,8 @@ public class AiEngine {
         try {
             behind = getBehindCommand(rawMessage, commandSearchReturnValue.foundInt, modificationSearchReturnValue.foundInt);
         } catch (Exception e) {
-            System.err.println("!!![Ai Engine] error in finding stuff behind command lol");
+            if (engine.getDiscEngine().isDebugAi())
+                System.err.println("!!![Ai Engine] error in finding stuff behind command lol");
         }
 
         if (commandSearchReturnValue.command.getCommandInvoke().toLowerCase().startsWith("talk")) exCommand = false;
@@ -152,14 +171,14 @@ public class AiEngine {
                 System.out.println("---[Ai Engine] -- analyze message part: " + messageToAnalyze[i] + " --");
             for (int j = 0; j < aiCommands.size(); j++) {
                 command = aiCommands.get(j);
-                if (!command.getCommandType().equals(commandType)){
-                    if(!command.getCommandType().equals(AiCommand.commandType.ALL)){
+                if (!command.getCommandType().equals(commandType)) {
+                    if (!command.getCommandType().equals(AiCommand.commandType.ALL)) {
                         continue;
                     }
                 }
                 if (engine.getDiscEngine().isDebugAi())
                     System.out.println("---[Ai Engine] compare message with command: " + aiCommands.get(j).getCommandInvoke());
-                result = containsStartWith(command.getHumanSpellingList(), messageToAnalyze[i]);
+                result = containsString(command.getHumanSpellingList(), messageToAnalyze[i]);
                 if (result == -1) {
                     if (engine.getDiscEngine().isDebugAi())
                         System.out.println("---[Ai Engine] can not find match in command: " + aiCommands.get(j).getCommandInvoke() + "\n");
@@ -175,10 +194,18 @@ public class AiEngine {
         throw new Exception("[Ai Engine] cant found any matching command!");
     }
 
-    private int containsStartWith(ArrayList<String> list, String stringCompare) {
-        for (int i = 0; i < list.size(); i++) {
-            if (stringCompare.toLowerCase().contains(list.get(i).toLowerCase())) {
-                return i;
+    private int containsString(ArrayList<String> list, String stringCompare) {
+        if (stringCompare.startsWith("<") && stringCompare.endsWith(">")) {
+            for (int i = 0; i < list.size(); i++) {
+                if (stringCompare.toLowerCase() == (list.get(i).toLowerCase())) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = 0; i < list.size(); i++) {
+                if (stringCompare.toLowerCase().contains(list.get(i).toLowerCase())) {
+                    return i;
+                }
             }
         }
         return -1;
@@ -195,7 +222,7 @@ public class AiEngine {
                 System.out.println("--[Ai Engine] -- analyze message part: " + messageToAnalyzeArray[i] + " --");
             for (int j = 0; j < command.getModificators().size(); j++) {
                 modification = command.getModificators().get(j);
-                result = containsStartWith(modification.getHumanSpellingList(), messageToAnalyzeArray[i]);
+                result = containsString(modification.getHumanSpellingList(), messageToAnalyzeArray[i]);
                 if (engine.getDiscEngine().isDebugAi())
                     System.out.println("--[Ai Engine] compare message with modification: " + modification.getInvoke());
                 if (result == -1) {

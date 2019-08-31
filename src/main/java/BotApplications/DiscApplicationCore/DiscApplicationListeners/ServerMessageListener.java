@@ -5,29 +5,31 @@ import net.dv8tion.jda.core.Permission;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
-public class ServerMessageListener extends ListenerAdapter {
+public class ServerMessageListener extends Listener {
 
-    Engine engine;
 
     public ServerMessageListener(Engine engine) {
-        this.engine = engine;
+        super(engine);
     }
 
     @Override
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 
-        engine.getUtilityBase().printDebug(messageInfo(event.getGuild()) + " message listener received message!");
+        if(event.getMessage().getContentRaw().length()>400){
+            return;
+        }
+
+        handleSecret(event);
 
         Member selfUser = event.getGuild().getMemberById(event.getGuild().getJDA().getSelfUser().getId());
         boolean commandWorked = false;
-
 
         //normal command
         //prefix check and self user
         //permission check
         if (!event.getAuthor().getId().equals(event.getJDA().getSelfUser().getId())) {
+            engine.getUtilityBase().printDebug(messageInfo(event.getGuild()) + " message listener received message!");
                     if (event.getMessage().getContentRaw().startsWith(engine.getProperties().getBotApplicationPrefix())) {
                         boolean hasPermission = false;
                         try {
@@ -59,7 +61,7 @@ public class ServerMessageListener extends ListenerAdapter {
             } else {
                 //CHANGE HERE THE UNDERSTANDINGCHANNEL
                 //Check bot invoke
-                if(event.getMessage().getContentRaw().startsWith("shini")) {
+                if(event.getMessage().getContentRaw().toLowerCase().startsWith("shini")) {
                     engine.getAiEngine().runAi(event);
                 }
             }
@@ -68,5 +70,40 @@ public class ServerMessageListener extends ListenerAdapter {
 
     private String messageInfo(Guild guild) {
         return "[serverMessageListener -" + guild.getName() + "|" + guild.getId() + "]";
+    }
+
+    private String handleSecret(GuildMessageReceivedEvent event) {
+        String message = event.getMessage().getContentRaw();
+        if (message.length() > 3) {
+            String[] msgArgs = message.split(" ");
+
+            //contains
+            for (int i = 0; msgArgs.length > i; i++) {
+                switch (msgArgs[i].toLowerCase()) {
+                    case "lol":
+                    case "lool":
+                        sendNormalText(event, "Ja loool eyyy was ist lol? XD");
+                        break;
+                    case "anime":
+                        sendNormalText(event, "Who said Anime :O");
+                        break;
+                    case "baka":
+                        sendNormalText(event, "Baaaaaaaaaaaaaka! XD");
+                        break;
+                    case "jaja":
+                        sendNormalText(event, "JAJA HEIßT LECK MICH AM ARSCH XDXDXD :D ");
+                        break;
+                    case "aloha":
+                        sendNormalText(event, "Aloha " + event.getAuthor().getName() + " XD \nDas hat mir der Mosel beigebracht ");
+                        break;
+                }
+            }
+        }
+        return null;
+
+    }
+
+    private void sendNormalText(GuildMessageReceivedEvent event, String Message) {
+        engine.getDiscEngine().getTextUtils().sendNormalTxt(Message, event.getChannel());
     }
 }
