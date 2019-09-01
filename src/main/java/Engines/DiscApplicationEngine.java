@@ -1,8 +1,9 @@
 package Engines;
 
-import BotApplications.DiscApplicationCore.DiscApplicationCommands.CMDClear;
-import BotApplications.DiscApplicationCore.DiscApplicationCommands.CMDInfo;
-import BotApplications.DiscApplicationCore.DiscApplicationCommands.CMDMusic;
+import BotApplications.DiscApplicationCore.DiscApplicationCommands.DiscCMDClear;
+import BotApplications.DiscApplicationCore.DiscApplicationCommands.DiscCMDInfo;
+import BotApplications.DiscApplicationCore.DiscApplicationCommands.DiscCMDMusic;
+import BotApplications.DiscApplicationCore.DiscApplicationCommands.DiscCMDTelegram;
 import BotApplications.DiscApplicationCore.DiscApplicationFiles.DiscApplicationFilesHandler;
 import BotApplications.DiscApplicationCore.DiscApplicationListeners.ServerJoinListener;
 import BotApplications.DiscApplicationCore.DiscApplicationListeners.ServerMessageListener;
@@ -17,6 +18,7 @@ import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.Game;
 
 import javax.security.auth.login.LoginException;
+import java.util.HashMap;
 
 public class DiscApplicationEngine {
 
@@ -44,15 +46,17 @@ public class DiscApplicationEngine {
 
     public void startBotApplication() {
         if (botApplicationRunning) {
-            System.out.println("!!!Bot is already running!!!");
+            System.out.println("[Discord] !!!Discord Bot is already running!!!");
             return;
         }
+        System.out.println("[Discord] Bot start initialized");
+        botApplicationRunning = true;
         //setup bot variables
         discCommandHandler = new DiscCommandHandler();
-        discCommandParser = new DiscCommandParser(engine);
+        discCommandParser = new DiscCommandParser();
 
         builder = new JDABuilder(AccountType.BOT);
-        builder.setToken(engine.getProperties().getBotApplicationToken());
+        builder.setToken(engine.getProperties().getDiscBotApplicationToken());
         builder.setAutoReconnect(true);
         builder.setStatus(OnlineStatus.ONLINE);
         setBotApplicationGame(null, Game.GameType.DEFAULT);
@@ -62,11 +66,11 @@ public class DiscApplicationEngine {
             botJDA = builder.build();
         } catch (LoginException e) {
             e.printStackTrace();
-            System.out.println("!!!Bot start failure!!!\nMaybe the token invalid");
+            System.out.println("[Discord] !!!Bot start failure!!!\nMaybe the token invalid");
+            botApplicationRunning = false;
             return;
         }
-        System.out.println("!Bot successfully logged in!");
-        botApplicationRunning = true;
+        System.out.println("[Discord] !Discord Bot successfully logged in!");
         engine.getViewEngine().updateBotRunHomeButton();
     }
 
@@ -77,7 +81,7 @@ public class DiscApplicationEngine {
                 if (game != null) {
                     return game;
                 } else {
-                    return engine.getProperties().getBotApplicationGame();
+                    return engine.getProperties().getDiscBotApplicationGame();
                 }
             }
 
@@ -94,21 +98,22 @@ public class DiscApplicationEngine {
     }
 
     private void addBotApplicationCommands() {
-        System.out.println("~Add commands");
-        discCommandHandler.createNewCommand("m", new CMDMusic());
-        discCommandHandler.createNewCommand("clear", new CMDClear());
-        discCommandHandler.createNewCommand("info", new CMDInfo());
+        System.out.println("[Discord] ~Add commands");
+        discCommandHandler.createNewCommand("m", new DiscCMDMusic());
+        discCommandHandler.createNewCommand("clear", new DiscCMDClear());
+        discCommandHandler.createNewCommand("info", new DiscCMDInfo());
+        discCommandHandler.createNewCommand("telegram", new DiscCMDTelegram());
     }
 
     private void addBotApplicationListeners() {
-        System.out.println("~Add listeners");
+        System.out.println("[Discord] ~Add listeners");
         builder.addEventListener(new ServerMessageListener(engine));
         builder.addEventListener(new ServerJoinListener(engine));
     }
 
     public void rebootBotApplication() {
         if(!botApplicationRunning){
-            System.out.println("~The bot is offline! Please start before restart");
+            System.out.println("[Discord] ~The bot is offline! Please start before restart");
             return;
         }
         shutdownBotApplication();
@@ -117,14 +122,14 @@ public class DiscApplicationEngine {
 
     public void shutdownBotApplication() {
         if(!botApplicationRunning){
-            System.out.println("~The bot is already offline!");
+            System.out.println("[Discord] ~The bot is already offline!");
             return;
         }
-        System.out.println("~Bot shutting down!");
+        System.out.println("[Discord] ~Bot shutting down!");
         try {
             botJDA.shutdownNow();
         } catch (Exception e) {
-            System.out.println("~Bot cant shutdownBotApplication, eventually never starts?");
+            System.out.println("[Discord] ~Bot cant shutdownBotApplication, eventually never starts?");
         }
         botApplicationRunning = false;
         engine.getViewEngine().updateBotRunHomeButton();
@@ -160,5 +165,9 @@ public class DiscApplicationEngine {
 
     public DiscApplicationFilesHandler getFilesHandler() {
         return filesHandler;
+    }
+
+    public JDA getBotJDA() {
+        return botJDA;
     }
 }

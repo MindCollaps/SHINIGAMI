@@ -6,17 +6,17 @@ public class Properties implements Serializable {
 
     public static final long serialVersionUID = 42L;
 
-    //BotApplication stuff
-    String botApplicationToken = "";
-    String botApplicationName = "SHINIGAMI";
-    String botApplicationGame = "Daddelt am Handy";
-    String botApplicationVersion = "1.2";
-    String botApplicationPrefix = "-";
+    //Discord BotApplication stuff
+    String discBotApplicationToken = "";
+    String discBotApplicationName = "SHINIGAMI";
+    String discBotApplicationGame = "Daddelt am Handy";
+    String discBotApplicationVersion = "1.2";
+    String discBotApplicationPrefix = "-";
 
-    //BotApplication nice to have
+    //Discord BotApplication nice to have
     String commandMusicDefaultYTPlaylist = "https://www.youtube.com/playlist?list=PLPvNmz-FXmoL10KOiP4sOrEzYlU2kgZ4r";
 
-    //BotCommands stuff
+    //Discrod BotCommands stuff
     String commandInvokePreverences = "properties";
     String commandInvokeMusic = "m";
 
@@ -46,36 +46,36 @@ public class Properties implements Serializable {
         return plannedProgrammShutdownOnError;
     }
 
-    public String getBotApplicationToken() {
-        return botApplicationToken;
+    public String getDiscBotApplicationToken() {
+        return discBotApplicationToken;
     }
 
-    public void setBotApplicationToken(String botApplicationToken) {
-        this.botApplicationToken = botApplicationToken;
+    public void setDiscBotApplicationToken(String discBotApplicationToken) {
+        this.discBotApplicationToken = discBotApplicationToken;
     }
 
-    public String getBotApplicationGame() {
-        return botApplicationGame;
+    public String getDiscBotApplicationGame() {
+        return discBotApplicationGame;
     }
 
-    public void setBotApplicationGame(String botApplicationGame) {
-        this.botApplicationGame = botApplicationGame;
+    public void setDiscBotApplicationGame(String discBotApplicationGame) {
+        this.discBotApplicationGame = discBotApplicationGame;
     }
 
-    public String getBotApplicationVersion() {
-        return botApplicationVersion;
+    public String getDiscBotApplicationVersion() {
+        return discBotApplicationVersion;
     }
 
-    public void setBotApplicationVersion(String botApplicationVersion) {
-        this.botApplicationVersion = botApplicationVersion;
+    public void setDiscBotApplicationVersion(String discBotApplicationVersion) {
+        this.discBotApplicationVersion = discBotApplicationVersion;
     }
 
-    public String getBotApplicationPrefix() {
-        return botApplicationPrefix;
+    public String getDiscBotApplicationPrefix() {
+        return discBotApplicationPrefix;
     }
 
-    public void setBotApplicationPrefix(String botApplicationPrefix) {
-        this.botApplicationPrefix = botApplicationPrefix;
+    public void setDiscBotApplicationPrefix(String discBotApplicationPrefix) {
+        this.discBotApplicationPrefix = discBotApplicationPrefix;
     }
 
     public String getCommandInvokePreverences() {
@@ -102,12 +102,12 @@ public class Properties implements Serializable {
         this.commandMusicDefaultYTPlaylist = commandMusicDefaultYTPlaylist;
     }
 
-    public String getBotApplicationName() {
-        return botApplicationName;
+    public String getDiscBotApplicationName() {
+        return discBotApplicationName;
     }
 
-    public void setBotApplicationName(String botApplicationName) {
-        this.botApplicationName = botApplicationName;
+    public void setDiscBotApplicationName(String discBotApplicationName) {
+        this.discBotApplicationName = discBotApplicationName;
     }
 
     public boolean isDebug() {

@@ -3,6 +3,7 @@ package BotApplications.DiscApplicationCore.DiscApplicationCommands;
 import BotApplications.DiscApplicationCore.DiscApplicationFiles.DiscApplicationServer;
 import BotApplications.DiscApplicationCore.DiscApplicationFiles.DiscApplicationUser;
 import Engines.Engine;
+import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.MessageHistory;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
@@ -10,7 +11,7 @@ import net.dv8tion.jda.core.events.message.priv.PrivateMessageReceivedEvent;
 
 import java.util.List;
 
-public class CMDClear implements Command {
+public class DiscCMDClear implements DicCommand {
     @Override
     public boolean calledServer(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
         return engine.getDiscEngine().getUtilityBase().userHasGuildAdminPermission(event.getMember(), event.getGuild(), event.getChannel());
@@ -58,6 +59,11 @@ public class CMDClear implements Command {
     @Override
     public String help(Engine engine) {
         return "clear [size] - clears a defined amount of messages";
+    }
+
+    @Override
+    public void actionTelegram(Member member, Engine engine, DiscApplicationUser user, String[] args) {
+
     }
 
     private int getInt(String string) {

@@ -208,8 +208,8 @@ public class MindEditorController extends Controller implements Initializable {
             try {
                 current.setCommandType(engine.getUtilityBase().convertStringToCommandType(commandLine.getTxtCommandType()));
             } catch (Exception e) {
-                new AllertBox(null, Modality.APPLICATION_MODAL, engine).displayMessage("Error", "The Command Type for command (" + current.getCommandInvoke() + ") is invalid!", "ok", "buttonGreen", false);
-                throw new Exception("Command type invalid!");
+                new AllertBox(null, Modality.APPLICATION_MODAL, engine).displayMessage("Error", "The DicCommand Type for command (" + current.getCommandInvoke() + ") is invalid!", "ok", "buttonGreen", false);
+                throw new Exception("DicCommand type invalid!");
             }
 
             for (int j = 0; j < commandLine.getModsLines().size(); j++) {
@@ -261,7 +261,7 @@ public class MindEditorController extends Controller implements Initializable {
         engine.getFileUtils().saveOject(path, aiCommands);
 }
 
-    //Command Line
+    //DicCommand Line
     private class CommandsLine {
 
         private ScrollPane scrollPane;

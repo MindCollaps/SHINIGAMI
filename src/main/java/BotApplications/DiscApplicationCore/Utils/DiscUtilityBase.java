@@ -7,6 +7,7 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.priv.PrivateMessageReceivedEvent;
 
 public class DiscUtilityBase {
 
@@ -76,7 +77,7 @@ public class DiscUtilityBase {
         return "[send command -" + guild.getName() + "|" + guild.getId() + "]";
     }
 
-    public void sendCommand(GuildMessageReceivedEvent event) {
+    public void sendGuildCommand(GuildMessageReceivedEvent event) {
         engine.getUtilityBase().printDebug(messageInfo(event.getGuild()) + " sendOwnCommand(" + event.getMessage().getContentRaw() + ")");
 
         DiscApplicationUser user = null;
@@ -111,6 +112,35 @@ public class DiscUtilityBase {
         }
         try {
             engine.getDiscEngine().getDiscCommandHandler().handleServerCommand(engine.getDiscEngine().getDiscCommandParser().parseServerMessage(event.getMessage().getContentRaw(), event, server, user, engine));
+        } catch (Exception e) {
+            engine.getDiscEngine().getTextUtils().sendError("Fatal command error on command: " + event.getMessage().getContentRaw(), event.getChannel(), true);
+            engine.getUtilityBase().printDebug("-----\n[Send server command failed]\n-----");
+            e.printStackTrace();
+        }
+    }
+
+    public void sendPrivateCommand(PrivateMessageReceivedEvent event){
+        //engine.getUtilityBase().printDebug(messageInfo(event.getGuild()) + " sendOwnCommand(" + event.getMessage().getContentRaw() + ")");
+
+        DiscApplicationUser user = null;
+        DiscApplicationServer server = null;
+
+        try {
+            user = engine.getDiscEngine().getFilesHandler().getUserById(event.getAuthor().getId());
+        } catch (Exception e) {
+            engine.getUtilityBase().printDebug("![Ai Engine] " + event.getAuthor().getId() + " User not found!");
+        }
+
+        if (user == null) {
+            try {
+                user = engine.getDiscEngine().getFilesHandler().createNewUser(event.getAuthor());
+            } catch (Exception e) {
+                System.out.println("Fatal error in ServerMessageListener.sendOwnCommand()---user cant load!!!");
+            }
+        }
+
+        try {
+            engine.getDiscEngine().getDiscCommandHandler().handlePrivateCommand(engine.getDiscEngine().getDiscCommandParser().parseClientMessage(event.getMessage().getContentRaw(),event, user,engine));
         } catch (Exception e) {
             engine.getDiscEngine().getTextUtils().sendError("Fatal command error on command: " + event.getMessage().getContentRaw(), event.getChannel(), true);
             engine.getUtilityBase().printDebug("-----\n[Send server command failed]\n-----");

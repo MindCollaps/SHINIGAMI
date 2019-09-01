@@ -5,6 +5,7 @@ import BotAiCore.Librarys.AiCmdModification;
 import BotAiCore.Librarys.AiCommand;
 import BotApplications.DiscApplicationCore.DiscApplicationFiles.DiscApplicationServer;
 import BotApplications.DiscApplicationCore.DiscApplicationFiles.DiscApplicationUser;
+import com.pengrad.telegrambot.model.Update;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
@@ -23,7 +24,7 @@ public class AiEngine {
     }
 
     //per discord
-    public void runAi(GuildMessageReceivedEvent event) {
+    public void runAiForDiscord(GuildMessageReceivedEvent event) {
         AnalyzeTextReturnValue returnValue;
         try {
             returnValue = analyzeText(event.getMessage().getContentRaw(), AiCommand.commandType.DISCORD);
@@ -66,17 +67,17 @@ public class AiEngine {
             }
         }
 
-        String commandToExecute = engine.getProperties().getBotApplicationPrefix() + returnValue.command.getCommandInvoke() + " " + returnValue.modification.getInvoke() + " " + returnValue.behind;
+        String commandToExecute = engine.getProperties().getDiscBotApplicationPrefix() + returnValue.command.getCommandInvoke() + " " + returnValue.modification.getInvoke() + " " + returnValue.behind;
 
         try {
             talk(returnValue.modification.getAnswers(), event, user, returnValue.behind);
         } catch (Exception e) {
         }
 
-        if (exCommand) runCommand(commandToExecute, event, user, server);
+        if (exCommand) runDiscordCommand(commandToExecute, event, user, server);
     }
 
-    public String runAi(String message, boolean debugmode) {
+    public String runAiForAll(String message, boolean debugmode) {
         AnalyzeTextReturnValue returnValue;
         try {
             returnValue = analyzeText(message, AiCommand.commandType.ALL);
@@ -91,12 +92,34 @@ public class AiEngine {
             }
         } else {
             try {
-                stringReturnValue = talk(returnValue.modification.getAnswers(), returnValue.behind, 0);
+                stringReturnValue = talk(returnValue.modification.getAnswers(), returnValue.behind, 0, "");
             } catch (Exception e) {
             }
         }
         return stringReturnValue;
     }
+
+    public String runAiForTelegram(Update update) {
+        String message = update.message().text();
+        String username = update.message().chat().username();
+        AnalyzeTextReturnValue returnValue;
+        try {
+            returnValue = analyzeText(message, AiCommand.commandType.TELEGRAM);
+        } catch (Exception e) {
+            return null;
+        }
+        String stringReturnValue = "";
+        try {
+            stringReturnValue = talk(returnValue.modification.getAnswers(), returnValue.behind, 0, username);
+        } catch (Exception e) {
+        }
+
+
+        String command = "/" + returnValue.command.getCommandInvoke() + " " + returnValue.modification.getInvoke() + " " + returnValue.behind;
+        runTelegramCommand(command, update);
+        return stringReturnValue;
+    }
+
 
     private AnalyzeTextReturnValue analyzeText(String rawMessage, AiCommand.commandType commandType) throws Exception {
         exCommand = true;
@@ -256,7 +279,7 @@ public class AiEngine {
         throw new Exception("no valid emote level found!");
     }
 
-    private String talk(ArrayList<AiCmdModAnswer> answers, String behind, int emotelv) throws Exception {
+    private String talk(ArrayList<AiCmdModAnswer> answers, String behind, int emotelv, String username) throws Exception {
         if (engine.getDiscEngine().isDebugAi())
             System.out.println("-![Ai Engine] start talking!");
 
@@ -268,7 +291,7 @@ public class AiEngine {
             emotes.addAll(Arrays.asList(current.getEmoteLevel().split(",")));
             if (emotes.contains(emotelv) || current.getEmoteLevel().equalsIgnoreCase("all")) {
                 String randomMessage = current.getAnswers().get(ThreadLocalRandom.current().nextInt(0, current.getAnswers().size()));
-                return buildNormalMessage(randomMessage, behind);
+                return buildNormalMessage(randomMessage, behind, username);
             }
         }
         if (engine.getDiscEngine().isDebugAi())
@@ -296,7 +319,7 @@ public class AiEngine {
         throw new Exception("no valid emote level found!");
     }
 
-    private String buildNormalMessage(String answer, String behind) {
+    private String buildNormalMessage(String answer, String behind, String userName) {
         String[] msgParts = answer.split(" ");
         ArrayList skip = new ArrayList();
         for (int i = 0; i < msgParts.length; i++) {
@@ -333,6 +356,7 @@ public class AiEngine {
                 msgToSend = msgToSend + "\n";
             }
             if (msgParts[i].toLowerCase().startsWith("*user*")) {
+                msgToSend = msgToSend + userName;
                 dell = true;
             }
             if (msgParts[i].toLowerCase().startsWith("*modifier*")) {
@@ -485,10 +509,16 @@ public class AiEngine {
         }
     }
 
-    private void runCommand(String command, GuildMessageReceivedEvent event, DiscApplicationUser user, DiscApplicationServer server) {
+    private void runDiscordCommand(String command, GuildMessageReceivedEvent event, DiscApplicationUser user, DiscApplicationServer server) {
         if (engine.getDiscEngine().isDebugAi())
-            System.out.println("\n!!![Ai Engine] done with operation...result: command send!\n-----");
+            System.out.println("\n!!![Ai Engine] done with operation...result: Discord command send!\n-----");
         engine.getDiscEngine().getUtilityBase().sendOwnCommand(event, command, user, server);
+    }
+
+    private void runTelegramCommand(String command, Update update) {
+        if (engine.getDiscEngine().isDebugAi())
+            System.out.println("\n!!![Ai Engine] done with operation...result: Telegram command send!\n-----");
+        engine.getTeleApplicationEngine().getBotUtils().sendOwnCommand(update, command);
     }
 
     public void addNewCommand(AiCommand command) {

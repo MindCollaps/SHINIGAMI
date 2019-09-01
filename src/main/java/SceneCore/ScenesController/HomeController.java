@@ -67,7 +67,7 @@ public class HomeController extends Controller implements Initializable {
     public void initController(Engine engine, Stage primaryStage, Scene scene, Stage mainStage) {
         scene.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
-        primaryStage.setTitle(engine.getProperties().getBotApplicationName() + " manager");
+        primaryStage.setTitle(engine.getProperties().getDiscBotApplicationName() + " manager");
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         primaryStage.setScene(scene);
         primaryStage.getIcons().setAll(new Image("icons/window/programIcon.png"));

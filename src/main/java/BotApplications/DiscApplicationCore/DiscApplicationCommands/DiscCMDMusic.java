@@ -27,10 +27,9 @@ import net.dv8tion.jda.core.events.message.priv.PrivateMessageReceivedEvent;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class CMDMusic implements Command {
+public class DiscCMDMusic implements DicCommand {
 
     private final int PLAYLIST_LIMIT = 1000;
-    private Guild guild;
     private final AudioPlayerManager MANAGER = new DefaultAudioPlayerManager();
     private final Map<Guild, Map.Entry<AudioPlayer, TrackManager>> PLAYERS = new HashMap<>();
     int added = 0;
@@ -38,75 +37,45 @@ public class CMDMusic implements Command {
 
     Engine engine;
 
-    /**
-     * Audio Manager als Audio-Stream-Recource deklarieren.
-     */
-    public CMDMusic() {
+    public DiscCMDMusic() {
         AudioSourceManagers.registerRemoteSources(MANAGER);
     }
 
-    /**
-     * Erstellt einen Audioplayer und fügt diesen in die PLAYERS-Map ein.
-     *
-     * @param g Guild
-     * @return AudioPlayer
-     */
-    private AudioPlayer createPlayer(Guild g) {
+    private AudioPlayer createPlayer(Member author) {
+        //engine.getDiscEngine().getBotJDA().getGuildById(author.getGuild().getId());
+        Guild g = author.getGuild();
         AudioPlayer p = MANAGER.createPlayer();
         TrackManager m = new TrackManager(p);
         p.addListener(m);
 
-        guild.getAudioManager().setSendingHandler(new PlayerSendHandler(p));
+        g.getAudioManager().setSendingHandler(new PlayerSendHandler(p));
 
         PLAYERS.put(g, new AbstractMap.SimpleEntry<>(p, m));
 
         return p;
     }
 
-    /**
-     * Returnt, ob die Guild einen Eintrag in der PLAYERS-Map hat.
-     *
-     * @param g Guild
-     * @return Boolean
-     */
-    private boolean hasPlayer(Guild g) {
+    private boolean hasPlayer(Member author) {
+        Guild g = author.getGuild();
         return PLAYERS.containsKey(g);
     }
 
-    /**
-     * Returnt den momentanen Player der Guild aus der PLAYERS-Map, oder
-     * erstellt einen neuen Player für die Guild.
-     *
-     * @param g Guild
-     * @return AudioPlayer
-     */
-    private AudioPlayer getPlayer(Guild g) {
-        if (hasPlayer(g)) {
+    private AudioPlayer getPlayer(Member author) {
+        Guild g = author.getGuild();
+        if (hasPlayer(author)) {
             return PLAYERS.get(g).getKey();
         } else {
-            return createPlayer(g);
+            return createPlayer(author);
         }
     }
 
-    /**
-     * Returnt den momentanen TrackManager der Guild aus der PLAYERS-Map.
-     *
-     * @param g Guild
-     * @return TrackManager
-     */
-    private TrackManager getManager(Guild g) {
+    private TrackManager getManager(Member author) {
+        Guild g = author.getGuild();
         return PLAYERS.get(g).getValue();
     }
 
-    /**
-     * Returnt, ob die Guild einen Player hat oder ob der momentane Player
-     * gerade einen Track spielt.
-     *
-     * @param g Guild
-     * @return Boolean
-     */
-    private boolean isIdle(Guild g) {
-        return !hasPlayer(g) || getPlayer(g).getPlayingTrack() == null;
+    private boolean isIdle(Member author) {
+        return !hasPlayer(author) || getPlayer(author).getPlayingTrack() == null;
     }
 
     /**
@@ -120,14 +89,14 @@ public class CMDMusic implements Command {
     private void loadTrack(String identifier, Member author, Message msg, int results) {
 
         Guild g = author.getGuild();
-        getPlayer(g);
+        getPlayer(author);
 
         MANAGER.setFrameBufferDuration(5000);
         MANAGER.loadItemOrdered(g, identifier, new AudioLoadResultHandler() {
 
             @Override
             public void trackLoaded(AudioTrack track) {
-                getManager(g).queue(track, author);
+                getManager(author).queue(track, author);
             }
 
             @Override
@@ -135,30 +104,31 @@ public class CMDMusic implements Command {
                 for (int i = 0; i < (playlist.getTracks().size() > PLAYLIST_LIMIT ? PLAYLIST_LIMIT : playlist.getTracks().size()); i++) {
                     if (results > added) {
                         added++;
-                        getManager(g).queue(playlist.getTracks().get(i), author);
+                        getManager(author).queue(playlist.getTracks().get(i), author);
                     }
                 }
             }
 
             @Override
             public void noMatches() {
-                engine.getDiscEngine().getTextUtils().sendError(":musical_note: Lied konnte nicht geladen werden :scream: ", msg.getTextChannel(), engine.getProperties().getLongTime(), false);
+                try {
+                    engine.getDiscEngine().getTextUtils().sendError(":musical_note: Lied konnte nicht geladen werden :scream: ", msg.getTextChannel(), engine.getProperties().getLongTime(), false);
+                } catch (Exception e){
+                }
             }
 
             @Override
             public void loadFailed(FriendlyException exception) {
-                engine.getDiscEngine().getTextUtils().sendError(":musical_note: Lied konnte nicht geladen werden :scream: ", msg.getTextChannel(), engine.getProperties().getMiddleTime(), false);
+                try {
+                    engine.getDiscEngine().getTextUtils().sendError(":musical_note: Lied konnte nicht geladen werden :scream: ", msg.getTextChannel(), engine.getProperties().getMiddleTime(), false);
+                } catch (Exception e){
+                }
             }
         });
     }
 
-    /**
-     * Stoppt den momentanen Track, worauf der nächste Track gespielt wird.
-     *
-     * @param g Guild
-     */
-    private void skip(Guild g) {
-        getPlayer(g).stopTrack();
+    private void skip(Member author) {
+        getPlayer(author).stopTrack();
     }
 
     /**
@@ -198,7 +168,6 @@ public class CMDMusic implements Command {
     @Override
     public void actionServer(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
         TrackManager.setServer(server);
-        guild = event.getGuild();
         added = 0;
         addAll = false;
         this.engine = engine;
@@ -260,22 +229,53 @@ public class CMDMusic implements Command {
     @Override
     public String help(Engine engine) {
         return "\n**Music help: :musical_note:**\n"
-                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :arrow_forward: [p/play] [YT link/dl(default playlist)/sdl (server eigene playlist)/suchanfrage] stoppt die wiedergabe und fügt ein neuse lied hinzu!"
-                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :heavy_plus_sign:  [add] [YT link/dl(default playlist)/sdl (server eigene playlist)/suchanfrage] fügt ein lied zur queue hinzu!"
-                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :track_next: [skip/next/s/n] nächster song!"
-                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :stop_button: [stop] stopt die wiedergabe!"
-                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :twisted_rightwards_arrows: [shuffle/sh] shuffelt die songs in einer Playlist neu"
-                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :information_source: [info/now] zeigt den aktuellen song!"
-                + "\n" + engine.getProperties().getBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :information_source: [queue/playlist/pl] [site] zeigt die aktuelle Playlist!";
+                + "\n" + engine.getProperties().getDiscBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :arrow_forward: [p/play] [YT link/dl(default playlist)/sdl (server eigene playlist)/suchanfrage] stoppt die wiedergabe und fügt ein neuse lied hinzu!"
+                + "\n" + engine.getProperties().getDiscBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :heavy_plus_sign:  [add] [YT link/dl(default playlist)/sdl (server eigene playlist)/suchanfrage] fügt ein lied zur queue hinzu!"
+                + "\n" + engine.getProperties().getDiscBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :track_next: [skip/next/s/n] nächster song!"
+                + "\n" + engine.getProperties().getDiscBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :stop_button: [stop] stopt die wiedergabe!"
+                + "\n" + engine.getProperties().getDiscBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :twisted_rightwards_arrows: [shuffle/sh] shuffelt die songs in einer Playlist neu"
+                + "\n" + engine.getProperties().getDiscBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :information_source: [info/now] zeigt den aktuellen song!"
+                + "\n" + engine.getProperties().getDiscBotApplicationPrefix() + engine.getProperties().getCommandInvokeMusic() + " :information_source: [queue/playlist/pl] [site] zeigt die aktuelle Playlist!";
+    }
+
+    @Override
+    public void actionTelegram(Member member, Engine engine, DiscApplicationUser user, String[] args) {
+        switch (args[0]){
+            case "play":
+                String input;
+                if (isIdle(member)) {
+
+                } else {
+                    getManager(member).purgeQueue();
+                    skip(member);
+                }
+
+                input = Arrays.stream(args).skip(1).map(s -> " " + s).collect(Collectors.joining()).substring(1);
+                if (args.length < 2) {
+                    engine.getTeleApplicationEngine().getTextUtils().sendMessage(user.getTelegramId(),"Bitte gebe eine gültige quelle ein!");
+                    return;
+                }
+                if (!(input.startsWith("http://") || input.startsWith("https://"))) {
+                    input = "ytsearch: " + input;
+                }
+                TrackManager.setEvent(null);
+                if (addAll) {
+                    loadTrack(input,member, null, -10);
+                } else {
+                    loadTrack(input, member, null, 1);
+                }
+                engine.getTeleApplicationEngine().getTextUtils().sendMessage(user.getTelegramId(), ":arrow_forward: Lied wird abgespielt!");
+                break;
+        }
     }
 
     private void play(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
         String input;
-        if (isIdle(guild)) {
+        if (isIdle(event.getMember())) {
 
         } else {
-            getManager(guild).purgeQueue();
-            skip(guild);
+            getManager(event.getMember()).purgeQueue();
+            skip(event.getMember());
         }
 
         input = Arrays.stream(args).skip(1).map(s -> " " + s).collect(Collectors.joining()).substring(1);
@@ -339,40 +339,41 @@ public class CMDMusic implements Command {
     }
 
     private void skip(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
-        if (isIdle(guild)) {
+        if (isIdle(event.getMember())) {
             return;
         }
         for (int i = (args.length > 1 ? Integer.parseInt(args[1]) : 1); i == 1; i--) {
-            skip(guild);
+            skip(event.getMember());
         }
         engine.getDiscEngine().getTextUtils().sendWarining(MESSAGES.CMDMSGMUSICSKIP, event.getChannel(), engine.getProperties().getShortTime());
     }
 
     private void stop(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
-        if (isIdle(guild)) {
+        if (isIdle(event.getMember())) {
             return;
         }
 
-        getManager(guild).purgeQueue();
-        skip(guild);
-        guild.getAudioManager().closeAudioConnection();
+        getManager(event.getMember()).purgeQueue();
+        skip(event.getMember());
+        Guild g = engine.getDiscEngine().getBotJDA().getGuildById(event.getMember().getGuild().getId());
+        g.getAudioManager().closeAudioConnection();
         engine.getDiscEngine().getTextUtils().sendError(MESSAGES.CMDMSGMUSICSTOP, event.getChannel(), engine.getProperties().getShortTime(), false);
     }
 
     private void shuffle(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
-        if (isIdle(guild)) {
+        if (isIdle(event.getMember())) {
             return;
         }
-        getManager(guild).shuffleQueue();
+        getManager(event.getMember()).shuffleQueue();
         engine.getDiscEngine().getTextUtils().sendSucces(MESSAGES.CMDMSGMUSICSHUFFLE, event.getChannel(), engine.getProperties().getShortTime());
     }
 
     private void info(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
-        if (isIdle(guild)) {
+        if (isIdle(event.getMember())) {
             return;
         }
 
-        AudioTrack track = getPlayer(guild).getPlayingTrack();
+        AudioTrack track = getPlayer(event.getMember()).getPlayingTrack();
         AudioTrackInfo info = track.getInfo();
 
         MessageEmbed fmsg = new EmbedBuilder().setDescription("** :musical_note: CURRENT TRACK INFO:** :information_source: ")
@@ -385,7 +386,7 @@ public class CMDMusic implements Command {
     }
 
     private void showQueue(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
-        if (isIdle(guild)) {
+        if (isIdle(event.getMember())) {
             return;
         }
 
@@ -394,7 +395,7 @@ public class CMDMusic implements Command {
         List<String> tracks = new ArrayList<>();
         List<String> trackSublist;
 
-        getManager(guild).getQueue().forEach(audioInfo -> tracks.add(buildQueueMessage(audioInfo)));
+        getManager(event.getMember()).getQueue().forEach(audioInfo -> tracks.add(buildQueueMessage(audioInfo)));
 
         if (tracks.size() > 20) {
             trackSublist = tracks.subList((sideNumb - 1) * 20, (sideNumb - 1) * 20 + 20);

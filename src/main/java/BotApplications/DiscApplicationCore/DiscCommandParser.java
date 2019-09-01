@@ -10,12 +10,9 @@ import java.util.ArrayList;
 
 public class DiscCommandParser {
 
-    public DiscCommandParser(Engine engine) {
-    }
+    public ServerCommandContainer parseServerMessage(String raw, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
 
-    public serverCommandContainer parseServerMessage(String raw, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
-
-        String beheaded = raw.replaceFirst(engine.getProperties().getBotApplicationPrefix(), "");
+        String beheaded = raw.replaceFirst(engine.getProperties().getDiscBotApplicationPrefix(), "");
         String[] splitBeheaded = beheaded.split(" ");
         String invoke = splitBeheaded[0];
         ArrayList<String> split = new ArrayList<>();
@@ -26,12 +23,12 @@ public class DiscCommandParser {
         String[] args = new String[split.size() - 1];
         split.subList(1, split.size()).toArray(args);
 
-        return new serverCommandContainer(raw, beheaded, splitBeheaded, invoke, args, event, server, user, engine);
+        return new ServerCommandContainer(raw, beheaded, splitBeheaded, invoke, args, event, server, user, engine);
     }
 
-    public clientCommandContainer parseClientMessage(String raw, PrivateMessageReceivedEvent event, DiscApplicationUser user, Engine engine) {
+    public ClientCommandContainer parseClientMessage(String raw, PrivateMessageReceivedEvent event, DiscApplicationUser user, Engine engine) {
 
-        String beheaded = raw.replaceFirst(engine.getProperties().getBotApplicationPrefix(), "");
+        String beheaded = raw.replaceFirst(engine.getProperties().getDiscBotApplicationPrefix(), "");
         String[] splitBeheaded = beheaded.split(" ");
         String invoke = splitBeheaded[0];
         ArrayList<String> split = new ArrayList<>();
@@ -42,11 +39,11 @@ public class DiscCommandParser {
         String[] args = new String[split.size() - 1];
         split.subList(1, split.size()).toArray(args);
 
-        return new clientCommandContainer(raw, beheaded, splitBeheaded, invoke, args, event, user, engine);
+        return new ClientCommandContainer(raw, beheaded, splitBeheaded, invoke, args, event, user, engine);
     }
 
 
-    public class serverCommandContainer {
+    public class ServerCommandContainer {
 
         public final String raw;
         public final String beheaded;
@@ -58,7 +55,7 @@ public class DiscCommandParser {
         public final DiscApplicationUser user;
         public final Engine engine;
 
-        public serverCommandContainer(String rw, String beheaded, String[] splitBeheaded, String invoke, String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
+        public ServerCommandContainer(String rw, String beheaded, String[] splitBeheaded, String invoke, String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
             this.raw = rw;
             this.beheaded = beheaded;
             this.splitBeheaded = splitBeheaded;
@@ -72,7 +69,7 @@ public class DiscCommandParser {
 
     }
 
-    public class clientCommandContainer {
+    public class ClientCommandContainer {
         public final String raw;
         public final String beheaded;
         public final String[] splitBeheaded;
@@ -82,7 +79,7 @@ public class DiscCommandParser {
         public final DiscApplicationUser user;
         public final Engine engine;
 
-        public clientCommandContainer(String rw, String beheaded, String[] splitBeheaded, String invoke, String[] args, PrivateMessageReceivedEvent event, DiscApplicationUser user, Engine engine) {
+        public ClientCommandContainer(String rw, String beheaded, String[] splitBeheaded, String invoke, String[] args, PrivateMessageReceivedEvent event, DiscApplicationUser user, Engine engine) {
             this.raw = rw;
             this.beheaded = beheaded;
             this.splitBeheaded = splitBeheaded;

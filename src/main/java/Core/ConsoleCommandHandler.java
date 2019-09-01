@@ -60,7 +60,7 @@ public class ConsoleCommandHandler {
                 break;
 
             case "shini":
-                System.out.println(engine.getAiEngine().runAi(command, true));
+                System.out.println(engine.getAiEngine().runAiForAll(command, true));
                 break;
 
             case "test":

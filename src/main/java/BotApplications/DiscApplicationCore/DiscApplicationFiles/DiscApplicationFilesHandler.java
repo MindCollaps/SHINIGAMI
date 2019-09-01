@@ -85,4 +85,12 @@ public class DiscApplicationFilesHandler {
         engine.getFileUtils().saveOject(engine.getFileUtils().getHome() + "/bot/utilize/servers.server", servers);
         engine.getUtilityBase().printDebug("~finished saving all bot files");
     }
+
+    public HashMap<String, DiscApplicationUser> getUsers() {
+        return users;
+    }
+
+    public HashMap<String, DiscApplicationServer> getServers() {
+        return servers;
+    }
 }

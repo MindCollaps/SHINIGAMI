@@ -16,6 +16,7 @@ public class DiscApplicationUser implements Serializable {
     private String ytPlaylist;
     private String userId;
     private boolean admin = false;
+    private long telegramId;
 
     private int emoteLevel = 0;
     private int emoteLove = 0;
@@ -145,5 +146,13 @@ public class DiscApplicationUser implements Serializable {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    public long getTelegramId() {
+        return telegramId;
+    }
+
+    public void setTelegramId(long telegramId) {
+        this.telegramId = telegramId;
     }
 }

@@ -1,17 +1,16 @@
 package BotApplications.DiscApplicationCore;
 
-import BotApplications.DiscApplicationCore.DiscApplicationCommands.Command;
+import BotApplications.DiscApplicationCore.DiscApplicationCommands.DicCommand;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DiscCommandHandler {
 
-    public DiscCommandParser parser;
-    public HashMap<String, Command> commands = new HashMap<>();
+    public HashMap<String, DicCommand> commands = new HashMap<>();
     public ArrayList<String> commandIvokes = new ArrayList<>();
 
-    public void handleServerCommand(DiscCommandParser.serverCommandContainer cmd) {
+    public void handleServerCommand(DiscCommandParser.ServerCommandContainer cmd) {
 
         if (commands.containsKey(cmd.invoke)) {
 
@@ -32,7 +31,7 @@ public class DiscCommandHandler {
         }
     }
 
-    public void handlePrivateCommand(DiscCommandParser.clientCommandContainer cmd) {
+    public void handlePrivateCommand(DiscCommandParser.ClientCommandContainer cmd) {
 
         if (commands.containsKey(cmd.invoke)) {
 
@@ -54,7 +53,7 @@ public class DiscCommandHandler {
         }
     }
 
-    public void createNewCommand(String ivoke, Command cmd) {
+    public void createNewCommand(String ivoke, DicCommand cmd) {
         commands.put(ivoke, cmd);
         commandIvokes.add(ivoke);
     }

@@ -56,24 +56,24 @@ public class PropertiesController extends Controller implements Initializable {
     @FXML
     private void onSaveClicked(MouseEvent mouseEvent) {
         if (!txtBotVersion.getText().equalsIgnoreCase("")) {
-            engine.getProperties().setBotApplicationVersion(txtBotVersion.getText());
+            engine.getProperties().setDiscBotApplicationVersion(txtBotVersion.getText());
         }
         if (!txtBotGame.getText().equalsIgnoreCase("")) {
-            engine.getProperties().setBotApplicationGame(txtBotGame.getText());
+            engine.getProperties().setDiscBotApplicationGame(txtBotGame.getText());
         }
         if (!txtBotName.getText().equalsIgnoreCase("")) {
-            engine.getProperties().setBotApplicationName(txtBotName.getText());
+            engine.getProperties().setDiscBotApplicationName(txtBotName.getText());
         }
         if (!txtBotDefaultYTPlaylist.getText().equalsIgnoreCase("")) {
             engine.getProperties().setCommandMusicDefaultYTPlaylist(txtBotDefaultYTPlaylist.getText());
         }
         if (!txtBotCommandPrefix.getText().equalsIgnoreCase("")) {
-            engine.getProperties().setBotApplicationPrefix(txtBotCommandPrefix.getText());
+            engine.getProperties().setDiscBotApplicationPrefix(txtBotCommandPrefix.getText());
         }
         if (!txtBotToken.getText().equalsIgnoreCase("")) {
-            engine.getProperties().setBotApplicationToken(txtBotToken.getText());
+            engine.getProperties().setDiscBotApplicationToken(txtBotToken.getText());
         }
-        primaryStage.setTitle(engine.getProperties().getBotApplicationName() + " manager");
+        primaryStage.setTitle(engine.getProperties().getDiscBotApplicationName() + " manager");
         engine.getViewEngine().closeProperties();
     }
 
@@ -89,7 +89,7 @@ public class PropertiesController extends Controller implements Initializable {
 
     private void updateTokenField() {
         if (cBShowToken.isSelected()) {
-            txtBotToken.setText(engine.getProperties().getBotApplicationToken());
+            txtBotToken.setText(engine.getProperties().getDiscBotApplicationToken());
         } else {
             txtBotToken.setText("");
         }
@@ -97,10 +97,10 @@ public class PropertiesController extends Controller implements Initializable {
 
     public void updatePropertiesWindow() {
         updateTokenField();
-        txtBotCommandPrefix.setText(engine.getProperties().getBotApplicationPrefix());
+        txtBotCommandPrefix.setText(engine.getProperties().getDiscBotApplicationPrefix());
         txtBotDefaultYTPlaylist.setText(engine.getProperties().getCommandMusicDefaultYTPlaylist());
-        txtBotName.setText(engine.getProperties().getBotApplicationName());
-        txtBotGame.setText(engine.getProperties().getBotApplicationGame());
-        txtBotVersion.setText(engine.getProperties().getBotApplicationVersion());
+        txtBotName.setText(engine.getProperties().getDiscBotApplicationName());
+        txtBotGame.setText(engine.getProperties().getDiscBotApplicationGame());
+        txtBotVersion.setText(engine.getProperties().getDiscBotApplicationVersion());
     }
 }

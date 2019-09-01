@@ -1,39 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/Engines/DiscApplicationEngine.java" line="108" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/Engines/DiscApplicationEngine.java" line="113" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe5bef4d-f759-4ee3-ad7f-45854a392dcd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/CMDInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/Listener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/ServerJoinListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationListeners/MessageListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/Utils/TeleBotUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Engines/TeleApplicationEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDTelegram.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCMDDiscordConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCMDShini.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/Utils/TeleTextUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/botmanagerhome/bot/mind/mind.exodus" beforeDir="false" afterPath="$PROJECT_DIR$/botmanagerhome/bot/mind/mind.exodus" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/botmanagerhome/bot/utilize/servers.server" beforeDir="false" afterPath="$PROJECT_DIR$/botmanagerhome/bot/utilize/servers.server" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/botmanagerhome/bot/utilize/users.users" beforeDir="false" afterPath="$PROJECT_DIR$/botmanagerhome/bot/utilize/users.users" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botmanagerhome/properties.prop" beforeDir="false" afterPath="$PROJECT_DIR$/botmanagerhome/properties.prop" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/AudioCore/TrackManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/AudioCore/TrackManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/CMDClear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDClear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/CMDInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/CMDMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDMusic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DicCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationFiles/DiscApplicationFilesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationFiles/DiscApplicationFilesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationFiles/DiscApplicationUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationFiles/DiscApplicationUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/ServerMessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/ServerMessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/Utils/DiscTextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/Utils/DiscTextUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscCommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscCommandHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscCommandParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscCommandParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/Utils/DiscUtilityBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/Utils/DiscUtilityBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationListeners/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationListeners/MessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleCommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleCommandHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleCommandParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleCommandParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/Utils/TeleBotUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/Utils/TeleBotUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Core/ConsoleCommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Core/ConsoleCommandHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engines/AiEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engines/AiEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engines/DiscApplicationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engines/DiscApplicationEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engines/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engines/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SceneCore/MoveListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SceneCore/MoveListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engines/TeleApplicationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engines/TeleApplicationEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/answers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/answers.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/command.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/command.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/mods.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/mods.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Scenes/properties.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Scenes/properties.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/PropertiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/PropertiesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/Properties.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,14 +51,121 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationListeners/MessageListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="16" column="13" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="237">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1046#1047#0" expanded="true" />
+                <element signature="e#1129#1130#0" expanded="true" />
+                <element signature="e#1305#1306#0" expanded="true" />
+                <element signature="e#1349#1350#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Engines/DiscApplicationEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="146">
+              <caret line="138" selection-start-line="138" selection-end-line="138" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5038#5039#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Engines/TeleApplicationEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="128" selection-start-line="128" selection-end-line="128" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1494#1495#0" expanded="true" />
+                <element signature="e#1526#1527#0" expanded="true" />
+                <element signature="e#3835#3836#0" expanded="true" />
+                <element signature="e#3884#3885#0" expanded="true" />
+                <element signature="e#4206#4207#0" expanded="true" />
+                <element signature="e#4250#4251#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCMDDiscordConnection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="64" column="13" lean-forward="true" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCMDShini.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="19" column="106" selection-start-line="19" selection-start-column="106" selection-end-line="19" selection-end-column="106" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-153">
+              <caret line="103" column="61" selection-start-line="103" selection-start-column="61" selection-end-line="103" selection-end-column="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/Utils/TeleBotUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="20" column="145" selection-start-line="20" selection-start-column="145" selection-end-line="20" selection-end-column="145" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Engines/Engine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="109" selection-start-line="109" selection-end-line="109" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3282#3283#0" expanded="true" />
+                <element signature="e#3564#3565#0" expanded="true" />
+                <element signature="e#3608#3609#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/AudioCore/TrackManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="82" column="62" lean-forward="true" selection-start-line="82" selection-start-column="62" selection-end-line="82" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -83,6 +193,7 @@
       <find>onGuildJ</find>
       <find>_</find>
       <find>error in finding stuff behind command lol</find>
+      <find>handle</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Noah\Documents\____Coding\GitHub\SHINIGAMI\src\main\resources\Scenes\backgrounds</dir>
@@ -94,24 +205,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotAiCore/AiEngine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotAiCore/AiEngine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/mindEditorController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/command.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/style.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/mods.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor/answers.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModAnswer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModification.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationFilesHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SceneCore/AllertBox.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SceneCore/StageAnimationThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/BotApplicationFiles/BotApplicationUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SceneCore/MoveListener.java" />
         <option value="$PROJECT_DIR$/src/main/resources/Scenes/mindEditor.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/Scenes/properties.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/Utils/Properties.java" />
         <option value="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/Core/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotApplicationCore/Utils/BotUtilityBase.java" />
@@ -124,27 +219,43 @@
         <option value="$PROJECT_DIR$/src/main/resources/Scenes/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/Threads/SystemOutListenerThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleCommandParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/Utils/UtilityBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/Engines/ViewEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/HomeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/Threads/SystemInListenerThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationFiles/DiscApplicationFilesHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/Listener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/ServerMessageListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/ServerJoinListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Engines/DiscApplicationEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/CMDInfo.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Engines/Engine.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationListeners/Listener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Engines/TeleApplicationEngine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/Utils/TeleBotUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscCommandParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscCommandHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/Utils/TeleTextUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleCommandParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Utils/Properties.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/CMDShini.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Core/ConsoleCommandHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Engines/AiEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleCommandHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationFiles/DiscApplicationUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationFiles/DiscApplicationFilesHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDClear.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDTelegram.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/ServerMessageListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/Utils/DiscUtilityBase.java" />
         <option value="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationListeners/MessageListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Engines/DiscApplicationEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Engines/TeleApplicationEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DicCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDMusic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/AudioCore/TrackManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCMDDiscordConnection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCMDShini.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Core/ConsoleCommandHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/Utils/TeleBotUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Engines/AiEngine.java" />
       </list>
     </option>
   </component>
@@ -242,7 +353,37 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="BotApplications" type="462c0819:PsiDirectoryNode" />
+              <item name="DiscApplicationCore" type="462c0819:PsiDirectoryNode" />
+              <item name="DiscApplicationFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SHINIGAMI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="BotApplications" type="462c0819:PsiDirectoryNode" />
+              <item name="DiscApplicationCore" type="462c0819:PsiDirectoryNode" />
+              <item name="DiscApplicationListeners" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SHINIGAMI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="BotApplications" type="462c0819:PsiDirectoryNode" />
               <item name="TeleApplicationCore" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SHINIGAMI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="BotApplications" type="462c0819:PsiDirectoryNode" />
+              <item name="TeleApplicationCore" type="462c0819:PsiDirectoryNode" />
+              <item name="TeleApplicationCommands" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
@@ -260,6 +401,16 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="BotApplications" type="462c0819:PsiDirectoryNode" />
+              <item name="TeleApplicationCore" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SHINIGAMI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -269,6 +420,14 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Engines" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SHINIGAMI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SHINIGAMI" type="b2602c69:ProjectViewProjectNode" />
@@ -412,7 +571,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19083156" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19296375" />
       <window_info id="Designer" order="1" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -420,26 +579,26 @@
       <window_info id="Learn" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35969663" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39761648" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.35969663" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.39761648" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053304" side_tool="true" weight="0.39761648" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.32995737" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Structure" order="8" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Structure" order="7" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="8" weight="0.32995737" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -462,61 +621,61 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>163</line>
+          <line>186</line>
           <properties />
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>214</line>
+          <line>237</line>
           <properties />
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>239</line>
+          <line>262</line>
           <properties />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>350</line>
+          <line>374</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>425</line>
+          <line>449</line>
           <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>488</line>
+          <line>512</line>
           <properties />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>114</line>
+          <line>137</line>
           <properties />
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>118</line>
+          <line>141</line>
           <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>132</line>
+          <line>155</line>
           <properties />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscCommandHandler.java</url>
-          <line>16</line>
+          <line>15</line>
           <properties />
           <option name="timeStamp" value="25" />
         </line-breakpoint>
@@ -546,19 +705,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>185</line>
+          <line>208</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>101</line>
+          <line>124</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>26</line>
+          <line>27</line>
           <properties />
           <option name="timeStamp" value="43" />
         </line-breakpoint>
@@ -570,277 +729,44 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java</url>
-          <line>81</line>
+          <line>82</line>
           <properties />
           <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDMusic.java</url>
+          <line>50</line>
+          <properties />
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCMDDiscordConnection.java</url>
+          <line>65</line>
+          <properties />
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDMusic.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCMDDiscordConnection.java</url>
+          <line>71</line>
+          <properties />
+          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/home.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/mindEditor.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="118" selection-start-line="17" selection-start-column="118" selection-end-line="17" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/CMDMusic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3740">
-          <caret line="257" column="5" selection-start-line="257" selection-start-column="5" selection-end-line="257" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/home.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="41" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/PropertiesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="1768" selection-start-line="1768" selection-end-line="1768" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCmdModification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/Utils/DiscTextUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2380">
-          <caret line="168" column="20" selection-start-line="168" selection-start-column="20" selection-end-line="168" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Scenes/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="82" column="38" lean-forward="true" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotAiCore/Librarys/AiCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#684#685#0" expanded="true" />
-            <element signature="e#766#767#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#643#644#0" expanded="true" />
-            <element signature="e#683#684#0" expanded="true" />
-            <element signature="e#957#958#0" expanded="true" />
-            <element signature="e#1007#1008#0" expanded="true" />
-            <element signature="e#1152#1153#0" expanded="true" />
-            <element signature="e#1186#1187#0" expanded="true" />
-            <element signature="e#1255#1256#0" expanded="true" />
-            <element signature="e#1301#1302#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="747" column="19" selection-start-line="747" selection-start-column="19" selection-end-line="747" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleCommandParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/ViewEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="99" column="50" selection-start-line="99" selection-start-column="50" selection-end-line="99" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/dateConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Threads/SystemInListenerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Threads/SystemOutListenerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="69" column="25" lean-forward="true" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/MindEditorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="121" column="33" lean-forward="true" selection-start-line="121" selection-start-column="33" selection-end-line="121" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#13140#13141#0" expanded="true" />
-            <element signature="e#13180#13181#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/Utils/DiscUtilityBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationFiles/DiscApplicationServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1353#1354#0" expanded="true" />
-            <element signature="e#1396#1397#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/AudioCore/TrackManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="129" column="19" selection-start-line="129" selection-start-column="19" selection-end-line="129" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationFiles/DiscApplicationFilesHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Utils/UtilityBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
           <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/Listener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#180#181#0" expanded="true" />
-            <element signature="e#216#217#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/dv8tion/JDA/3.8.1_448/JDA-3.8.1_448-sources.jar!/net/dv8tion/jda/core/hooks/ListenerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="204" column="52" lean-forward="true" selection-start-line="204" selection-start-column="4" selection-end-line="204" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/ServerJoinListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="133" selection-start-line="12" selection-start-column="133" selection-end-line="12" selection-end-column="133" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#300#301#0" expanded="true" />
-            <element signature="e#329#330#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/ServerMessageListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#484#485#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/CMDInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="255" selection-start-line="17" selection-start-column="255" selection-end-line="17" selection-end-column="255" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1507#1508#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -856,16 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="124" column="59" selection-start-line="124" selection-start-column="59" selection-end-line="124" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -904,13 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/github/pengrad/java-telegram-bot-api/4.4.0/java-telegram-bot-api-4.4.0-sources.jar!/com/pengrad/telegrambot/impl/UpdatesHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/github/pengrad/java-telegram-bot-api/4.4.0/java-telegram-bot-api-4.4.0-sources.jar!/com/pengrad/telegrambot/impl/TelegramBotClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1163">
@@ -925,82 +834,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationListeners/Listener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationListeners/Listener.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
           <caret line="90" column="11" lean-forward="true" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/DiscApplicationEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/Utils/TeleBotUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="117" selection-start-line="15" selection-start-column="117" selection-end-line="15" selection-end-column="117" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#270#271#0" expanded="true" />
-            <element signature="e#306#307#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/TeleApplicationEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#258#259#0" expanded="true" />
-            <element signature="e#294#295#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#627#628#0" expanded="true" />
-            <element signature="e#768#769#0" expanded="true" />
-            <element signature="e#799#800#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscCommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1011,34 +849,376 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Core/ConsoleCommandHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscCommandParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="68" column="63" selection-start-line="68" selection-start-column="63" selection-end-line="68" selection-end-column="63" />
+        <state relative-caret-position="289">
+          <caret line="23" column="53" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="23" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/Properties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleCommandParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="182" column="59" lean-forward="true" selection-start-line="182" selection-start-column="59" selection-end-line="182" selection-end-column="59" />
+          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationFiles/DiscApplicationFilesHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="773">
+          <caret line="88" column="60" selection-start-line="88" selection-start-column="60" selection-end-line="88" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3533#3534#0" expanded="true" />
+            <element signature="e#3599#3600#0" expanded="true" />
+            <element signature="e#3629#3630#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationFiles/DiscApplicationUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding>
+            <element signature="e#3525#3526#0" expanded="true" />
+            <element signature="e#3558#3559#0" expanded="true" />
+            <element signature="e#3608#3609#0" expanded="true" />
+            <element signature="e#3652#3653#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/Utils/TeleTextUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/dv8tion/JDA/3.8.1_448/JDA-3.8.1_448-sources.jar!/net/dv8tion/jda/core/entities/Member.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Utils/MESSAGES.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="14" column="88" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDClear.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="64" column="35" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/ServerJoinListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="133" selection-start-line="12" selection-start-column="133" selection-end-line="12" selection-end-column="133" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/Listener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/dv8tion/JDA/3.8.1_448/JDA-3.8.1_448-sources.jar!/net/dv8tion/jda/core/hooks/ListenerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="153" column="4" selection-start-line="153" selection-start-column="4" selection-end-line="153" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SceneCore/ScenesController/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="60" column="39" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/pengrad/java-telegram-bot-api/4.4.0/java-telegram-bot-api-4.4.0-sources.jar!/com/pengrad/telegrambot/impl/UpdatesHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationListeners/ServerMessageListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="87" column="79" selection-start-line="87" selection-start-column="79" selection-end-line="87" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#404#405#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/Utils/DiscUtilityBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="142" column="198" selection-start-line="142" selection-start-column="198" selection-end-line="142" selection-end-column="198" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Threads/SystemOutListenerThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/jre/lib/rt.jar!/sun/nio/cs/StreamDecoder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="227" selection-start-line="227" selection-end-line="227" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleCommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        <state relative-caret-position="254">
+          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DicCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="86" selection-start-line="16" selection-start-column="80" selection-end-line="16" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/dv8tion/JDA/3.8.1_448/JDA-3.8.1_448-sources.jar!/net/dv8tion/jda/core/managers/AudioManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-748">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/dv8tion/JDA/3.8.1_448/JDA-3.8.1_448-sources.jar!/net/dv8tion/jda/core/entities/Guild.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="1357" column="9" selection-start-line="1357" selection-start-column="9" selection-end-line="1357" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/AudioCore/AudioInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding>
+            <element signature="e#464#465#0" expanded="true" />
+            <element signature="e#493#494#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDTelegram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="34" column="60" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/TeleApplicationEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1494#1495#0" expanded="true" />
+            <element signature="e#1526#1527#0" expanded="true" />
+            <element signature="e#3835#3836#0" expanded="true" />
+            <element signature="e#3884#3885#0" expanded="true" />
+            <element signature="e#4206#4207#0" expanded="true" />
+            <element signature="e#4250#4251#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3282#3283#0" expanded="true" />
+            <element signature="e#3564#3565#0" expanded="true" />
+            <element signature="e#3608#3609#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/javafx-src.zip!/javafx/animation/Animation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2278">
+          <caret line="188" selection-start-line="188" selection-end-line="188" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/DiscApplicationCommands/DiscCMDMusic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-749">
+          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2930#2931#0" expanded="true" />
+            <element signature="e#3018#3019#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/DiscApplicationCore/AudioCore/TrackManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="82" column="62" lean-forward="true" selection-start-line="82" selection-start-column="62" selection-end-line="82" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationListeners/MessageListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="13" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="237">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1046#1047#0" expanded="true" />
+            <element signature="e#1129#1130#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1349#1350#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCMDDiscordConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="64" column="13" lean-forward="true" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/DiscApplicationEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="138" selection-start-line="138" selection-end-line="138" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5038#5039#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Core/ConsoleCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="62" column="61" lean-forward="true" selection-start-line="62" selection-start-column="61" selection-end-line="62" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCMDShini.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" column="106" selection-start-line="19" selection-start-column="106" selection-end-line="19" selection-end-column="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/TeleApplicationCommands/TeleCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BotApplications/TeleApplicationCore/Utils/TeleBotUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" column="145" selection-start-line="20" selection-start-column="145" selection-end-line="20" selection-end-column="145" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Engines/AiEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="103" column="61" selection-start-line="103" selection-start-column="61" selection-end-line="103" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
