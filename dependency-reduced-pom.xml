@@ -20,7 +20,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>Core.Main</mainClass>
+                  <mainClass>core.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>
