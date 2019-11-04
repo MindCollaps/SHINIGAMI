@@ -5,8 +5,6 @@ import botApplications.discApplicationCore.audioCore.PlayerSendHandler;
 import botApplications.discApplicationCore.audioCore.TrackManager;
 import botApplications.discApplicationCore.discApplicationFiles.DiscApplicationServer;
 import botApplications.discApplicationCore.discApplicationFiles.DiscApplicationUser;
-import engines.Engine;
-import utils.MESSAGES;
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
@@ -16,6 +14,7 @@ import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
+import engines.Engine;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Member;
@@ -23,6 +22,7 @@ import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.MessageEmbed;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.priv.PrivateMessageReceivedEvent;
+import utils.MESSAGES;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -33,7 +33,6 @@ public class DiscCMDMusic implements DicCommand {
     private final AudioPlayerManager MANAGER = new DefaultAudioPlayerManager();
     private final Map<Guild, Map.Entry<AudioPlayer, TrackManager>> PLAYERS = new HashMap<>();
     int added = 0;
-    boolean addAll = false;
 
     Engine engine;
 
@@ -86,12 +85,16 @@ public class DiscCMDMusic implements DicCommand {
      * @param author     Member, der den Track / die Playlist eingereiht hat
      * @param msg        Message des Contents
      */
-    private void loadTrack(String identifier, Member author, Message msg, int results) {
+    private void loadTrack(String identifier, Member author, Message msg) {
 
         Guild g = author.getGuild();
         getPlayer(author);
+        boolean singleSong = false;
 
         MANAGER.setFrameBufferDuration(5000);
+        if(identifier.startsWith("ytsearch:"))
+            singleSong = true;
+        final boolean finalSingleSong = singleSong;
         MANAGER.loadItemOrdered(g, identifier, new AudioLoadResultHandler() {
 
             @Override
@@ -101,28 +104,24 @@ public class DiscCMDMusic implements DicCommand {
 
             @Override
             public void playlistLoaded(AudioPlaylist playlist) {
+                if(finalSingleSong){
+                    getManager(author).queue(playlist.getTracks().get(0), author);
+                    return;
+                }
                 for (int i = 0; i < (playlist.getTracks().size() > PLAYLIST_LIMIT ? PLAYLIST_LIMIT : playlist.getTracks().size()); i++) {
-                    if (results > added) {
-                        added++;
-                        getManager(author).queue(playlist.getTracks().get(i), author);
-                    }
+                    added++;
+                    getManager(author).queue(playlist.getTracks().get(i), author);
                 }
             }
 
             @Override
             public void noMatches() {
-                try {
-                    engine.getDiscEngine().getTextUtils().sendError(":musical_note: Lied konnte nicht geladen werden :scream: ", msg.getTextChannel(), engine.getProperties().getLongTime(), false);
-                } catch (Exception e){
-                }
+                engine.getDiscEngine().getTextUtils().sendError(":musical_note: Lied konnte nicht geladen werden, deine Suchanfrage ergab keine ergebnisse! :scream: ", msg.getTextChannel(), engine.getProperties().getLongTime(), false);
             }
 
             @Override
             public void loadFailed(FriendlyException exception) {
-                try {
-                    engine.getDiscEngine().getTextUtils().sendError(":musical_note: Lied konnte nicht geladen werden :scream: ", msg.getTextChannel(), engine.getProperties().getMiddleTime(), false);
-                } catch (Exception e){
-                }
+                engine.getDiscEngine().getTextUtils().sendError(":musical_note: Lied konnte nicht geladen werden :scream: ", msg.getTextChannel(), engine.getProperties().getMiddleTime(), false);
             }
         });
     }
@@ -169,7 +168,6 @@ public class DiscCMDMusic implements DicCommand {
     public void actionServer(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
         TrackManager.setServer(server);
         added = 0;
-        addAll = false;
         this.engine = engine;
 
         if (args.length < 1) {
@@ -240,7 +238,7 @@ public class DiscCMDMusic implements DicCommand {
 
     @Override
     public void actionTelegram(Member member, Engine engine, DiscApplicationUser user, String[] args) {
-        switch (args[0]){
+        switch (args[0]) {
             case "play":
                 String input;
                 if (isIdle(member)) {
@@ -252,18 +250,15 @@ public class DiscCMDMusic implements DicCommand {
 
                 input = Arrays.stream(args).skip(1).map(s -> " " + s).collect(Collectors.joining()).substring(1);
                 if (args.length < 2) {
-                    engine.getTeleApplicationEngine().getTextUtils().sendMessage(user.getTelegramId(),"Bitte gebe eine gültige quelle ein!");
+                    engine.getTeleApplicationEngine().getTextUtils().sendMessage(user.getTelegramId(), "Bitte gebe eine gültige quelle ein!");
                     return;
                 }
                 if (!(input.startsWith("http://") || input.startsWith("https://"))) {
                     input = "ytsearch: " + input;
                 }
                 TrackManager.setEvent(null);
-                if (addAll) {
-                    loadTrack(input,member, null, -10);
-                } else {
-                    loadTrack(input, member, null, 1);
-                }
+                loadTrack(input, member, null);
+
                 engine.getTeleApplicationEngine().getTextUtils().sendMessage(user.getTelegramId(), ":arrow_forward: Lied wird abgespielt!");
                 break;
         }
@@ -283,7 +278,7 @@ public class DiscCMDMusic implements DicCommand {
             engine.getDiscEngine().getTextUtils().sendError(MESSAGES.CMDMSGERRMUSICPLAY, event.getChannel(), engine.getProperties().getMiddleTime(), true);
             return;
         }
-        if (input.startsWith("default")) {
+        if (input.startsWith("dl")) {
             input = engine.getProperties().getDefaultYtPlaylist();
         } else if (input.startsWith("server")) {
             if (server.getServerYTPlaylist() != null) {
@@ -301,17 +296,12 @@ public class DiscCMDMusic implements DicCommand {
             }
         } else if (input.startsWith("all")) {
             input = Arrays.stream(args).skip(2).map(s -> " " + s).collect(Collectors.joining()).substring(1);
-            addAll = true;
         }
         if (!(input.startsWith("http://") || input.startsWith("https://"))) {
             input = "ytsearch: " + input;
         }
         TrackManager.setEvent(event);
-        if (addAll) {
-            loadTrack(input, event.getMember(), event.getMessage(), -10);
-        } else {
-            loadTrack(input, event.getMember(), event.getMessage(), 1);
-        }
+        loadTrack(input, event.getMember(), event.getMessage());
         engine.getDiscEngine().getTextUtils().sendSucces(":arrow_forward: Lied wird abgespielt!", event.getChannel(), engine.getProperties().getShortTime());
     }
 
@@ -326,15 +316,10 @@ public class DiscCMDMusic implements DicCommand {
         }
         if (input.startsWith("all")) {
             input = Arrays.stream(args).skip(2).map(s -> " " + s).collect(Collectors.joining()).substring(1);
-            addAll = true;
         }
         TrackManager.setEvent(event);
+        loadTrack(input, event.getMember(), event.getMessage());
 
-        if (addAll) {
-            loadTrack(input, event.getMember(), event.getMessage(), -10);
-        } else {
-            loadTrack(input, event.getMember(), event.getMessage(), 1);
-        }
         engine.getDiscEngine().getTextUtils().sendSucces(MESSAGES.CMDMSGMUSICPLAY, event.getChannel(), engine.getProperties().getShortTime());
     }
 

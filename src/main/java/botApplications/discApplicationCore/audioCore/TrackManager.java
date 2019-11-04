@@ -88,11 +88,9 @@ public class TrackManager extends AudioEventAdapter {
             try {
                 engine.getDiscEngine().getTextUtils().sendNewMusicInfo(info.getTrack().getInfo().uri, event.getGuild().getTextChannelsByName(server.getMusicListenerName(), true).get(0), engine.getProperties().getVeryLongTime(), track.getInfo().title, server);
             } catch (Exception e) {
-                System.out.println("[on track start] chanel not found error!");
                 engine.getDiscEngine().getTextUtils().sendError("Der Benutze den **" + engine.getProperties().getDiscBotApplicationPrefix() + engine.getProperties().getCommandInvokePreverences() + "** command um alle nötigen Chanels zu erstellen! Oder schalte diese funktion ab!", event.getChannel(), engine.getProperties().getVeryLongTime(), true);
             }
         }
-        System.out.println("Now Playing " + track.getInfo().title);
     }
 
     @Override
@@ -107,13 +105,11 @@ public class TrackManager extends AudioEventAdapter {
             try {
                 g.getAudioManager().closeAudioConnection();
             } catch (Exception e) {
-                System.out.println("[TrackManager] Next song dosnt exist!");
             }
         } else {
             try {
                 player.playTrack(queue.element().getTrack());
             } catch (Exception e) {
-                System.out.println("[TrackManager] Next song dosnt exist!");
             }
         }
     }

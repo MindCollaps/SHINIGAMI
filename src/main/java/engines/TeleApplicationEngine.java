@@ -63,6 +63,10 @@ public class TeleApplicationEngine {
     }
 
     public void shutdown() {
+        if(!botApplicationRunning){
+            System.out.println("Bot can't shutdown cause never starts!");
+            return;
+        }
         System.out.println("[Telegram] Bot is shutting down...");
         botApplicationRunning = false;
         bot.removeGetUpdatesListener();
