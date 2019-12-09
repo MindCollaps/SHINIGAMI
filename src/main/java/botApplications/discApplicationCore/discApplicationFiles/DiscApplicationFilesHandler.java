@@ -77,6 +77,7 @@ public class DiscApplicationFilesHandler {
             users = new HashMap<>();
         }
         engine.getUtilityBase().printDebug("~finished loading bot files");
+        wellcomeNews();
     }
 
     public void saveAllBotFiles(){
@@ -94,6 +95,12 @@ public class DiscApplicationFilesHandler {
             System.out.println("ERROR IN SAVE OWO");
         }
         engine.getUtilityBase().printDebug("~finished saving all bot files");
+    }
+
+    public void wellcomeNews(){
+        for (DiscApplicationServer s:servers.values()) {
+            s.initNewOnes();
+        }
     }
 
     public HashMap<String, DiscApplicationUser> getUsers() {

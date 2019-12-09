@@ -21,6 +21,13 @@ public class DiscTextUtils {
         this.engine = engine;
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param dellTime time which is needed to delete this message
+     * @param title shows "error" in the title
+     */
     public void sendError(String txt, TextChannel channel, int dellTime, boolean title) {
         if (title) {
             msg = channel.sendMessage(
@@ -39,6 +46,13 @@ public class DiscTextUtils {
         }, dellTime);
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param title Title of the message
+     * @param color color of the text
+     */
     public void sendCustomMessage(String txt, PrivateChannel channel, String title, Color color){
         if(color != null){
             msg = channel.sendMessage(
@@ -46,6 +60,13 @@ public class DiscTextUtils {
         }
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param title Title of the message
+     * @param color color of the text
+     */
     public void sendCustomMessage(String txt, TextChannel channel, String title, Color color){
         if(color != null){
             msg = channel.sendMessage(
@@ -53,6 +74,14 @@ public class DiscTextUtils {
         }
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param title Title of the message
+     * @param color color of the text
+     * @param dellTime time which is needed to delete this message
+     */
     public void sendCustomMessage(String txt, PrivateChannel channel, String title, Color color, int dellTime){
         if(color != null){
             msg = channel.sendMessage(
@@ -66,6 +95,14 @@ public class DiscTextUtils {
         }, dellTime);
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param title Title of the message
+     * @param color color of the text
+     * @param dellTime time which is needed to delete this message
+     */
     public void sendCustomMessage(String txt, TextChannel channel, String title, Color color, int dellTime){
         if(color != null){
             msg = channel.sendMessage(
@@ -79,6 +116,13 @@ public class DiscTextUtils {
         }, dellTime);
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param dellTime time which is needed to delete this message
+     * @param title shows "error" in the title
+     */
     public void sendError(String txt, PrivateChannel channel, int dellTime, boolean title) {
         Message msg;
         if (title) {
@@ -107,6 +151,12 @@ public class DiscTextUtils {
         }, dellTime);
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param title shows "error" in the title
+     */
     public void sendError(String txt, TextChannel channel, boolean title) {
         Message msg;
         if (title) {
@@ -120,6 +170,12 @@ public class DiscTextUtils {
         }
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param title shows "error" in the title
+     */
     public void sendError(String txt, PrivateChannel channel, boolean title) {
         Message msg;
         if (title) {
@@ -131,32 +187,6 @@ public class DiscTextUtils {
                     new EmbedBuilder().setColor(Color.RED).setDescription(txt).build()
             ).complete();
         }
-    }
-
-    public void sendHelp(String txt, TextChannel channel, int dellTime) {
-        Message msg;
-        msg = channel.sendMessage(
-                new EmbedBuilder().setColor(Color.BLUE).setTitle("!Hilfe!").setDescription(txt).build()
-        ).complete();
-        new Timer().schedule(new TimerTask() {
-            @Override
-            public void run() {
-                msg.delete().queue();
-            }
-        }, dellTime);
-    }
-
-    public void sendHelp(String txt, PrivateChannel channel, int dellTime) {
-        Message msg;
-        msg = channel.sendMessage(
-                new EmbedBuilder().setColor(Color.BLUE).setTitle("!Hilfe!").setDescription(txt).build()
-        ).complete();
-        new Timer().schedule(new TimerTask() {
-            @Override
-            public void run() {
-                msg.delete().queue();
-            }
-        }, dellTime);
     }
 
     public void sendHelp(String txt, TextChannel channel) {
@@ -172,7 +202,12 @@ public class DiscTextUtils {
         ).complete();
     }
 
-
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param dellTime time which is needed to delete this message
+     */
     public void sendNormalTxt(String txt, TextChannel channel, int dellTime) {
         Message msg = channel.sendMessage(txt).complete();
         new Timer().schedule(new TimerTask() {
@@ -183,6 +218,12 @@ public class DiscTextUtils {
         }, dellTime);
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param dellTime time which is needed to delete this message
+     */
     public void sendNormalTxt(String txt, PrivateChannel channel, int dellTime) {
         Message msg = channel.sendMessage(txt).complete();
         new Timer().schedule(new TimerTask() {
@@ -193,14 +234,30 @@ public class DiscTextUtils {
         }, dellTime);
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     */
     public void sendNormalTxt(String txt, TextChannel channel) {
         Message msg = channel.sendMessage(txt).complete();
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     */
     public void sendNormalTxt(String txt, PrivateChannel channel) {
         Message msg = channel.sendMessage(txt).complete();
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param dellTime time which is needed to delete this message
+     */
     public void sendWarining(String txt, TextChannel channel, int dellTime) {
         Message msg;
         msg = channel.sendMessage(
@@ -214,6 +271,12 @@ public class DiscTextUtils {
         }, dellTime);
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param dellTime time which is needed to delete this message
+     */
     public void sendWarining(String txt, PrivateChannel channel, int dellTime) {
         Message msg;
         msg = channel.sendMessage(
@@ -227,6 +290,11 @@ public class DiscTextUtils {
         }, dellTime);
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     */
     public void sendWarining(String txt, TextChannel channel) {
         Message msg;
         msg = channel.sendMessage(
@@ -234,6 +302,11 @@ public class DiscTextUtils {
         ).complete();
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     */
     public void sendWarining(String txt, PrivateChannel channel) {
         Message msg;
         msg = channel.sendMessage(
@@ -241,6 +314,12 @@ public class DiscTextUtils {
         ).complete();
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param dellTime time which is needed to delete this message
+     */
     public void sendSucces(String txt, TextChannel channel, int dellTime) {
         Message msg;
         msg = channel.sendMessage(
@@ -254,6 +333,12 @@ public class DiscTextUtils {
         }, dellTime);
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param dellTime time which is needed to delete this message
+     */
     public void sendSucces(String txt, PrivateChannel channel, int dellTime) {
         Message msg;
         msg = channel.sendMessage(
@@ -267,6 +352,11 @@ public class DiscTextUtils {
         }, dellTime);
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     */
     public void sendSucces(String txt, TextChannel channel) {
         Message msg;
         msg = channel.sendMessage(
@@ -274,6 +364,11 @@ public class DiscTextUtils {
         ).complete();
     }
 
+    /**
+     * outdated!
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     */
     public void sendSucces(String txt, PrivateChannel channel) {
         Message msg;
         msg = channel.sendMessage(
@@ -281,6 +376,14 @@ public class DiscTextUtils {
         ).complete();
     }
 
+    /**
+     *
+     * @param txt Text which will be send
+     * @param channel Text channel destination
+     * @param dellTime time which is needed to delete this message
+     * @param songName name of the song
+     * @param server server props
+     */
     public void sendNewMusicInfo(String txt, TextChannel channel, int dellTime, String songName, DiscApplicationServer server) {
         if (server.isMusicListenerEnabled()) {
             Message msg;

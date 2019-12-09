@@ -1,9 +1,6 @@
 package engines;
 
-import botApplications.discApplicationCore.discApplicationCommands.DiscCMDClear;
-import botApplications.discApplicationCore.discApplicationCommands.DiscCMDInfo;
-import botApplications.discApplicationCore.discApplicationCommands.DiscCMDMusic;
-import botApplications.discApplicationCore.discApplicationCommands.DiscCMDTelegram;
+import botApplications.discApplicationCore.discApplicationCommands.*;
 import botApplications.discApplicationCore.discApplicationFiles.DiscApplicationFilesHandler;
 import botApplications.discApplicationCore.discApplicationListeners.ServerJoinListener;
 import botApplications.discApplicationCore.discApplicationListeners.ServerMessageListener;
@@ -106,6 +103,7 @@ public class DiscApplicationEngine {
         discCommandHandler.createNewCommand("clear", new DiscCMDClear());
         discCommandHandler.createNewCommand("info", new DiscCMDInfo());
         discCommandHandler.createNewCommand("telegram", new DiscCMDTelegram());
+        discCommandHandler.createNewCommand("learn" , new DiscCMDLearn());
     }
 
     private void addBotApplicationListeners() {
