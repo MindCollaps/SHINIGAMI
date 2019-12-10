@@ -27,7 +27,7 @@ public class DiscCMDLearn implements DicCommand{
 
     @Override
     public void actionServer(String[] args, GuildMessageReceivedEvent event, DiscApplicationServer server, DiscApplicationUser user, Engine engine) {
-        switch (args[0].toLowerCase()){
+        switch (args[0].toLowerCase()){     //TODO: Remove this!
             case "date":
             case "appointment":
             case "apm":
