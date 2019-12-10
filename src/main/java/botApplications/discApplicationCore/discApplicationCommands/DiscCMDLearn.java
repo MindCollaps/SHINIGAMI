@@ -175,7 +175,7 @@ public class DiscCMDLearn implements DicCommand{
     }
     
     private int parseDate(String date){
-        return Integer.valueOf(date.split("\\.")[2].substring(0,3) + date.split("\\.")[1]);
+        return Integer.valueOf(date.split("\\.")[2].substring(0,3) + date.split("\\.")[1] + date.split("\\.")[0]);
     }
 
     private String buildAppointment(String raw){
