@@ -14,13 +14,13 @@ public class Engine {
     private DiscApplicationEngine discEngine;
     private ViewEngine viewEngine;
     private TeleApplicationEngine teleApplicationEngine;
+    private AiEngine aiEngine;
 
     //Engine stuff
     private Properties properties;
     private FileUtils fileUtils;
     private ConsoleCommandHandler consoleCommandHandler;
     private UtilityBase utilityBase;
-    private AiEngine aiEngine;
 
     boolean viewLoaded = false;
 

@@ -277,7 +277,7 @@ public class AiEngine {
             if (emotes.contains(user.getEmoteLevel()) || current.getEmoteLevel().equalsIgnoreCase("all")) {
                 String randomMessage = current.getAnswers().get(ThreadLocalRandom.current().nextInt(0, current.getAnswers().size()));
                 event.getChannel().sendMessage(buildDiscordMessage(randomMessage, user, behind).build()).complete();
-                if(user.getUserId()!=null){
+                if (user.getUserId() != null) {
                     addDiscordReply(user, current);
                 } else {
                     System.out.println("Reply error, user has no id...or isnt created!");
@@ -290,16 +290,16 @@ public class AiEngine {
         throw new Exception("no valid emote level found!");
     }
 
-    private void addDiscordReply(DiscApplicationUser user, AiCmdModAnswer current){
+    private void addDiscordReply(DiscApplicationUser user, AiCmdModAnswer current) {
         discordreplies.put(user.getUserId(), current.getReplies());
 
         Platform.runLater(() -> {
             try {
-                Thread.sleep(10*6000);
+                Thread.sleep(10 * 6000);
             } catch (InterruptedException e) {
                 System.out.println("error");
             }
-            if(!discordreplies.containsKey(user.getUserId()))return;
+            if (!discordreplies.containsKey(user.getUserId())) return;
             try {
                 discordreplies.remove(user.getUserId());
             } catch (Exception ignored) {
@@ -619,8 +619,8 @@ public class AiEngine {
         this.aiCommands = aiCommands;
     }
 
-    public boolean performReplyDiscord(GuildMessageReceivedEvent event){
-        if(discordreplies.containsKey(event.getAuthor().getId())){
+    public boolean performReplyDiscord(GuildMessageReceivedEvent event) {
+        if (discordreplies.containsKey(event.getAuthor().getId())) {
             ArrayList<AiCmdModAnsReply> replies = discordreplies.get(event.getAuthor().getId());
             AiCmdModAnsReply current;
             String currentString;
@@ -631,15 +631,15 @@ public class AiEngine {
                 current = replies.get(i);
                 for (int j = 0; j < current.getHumanReply().size(); j++) {
                     currentString = current.getHumanReply().get(j);
-                    if(message.contains(currentString)){
+                    if (message.contains(currentString)) {
                         try {
-                            event.getChannel().sendMessage(buildDiscordMessage(current.getReplyAnswer().get(ThreadLocalRandom.current().nextInt(0,current.getReplyAnswer().size())), engine.getDiscEngine().getFilesHandler().getUserById(event.getAuthor().getId()), "").build()).complete();
+                            event.getChannel().sendMessage(buildDiscordMessage(current.getReplyAnswer().get(ThreadLocalRandom.current().nextInt(0, current.getReplyAnswer().size())), engine.getDiscEngine().getFilesHandler().getUserById(event.getAuthor().getId()), "").build()).complete();
                             return true;
                         } catch (Exception ignored) {
                         }
                         try {
                             engine.getDiscEngine().getFilesHandler().createNewUser(event.getAuthor());
-                            event.getChannel().sendMessage(buildDiscordMessage(current.getReplyAnswer().get(ThreadLocalRandom.current().nextInt(0,current.getReplyAnswer().size())), engine.getDiscEngine().getFilesHandler().getUserById(event.getAuthor().getId()), "").build()).complete();
+                            event.getChannel().sendMessage(buildDiscordMessage(current.getReplyAnswer().get(ThreadLocalRandom.current().nextInt(0, current.getReplyAnswer().size())), engine.getDiscEngine().getFilesHandler().getUserById(event.getAuthor().getId()), "").build()).complete();
                         } catch (Exception ex) {
                             System.out.println("Error? lol?");
                         }

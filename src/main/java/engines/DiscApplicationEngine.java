@@ -103,7 +103,6 @@ public class DiscApplicationEngine {
         discCommandHandler.createNewCommand("clear", new DiscCMDClear());
         discCommandHandler.createNewCommand("info", new DiscCMDInfo());
         discCommandHandler.createNewCommand("telegram", new DiscCMDTelegram());
-        discCommandHandler.createNewCommand("learn" , new DiscCMDLearn());
     }
 
     private void addBotApplicationListeners() {
